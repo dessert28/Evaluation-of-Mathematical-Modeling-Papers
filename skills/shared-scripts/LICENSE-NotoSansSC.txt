@@ -1,24 +1,41 @@
 Noto Sans SC — 字体许可证说明
 ===============================
 
-文件：NotoSansSC-Regular.ttf
+文件：NotoSansSC-Regular.ttf（10,560,380 字节）
+字体名：Noto Sans SC
+版本：Version 2.004-H2; hotconv 1.0.118; makeotfexe 2.5.65603
 
-字体名称：Noto Sans SC Regular
-发布者：Google Inc. / Adobe（Noto 项目）
-许可证：SIL Open Font License, Version 1.1（SIL OFL 1.1）
+许可证：SIL Open Font License, Version 1.1
+许可证全文：https://scripts.sil.org/OFL
+许可常见问题：https://openfontlicense.org
 
-上游地址：
-  https://github.com/notofonts/noto-cjk
-  许可证全文：https://github.com/notofonts/noto-cjk/blob/main/LICENSE
-  许可说明页：https://openfontlicense.org
+以下两行取自字体文件自身的 name 表（name ID 13 / 14），为字体作者声明：
+
+  License: This Font Software is licensed under the SIL Open Font License,
+           Version 1.1. This license is available with a FAQ at:
+           https://scripts.sil.org/OFL
+  License URL: http://scripts.sil.org/OFL
+
+版权（字体 name 表 name ID 0）：
+
+  (c) 2014-2021 Adobe (http://www.adobe.com/), with Reserved Font Name 'Source'.
 
 许可要点（以许可证全文为准）：
-  - 允许自由使用、研究、修改和再分发本字体，包括随软件一起打包分发；
-  - 再分发时必须随附本许可证全文，不得单独出售字体；
-  - 修改后的字体不得使用保留字体名称（Reserved Font Name）；
-  - 字体本身按“现状”提供，不含任何担保。
 
-补充说明：
-本文件是许可证标识与获取途径的说明，不是 SIL OFL 1.1 的全文。分发本字体时
-应同时提供许可证全文；请从上面的上游地址取得 LICENSE 文件，另存为
-skills/shared-scripts/LICENSE-NotoSansSC-OFL-1.1.txt 后再分发。
+  - 允许自由使用、研究、修改和再分发本字体，包括随软件一起打包分发；
+  - 再分发时必须随附本许可证全文，且不得单独出售字体本身；
+  - 保留字体名称（Reserved Font Name）为 'Source'：修改后的版本不得使用该
+    保留名称，未修改的原样再分发不受此限制；
+  - 字体按“现状”提供，不含任何担保。
+
+分发前必须补全的地方
+--------------------
+
+本文件是许可证标识与获取途径的说明，**不是 SIL OFL 1.1 的全文**。OFL 要求再
+分发字体时随附全文，因此在正式对外分发之前，请：
+
+  1. 打开 https://scripts.sil.org/OFL 取得许可证全文；
+  2. 保存为本目录下的 LICENSE-NotoSansSC-OFL-1.1.txt；
+  3. 提交该文件。
+
+在此之前，本仓库对该字体的分发条件并不完整。

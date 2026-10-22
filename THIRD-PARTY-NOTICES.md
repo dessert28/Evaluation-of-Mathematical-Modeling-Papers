@@ -46,9 +46,9 @@
 
 `skills/shared-scripts/NotoSansSC-Regular.ttf`（10.5MB）是 Noto Sans SC 字体，由 Google / Adobe 的 Noto 项目发布，采用 SIL Open Font License 1.1。
 
-该字体的许可证标识、获取地址和许可要点见 `skills/shared-scripts/LICENSE-NotoSansSC.txt`。
+该字体的许可证标识、获取地址和许可要点见 `skills/shared-scripts/LICENSE-NotoSansSC.txt`。字体自身的 name 表声明其采用 SIL Open Font License 1.1，许可证全文地址为 <https://scripts.sil.org/OFL>，保留字体名称为 `Source`（版权方 Adobe）。
 
-> ⚠️ 已知缺口：`LICENSE-NotoSansSC.txt` 目前是许可证标识与获取途径说明，**不是 SIL OFL 1.1 的全文**。OFL 要求再分发字体时随附许可证全文，正式分发前需从 <https://github.com/notofonts/noto-cjk> 取得 `LICENSE` 并用全文替换该文件。
+> ⚠️ 已知缺口：`LICENSE-NotoSansSC.txt` 目前是许可证标识与获取途径说明，**不是 SIL OFL 1.1 的全文**。OFL 要求再分发字体时随附许可证全文，正式对外分发前需从 <https://scripts.sil.org/OFL> 取得全文并保存为 `skills/shared-scripts/LICENSE-NotoSansSC-OFL-1.1.txt`。
 
 ## 四、量表来源
 
