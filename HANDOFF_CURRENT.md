@@ -1,6 +1,6 @@
 # 会话交接总览
 
-> 更新时间：2026-10-07（Asia/Shanghai；精确时间见 `HANDOFF_LOG.md` 最新条目）  
+> 更新时间：2026-10-22（Asia/Shanghai；精确时间见 `HANDOFF_LOG.md` 最新条目）  
 > 交接用途：供下一会话无需重走已完成工作，直接继续真实模型验证和 v0.1 收尾。  
 > 当前项目路径：`D:\project\githubclone\Evaluation-of-Mathematical-Modeling-Papers`
 
@@ -56,7 +56,7 @@ npm run build --prefix frontend
 2. 正式 Evidence Audit、冲突仲裁、联网检索/来源保存仍未实现；七阶段全部结束后应显示“待证据审计”。
 3. 运行器使用进程内线程池；并发多进程部署需单进程约束或后续改用持久化队列/锁。
 4. 主密钥文件需要用户备份；密钥丢失会使已有 API Key 无法解密。
-5. Docker 可复现打包尚未完成；Git 尚未初始化，尚无远端或私有 GitHub 仓库，也未推送。
+5. Docker 可复现打包尚未完成。Git 已初始化，仓库已公开推送到 `https://github.com/dessert28/Evaluation-of-Mathematical-Modeling-Papers`（`main` 分支，MIT 许可证）。
 6. 未完成真实云 API 测试；真实服务可能存在兼容性、限流、上下文长度或结构化输出差异。
 7. 没有经过真实评审案例校准七阶段评分的稳定性和准确性。
 
@@ -67,7 +67,7 @@ npm run build --prefix frontend
 3. 用户自行在模型配置页填写 OpenAI-compatible 服务商、URL、API Key、模型名并测试连接。不要把 API Key 放入聊天、日志或交接文档。
 4. 用无敏感内容的样例论文和已确认量表跑一次真实模型端到端；检查超时/重试、模型结构化输出、证据块定位、阶段失败后的任务状态与报告。清楚区分模拟结果和真实模型结果。
 5. 根据真实运行暴露的问题修复，再决定先做 Evidence Audit/建议评分，还是先做 Docker 复现；不应宣称评审闭环已完成，除非证据审计和实际结果路径都落地。
-6. GitHub 发布前，先初始化本地 Git并检查忽略文件/密钥/用户数据；再恢复 `gh` 登录，创建目标私有仓库并推送。此前记录提示 GitHub CLI 凭据曾失效，需现场检查状态。
+6. GitHub 发布已完成（2026-10-22）：本地 Git 已初始化，公开仓库 `dessert28/Evaluation-of-Mathematical-Modeling-Papers` 已推送。后续提交前仍需检查忽略文件/密钥/用户数据；注意本机 ssh 在当前宿主环境不可用，推送走 HTTPS + gh token。
 7. 每次施工都更新 `HANDOFF_LOG.md`，并依次执行相关测试、构建、快照核验和交接检查。
 
 ## 7. 关键文件索引
@@ -86,7 +86,13 @@ npm run build --prefix frontend
 
 ## 8. 仓库/凭据状态
 
-此目录当前不是 Git 仓库（最近检查 `git status` 返回 `fatal: not a git repository`）。没有创建或推送 GitHub 仓库。模型密钥当前尚未配置；交接文档不保存密钥。不要把 `.env`、`DATA_DIR`、SQLite 数据库、主密钥、论文资产、`node_modules` 或浏览器测试输出提交。
+- 本地已是 Git 仓库，分支 `main`，仓库级身份为 `dessert28 <dessert28@users.noreply.github.com>`。
+- 公开远端：`https://github.com/dessert28/Evaluation-of-Mathematical-Modeling-Papers`（PUBLIC，MIT 许可证）。
+- 本机全局 git 配置有 `url.git@github.com:.insteadOf=https://github.com/` 改写，仓库内实际可达的推送方式是 HTTPS + gh token；直接 `git push` 会走 ssh 并在当前宿主环境失败，详见 `HANDOFF_LOG.md` 最新条目。
+- `.gitignore` 把应用目录锚定到仓库根（`/dist/`、`/build/`、`/reports/` 等），以便 `references/upstream/` 下的同名目录能正常入库。
+- 入库内容：产品代码与文档 133 个文件，上游参考快照与 skill 包 1563 个文件，合计 1700 个文件、约 26 MB。`references/` 与 `skills/` 单独成一次提交，便于按许可证要求整体移除。
+- 未入库内容：`data/`（含真实论文、`app.db`、加密 API Key 与本地主密钥）、`ruanzhu/`、`ruanzhu.zip`、`.env`、`.venv/`、`node_modules/`、`dist/`、`build/`、`.tmp/`、测试临时目录。
+- 模型密钥仍未配置进 Git，交接文档不保存密钥。不要把 `.env`、`DATA_DIR`、SQLite 数据库、主密钥、论文资产、`node_modules` 或浏览器测试输出提交。
 
 ## 9. Windows 桌面端（2026-10-07）
 
