@@ -1,0 +1,63 @@
+{
+  "name": "数模国赛通用四维量表（社区整理版）",
+  "version": "2026.10-v1.0",
+  "scale_min": 0,
+  "scale_max": 100,
+  "criteria": [
+    {
+      "id": "assumption_reasonableness",
+      "label": "假设的合理性",
+      "description": "检查每条假设是否有题目、领域知识或数据依据；是否说明适用条件和失效风险；是否在后续建模与求解中被实际使用。来源：GitHub anticipate218/math-modeling-skill 的 scoring-rubric.md；维度依据 CUMCM 官方章程。",
+      "weight": 0.25,
+      "scale_min": 0,
+      "scale_max": 100,
+      "evidence_required": true
+    },
+    {
+      "id": "modeling_creativity",
+      "label": "建模的创造性",
+      "description": "检查模型是否针对题意、数据结构或约束做了实质适配；是否说明方案选择理由、相对基线的改进及改进有效性证据，而非只堆叠常见方法。",
+      "weight": 0.25,
+      "scale_min": 0,
+      "scale_max": 100,
+      "evidence_required": true
+    },
+    {
+      "id": "results_correctness",
+      "label": "结果的正确性",
+      "description": "检查数学推导、算法实现与数值结果是否一致；是否有误差分析、基线对比、灵敏度或稳健性检验；结论是否限定在模型和数据能够支持的范围内。",
+      "weight": 0.25,
+      "scale_min": 0,
+      "scale_max": 100,
+      "evidence_required": true
+    },
+    {
+      "id": "presentation_clarity",
+      "label": "文字表述的清晰性",
+      "description": "检查摘要是否包含建模思路、方法、结果和结论；符号、公式、图表、单位与编号是否规范；论证是否连贯，评阅者能否快速定位问题、方法和关键结果。",
+      "weight": 0.25,
+      "scale_min": 0,
+      "scale_max": 100,
+      "evidence_required": true
+    }
+  ],
+  "provenance": {
+    "title": "CUMCM 官方四维评审标准与社区整理说明",
+    "repository": "anticipate218/math-modeling-skill",
+    "source_url": "https://github.com/anticipate218/math-modeling-skill/blob/e70b85b8a41aeb748789f66860c6bd4d123871cd/references/scoring-rubric.md",
+    "source_commit": "e70b85b8a41aeb748789f66860c6bd4d123871cd",
+    "license": "MIT",
+    "license_url": "https://github.com/anticipate218/math-modeling-skill/blob/e70b85b8a41aeb748789f66860c6bd4d123871cd/LICENSE",
+    "official_dimensions": [
+      "假设的合理性",
+      "建模的创造性",
+      "结果的正确性",
+      "文字表述的清晰程度"
+    ]
+  },
+  "weight_policy": {
+    "statement": "CUMCM 官方公布四项评奖维度，但未公布各项权重。本量表采用 25% 等权，作为本地通用评审的明确假设，不代表官方权重。",
+    "normalized_total": 1
+  },
+  "usage_note": "本量表用于论文质量诊断和横向比较；具体赛题的内部评阅细则可能不同，不能据此推断真实获奖结果。"
+}

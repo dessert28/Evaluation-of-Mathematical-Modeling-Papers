@@ -1,0 +1,53 @@
+schema_version: 1
+state_machine: review_job
+initial_state: CREATED
+lifecycle_states:
+  - CREATED
+  - INGESTING
+  - ASSETS_FROZEN
+  - RUBRIC_CONFIRMATION
+  - EVALUATING
+  - EVIDENCE_AUDIT
+  - ARBITRATING
+  - REPORT_READY
+  - FROZEN
+  - DEGRADED
+  - FAILED
+outcome_states:
+  - BLOCKED
+  - NEEDS_MAJOR_FIXES
+  - REVIEWABLE
+transitions:
+  CREATED: [INGESTING, DEGRADED, FAILED]
+  INGESTING: [ASSETS_FROZEN, DEGRADED, FAILED]
+  ASSETS_FROZEN: [RUBRIC_CONFIRMATION, DEGRADED, FAILED]
+  RUBRIC_CONFIRMATION: [EVALUATING, DEGRADED, FAILED]
+  EVALUATING: [EVIDENCE_AUDIT, DEGRADED, FAILED]
+  EVIDENCE_AUDIT: [ARBITRATING, DEGRADED, FAILED]
+  ARBITRATING: [REPORT_READY, BLOCKED, NEEDS_MAJOR_FIXES, REVIEWABLE, DEGRADED, FAILED]
+  REPORT_READY: [FROZEN, NEEDS_MAJOR_FIXES, REVIEWABLE]
+  FROZEN: []
+  DEGRADED: []
+  FAILED: []
+  BLOCKED: []
+  NEEDS_MAJOR_FIXES: []
+  REVIEWABLE: [FROZEN]
+terminal_states: [FROZEN, FAILED]
+outcome_precedence:
+  - BLOCKED
+  - NEEDS_MAJOR_FIXES
+  - REVIEWABLE
+rules:
+  deterministic_coordinator_only: true
+  transition_event_required: true
+  event_fields: [job_id, event_type, from_state, to_state, reason, input_hash, evidence_fingerprint, dependency, stale_cleared, actor, timestamp, metadata]
+  rerun_is_idempotent: true
+  changed_inputs_mark_dependents_stale: true
+  blocked_requires_new_validated_evidence: true
+  old_evidence_cannot_unblock: true
+  blocked_resume_target: EVIDENCE_AUDIT
+  blocked_resume_requires_evidence_level: [INDEPENDENTLY_VERIFIED, EXTERNALLY_VALIDATED]
+  rerun_uses_explicit_idempotency_key: true
+  fatal_finding_outcome: BLOCKED
+  major_finding_outcome: NEEDS_MAJOR_FIXES
+  otherwise_outcome: REVIEWABLE

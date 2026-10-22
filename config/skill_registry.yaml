@@ -1,0 +1,56 @@
+# 技能注册表（初版）
+# status=reference_candidate 的条目不会被运行时自动加载。
+
+schema_version: 1
+runtime_policy:
+  default_status: local_core
+  external_code_execution: disabled
+  evidence_required_for_conclusion: true
+  missing_evidence_state: INCONCLUSIVE
+
+skills:
+  - id: math-modeling-audit
+    source: upstream-audit/MathModelingAgent/math-modeling-audit
+    status: reference_candidate
+    capabilities: [claim_audit, evidence_levels, counterexample_search, reproducibility]
+    verdict_states: [SUPPORTED, CONDITIONAL, INCONCLUSIVE, REFUTED]
+  - id: consistency-auditor
+    source: upstream-audit/MathModeling-skills/consistency-auditor
+    status: reference_candidate
+    capabilities: [cross_media_consistency, numeric_check, symbol_unit_check]
+  - id: completeness-auditor
+    source: upstream-audit/MathModeling-skills/completeness-auditor
+    status: reference_candidate
+    capabilities: [completeness_gate, submission_readiness]
+  - id: quality-assurance-auditor
+    source: upstream-audit/MathModeling-skills/quality-assurance-auditor
+    status: reference_candidate
+    capabilities: [independent_qa, final_gate]
+  - id: robustness-checker
+    source: upstream-audit/MathModeling-skills/robustness-checker
+    status: reference_candidate
+    capabilities: [sensitivity, boundary_cases, error_analysis]
+  - id: modeler-decision-logger
+    source: upstream-audit/MathModeling-skills/modeler-decision-logger
+    status: reference_candidate
+    capabilities: [human_decision_log, assumption_freeze, rerun_lineage]
+  - id: code-reviewer
+    source: upstream-audit/MathModeling-skills/code-reviewer
+    status: reference_candidate
+    capabilities: [code_review, reproducibility_review]
+  - id: verify-claims
+    source: upstream-audit/research-paper-lifecycle-skills/verify-claims
+    status: reference_candidate
+    capabilities: [claim_matrix, prose_table_consistency, overclaim_detection]
+  - id: math-model-agent-review-paper
+    source: upstream-audit/math-model-agent/review-paper.md
+    status: reference_candidate
+    capabilities: [seven_dimension_review, multi_reviewer_synthesis]
+  - id: math-model-agent-deep-audit
+    source: upstream-audit/math-model-agent/deep-audit.md
+    status: reference_candidate
+    capabilities: [deep_audit, verification_layers]
+  - id: math-model-agent-judge-engine
+    source: upstream-audit/math-model-agent/judge_engine.md
+    status: reference_candidate
+    capabilities: [multi_model_adjudication, weighted_scoring]

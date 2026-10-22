@@ -1,0 +1,33 @@
+schema_version: 1
+runtime_scope: development_orchestration_only
+default_model: gpt-6-luna
+escalation_model: gpt-6.1-sol
+roles:
+  - id: luna-evidence-schema
+    model: gpt-6-luna
+    purpose: 证据链对象、证据等级、四态状态规则草案
+    outputs: [schema_review, edge_cases, unresolved_questions]
+  - id: luna-rubric-scoring
+    model: gpt-6-luna
+    purpose: 七阶段评分、权重、归一化和官方评分隔离审查
+    outputs: [rubric_review, score_examples, failure_cases]
+  - id: luna-test-fixtures
+    model: gpt-6-luna
+    purpose: 失败行为、证据缺失、反例和状态机测试夹具
+    outputs: [test_matrix, fixtures, expected_results]
+  - id: luna-api-runtime
+    model: gpt-6-luna
+    purpose: 本地 API、持久化和原生运行边界审查
+    outputs: [interface_review, failure_contracts, runtime_notes]
+  - id: sol-integrator
+    model: gpt-6.1-sol
+    purpose: 跨角色冲突仲裁、协议一致性和高风险决策复核
+    inputs: [all_luna_outputs, current_protocol, test_results]
+    outputs: [integration_decision, blocking_findings, approved_changes]
+governance:
+  parallel_luna_roles: true
+  sol_required_for: [state_machine_changes, verdict_precedence, public_schema_changes]
+  model_cannot_transition_review_state: true
+  model_cannot_publish_official_rubric: true
+  every_output_requires: [model_id, task_scope, evidence_or_reasoning, timestamp]
+

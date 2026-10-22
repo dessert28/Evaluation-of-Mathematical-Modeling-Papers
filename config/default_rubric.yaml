@@ -1,0 +1,71 @@
+schema_version: 1
+id: general-mathematical-modeling-diagnostic-v0.1
+name: 数学建模七阶段通用诊断
+status: built_in
+score:
+  raw_min: 0
+  raw_max: 10
+  normalized_min: 0
+  normalized_max: 4
+  normalization: "round(raw_score_0_10 / 10 * 4, 2)"
+  aggregation: weighted_mean_raw_0_10
+stages:
+  - id: problem_identification
+    name: 问题识别
+    weight: 0.15
+    checks: [objective_coverage, subproblem_coverage, constraint_identification]
+  - id: problem_formulation
+    name: 问题表述
+    weight: 0.15
+    checks: [variables, symbols, units, constraints]
+  - id: assumptions
+    name: 假设建立
+    weight: 0.15
+    checks: [necessity, rationale, boundary, counterfactual_risk]
+  - id: model_construction
+    name: 模型构造
+    weight: 0.20
+    checks: [model_problem_fit, equation_closure, objective, alternative_models]
+  - id: solving
+    name: 模型求解
+    weight: 0.10
+    checks: [algorithm_fit, convergence, numerical_stability, reproducibility]
+  - id: code_implementation
+    name: 代码实现
+    weight: 0.15
+    checks: [formula_implementation_consistency, dependencies, seed, input_output_contract]
+  - id: results_analysis
+    name: 结果分析
+    weight: 0.10
+    checks: [back_substitution, baseline, sensitivity, robustness, claim_scope]
+cross_cutting_gates:
+  - id: structure_and_compliance
+    severity: minor_or_major
+    scoring: separate_finding
+  - id: evidence_completeness
+    severity: major
+    scoring: separate_finding
+verdicts:
+  - SUPPORTED
+  - CONDITIONAL
+  - INCONCLUSIVE
+  - REFUTED
+evidence_levels:
+  - NOT_CHECKED
+  - DERIVED
+  - EXECUTED
+  - VERIFIED
+  - INDEPENDENTLY_VERIFIED
+  - EXTERNALLY_VALIDATED
+official_rubric:
+  independent: true
+  requires_published_profile: true
+  requires_source_hash: true
+  requires_human_decision_id: true
+  score_is_separate_from_diagnostic: true
+  human_confirmation_required: true
+evidence_policy:
+  missing_locator_verdict: INCONCLUSIVE
+  execution_is_not_correctness: true
+  contradiction_precedence: REFUTED
+  no_code_or_data_verdict: CONDITIONAL
