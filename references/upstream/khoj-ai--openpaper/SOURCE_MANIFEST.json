@@ -1,0 +1,1386 @@
+{
+  "repository": "khoj-ai/openpaper",
+  "url": "https://github.com/khoj-ai/openpaper",
+  "retrieved_at": "2026-10-03T12:03:01.743723+08:00",
+  "activation": "reference_only",
+  "files": [
+    {
+      "path": ".pre-commit-config.yaml",
+      "bytes": 859,
+      "sha256": "5b54a6f607cdfa3fc4507173efcb03bf082f6a8b08c729ec44e0a3ee0dc56190"
+    },
+    {
+      "path": "DEVELOPMENT.md",
+      "bytes": 13011,
+      "sha256": "beac6b3c3a59b07d880b74c5f2131a1f2c27a230e7da624d2b884f66582d5e7c"
+    },
+    {
+      "path": "LICENSE",
+      "bytes": 34523,
+      "sha256": "8486a10c4393cee1c25392769ddd3b2d6c242d6ec7928e1414efff7dfb2f07ef"
+    },
+    {
+      "path": "README.md",
+      "bytes": 3863,
+      "sha256": "949a3c8f1768aa0e594f4741fb142e391c6c69cdde1c293662af326d2c366fad"
+    },
+    {
+      "path": "docker-compose.dev.yml",
+      "bytes": 9186,
+      "sha256": "4575d6d7dac421c097c1524d515143271f298ea5d1dc72b1fd64dca1e53a167c"
+    },
+    {
+      "path": "server/README.md",
+      "bytes": 4554,
+      "sha256": "1ad930ebab8073a40b1d3971cadd84fbf8858eaf04c80485c374e8ac1dea7aea"
+    },
+    {
+      "path": "server/app/__init__.py",
+      "bytes": 344,
+      "sha256": "7243a4f0c5df54a2636ca7a4db4406322e7d739d2ed674ac0aafd06094e38363"
+    },
+    {
+      "path": "server/app/api/__init__.py",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "server/app/api/annotation_api.py",
+      "bytes": 5947,
+      "sha256": "b8af75f56486035f4fa939ed2eb5548354555235e22017834347311f4614af06"
+    },
+    {
+      "path": "server/app/api/api.py",
+      "bytes": 565,
+      "sha256": "ff58c91ac1068e09fae7faded7f13d2ddddc88903d854f4a2dda999df7567b0b"
+    },
+    {
+      "path": "server/app/api/auth_api.py",
+      "bytes": 27606,
+      "sha256": "6444f3751954abe8299d674ced014ad269677fcb87afe8909f5b2581aa0ee2e1"
+    },
+    {
+      "path": "server/app/api/conversation_api.py",
+      "bytes": 11093,
+      "sha256": "646582502759ca124cd9e4a9c367e6a4d2fff2b4f66cc22de6b9aa068dcbe3a2"
+    },
+    {
+      "path": "server/app/api/discover_api.py",
+      "bytes": 6019,
+      "sha256": "3bdf101155d8d0482723daf4a62e012263f31d82d7c919b0f299f16efdc756dd"
+    },
+    {
+      "path": "server/app/api/highlight_api.py",
+      "bytes": 6546,
+      "sha256": "2c9cfd353e69184fde1a571d758d14b6cb6d7e003d49b9239a24f3fdeb546b89"
+    },
+    {
+      "path": "server/app/api/message_api.py",
+      "bytes": 37563,
+      "sha256": "e0880437c3b128f3fefad12e5ffbb4cc917e43e13b0e76b73b56600756fb1afa"
+    },
+    {
+      "path": "server/app/api/onboarding_api.py",
+      "bytes": 3977,
+      "sha256": "6d5614d919b1ac737b0235e8e41b0ec0d13681fa4d6be76c449dca0ef58e51ce"
+    },
+    {
+      "path": "server/app/api/paper_api.py",
+      "bytes": 27099,
+      "sha256": "3cdcae1f93857b5880e538b601ec649448426fce6a57d866a7b5c432d1d6db52"
+    },
+    {
+      "path": "server/app/api/paper_audio_api.py",
+      "bytes": 8842,
+      "sha256": "06ea1390f2c7a350af4e19de430d4e2cd376d30a71d5a77982cb0d64cbbe387d"
+    },
+    {
+      "path": "server/app/api/paper_image_api.py",
+      "bytes": 4929,
+      "sha256": "6bfe38599240eb37f40111871f42fe2bf501029cf7d5fc388545aca71a1a8446"
+    },
+    {
+      "path": "server/app/api/paper_search_api.py",
+      "bytes": 5777,
+      "sha256": "1d1e7c1e62d8527c8838309916e4cb32d300b4bae0691b10e39287688874d34a"
+    },
+    {
+      "path": "server/app/api/paper_tag_api.py",
+      "bytes": 4208,
+      "sha256": "2c228ed7e044338eae882923967e86f53ebf6615b8bf7d15adcb1f069443e0b0"
+    },
+    {
+      "path": "server/app/api/paper_upload_api.py",
+      "bytes": 11932,
+      "sha256": "413e314e19cd2543df8d0e3a8b5e9830762143772c7c94ba0894813735a08912"
+    },
+    {
+      "path": "server/app/api/project_audio_api.py",
+      "bytes": 7788,
+      "sha256": "c1fce6aa93fd73bcd3b1c8fe3a1eb4da1398db93f146325be93140cd088a9615"
+    },
+    {
+      "path": "server/app/api/projects/project_artifacts_api.py",
+      "bytes": 2989,
+      "sha256": "ee9e747b104ecbd0a00df438b39c30279eddf8ffd3308ff3df83cc6caa364b39"
+    },
+    {
+      "path": "server/app/api/projects/project_charts_api.py",
+      "bytes": 4974,
+      "sha256": "fe7662a1dd0cfe1a7cd31bc8369c22aa5f30cb0d8bbeaf1fbd37bdec968c7471"
+    },
+    {
+      "path": "server/app/api/projects/project_conversations_api.py",
+      "bytes": 5249,
+      "sha256": "0190868144fad3e095f1e0e4a7a5a96dbc9263d66754dc68b0bc69517296d2a9"
+    },
+    {
+      "path": "server/app/api/projects/project_papers_api.py",
+      "bytes": 15450,
+      "sha256": "d55834cd7e036e08cdaf7303cd9ce43d1c9863b953c31cfacc47e751f82596c7"
+    },
+    {
+      "path": "server/app/api/projects/projects_api.py",
+      "bytes": 12295,
+      "sha256": "35eab9d9bb86c0b7ddee5d89c599d175c133179ba30164933ace18628d290a96"
+    },
+    {
+      "path": "server/app/api/projects/projects_data_table_api.py",
+      "bytes": 18135,
+      "sha256": "a003ff8acb02316205cc38fc8b9d7cf65f36a79f1e440a3d4912c48433592534"
+    },
+    {
+      "path": "server/app/api/projects/projects_invitation_api.py",
+      "bytes": 10143,
+      "sha256": "a1d07da64e5ec0416ee25fc1e7d3686daf6b73a5aa2c6af54217ae2039b34b0d"
+    },
+    {
+      "path": "server/app/api/referral/__init__.py",
+      "bytes": 167,
+      "sha256": "13842d6bc14546f5a3b1df34a3cd67047b3a496b6518b3e18a433c2c73a0cdef"
+    },
+    {
+      "path": "server/app/api/referral/routes.py",
+      "bytes": 4515,
+      "sha256": "d89feecb079ec9e3906f80e925452d2b44400216b5f9b8a2c6599c5beb694d9a"
+    },
+    {
+      "path": "server/app/api/referral/service.py",
+      "bytes": 9148,
+      "sha256": "b7582ca74ab140522363d80aca8e5e9c045c2e39e54c1b13c753992b00a3a2f4"
+    },
+    {
+      "path": "server/app/api/search_api.py",
+      "bytes": 4348,
+      "sha256": "d31d7bd8118ca1f744aca0ee128b2431228c1409a3b13a1656cb185392b01bca"
+    },
+    {
+      "path": "server/app/api/subscription/__init__.py",
+      "bytes": 650,
+      "sha256": "77bd228e8e087b7a7e2c23c809254290470404be2210f1abb3251b75a4be9711"
+    },
+    {
+      "path": "server/app/api/subscription/checkout.py",
+      "bytes": 10793,
+      "sha256": "b635dcf545d7727d938b6e4ef9fbce9ee947f1e926dbe0a6a7d9ed616daa8a34"
+    },
+    {
+      "path": "server/app/api/subscription/config.py",
+      "bytes": 765,
+      "sha256": "74b6d5f881b2f25da7dd1649cabb18484290356bf490b40d7844d1893656dbec"
+    },
+    {
+      "path": "server/app/api/subscription/interval.py",
+      "bytes": 7812,
+      "sha256": "e2b4f271baf01b81d55fa95beeecc3bf910c07d366409bd96021c519c39c579a"
+    },
+    {
+      "path": "server/app/api/subscription/portal.py",
+      "bytes": 11060,
+      "sha256": "09bbee8858a76faec28c2f6893b148e88874788338f35ac4ab090021cce18548"
+    },
+    {
+      "path": "server/app/api/subscription/status.py",
+      "bytes": 6468,
+      "sha256": "e7e6bf9740d905fdb3ee938d012dc7025877184bc08400b546c1ec031d3bb1d3"
+    },
+    {
+      "path": "server/app/api/subscription/webhook.py",
+      "bytes": 28046,
+      "sha256": "6236b06d723165e755c7891945bfe396548ffb892770eee09d07f9546efa8bd7"
+    },
+    {
+      "path": "server/app/api/webhook_api.py",
+      "bytes": 45473,
+      "sha256": "c13350155bcbcf790b0d8a4c4e66ba22594113577532ad5fe215dc1ca62eb853"
+    },
+    {
+      "path": "server/app/api/zotero_import_api.py",
+      "bytes": 6526,
+      "sha256": "196217ea94b15c11ef8012700cc43637bd0354a201c819cccc48ace0c592fbbf"
+    },
+    {
+      "path": "server/app/auth/README.md",
+      "bytes": 5687,
+      "sha256": "472643573ad3c10472656909d43698890d5e67f8206a73da08a79074b4925a4f"
+    },
+    {
+      "path": "server/app/auth/__init__.py",
+      "bytes": 24,
+      "sha256": "14456693b5c3dd28706f7cec16cf259e85fb71552680aab649a6e1a0781173b9"
+    },
+    {
+      "path": "server/app/auth/dependencies.py",
+      "bytes": 3041,
+      "sha256": "e66494edc7acfab3690a7326d06c990921445e5dc2ebc08333ca22c2a2506dfc"
+    },
+    {
+      "path": "server/app/auth/email.py",
+      "bytes": 2332,
+      "sha256": "79b78717ccc39cbfb3184c6dd1a930456ad3d73bf760ce27e6607ac00a7d9162"
+    },
+    {
+      "path": "server/app/auth/google.py",
+      "bytes": 7274,
+      "sha256": "61a275d047009af296e3f43c280b40775929c874a6e726c246ae09dfcd774bec"
+    },
+    {
+      "path": "server/app/auth/utils.py",
+      "bytes": 2876,
+      "sha256": "71d8d3bc1618f52bdb813c40a13055ac14947ebd4da8e29a98c96ac1403d6c4a"
+    },
+    {
+      "path": "server/app/auth/zotero.py",
+      "bytes": 4323,
+      "sha256": "14177ab9f3663ce8f3848b86347bdcf843396e592b4223a3cfc1bc9e119b1c39"
+    },
+    {
+      "path": "server/app/database/__init__.py",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "server/app/database/admin.py",
+      "bytes": 17087,
+      "sha256": "1174f203e60f40a014a5d50514be771899a0a652c8f525ddc7e989dda7b3761c"
+    },
+    {
+      "path": "server/app/database/config.py",
+      "bytes": 2128,
+      "sha256": "a7c12428ce8c5b8a2143b3345878c34cf9c352151fe81b5154900ff51127c9f4"
+    },
+    {
+      "path": "server/app/database/crud/__init__.py",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "server/app/database/crud/annotation_crud.py",
+      "bytes": 1574,
+      "sha256": "0db9b60c9389b758b87a59e8b489d386fdac53f8cfa0aa7fe2d3b56edb36eb93"
+    },
+    {
+      "path": "server/app/database/crud/artifact_crud.py",
+      "bytes": 14561,
+      "sha256": "39195f7ff05474a2e194da027160d922e8938e1302c3e02e2b85243d45258beb"
+    },
+    {
+      "path": "server/app/database/crud/audio_overview_crud.py",
+      "bytes": 17037,
+      "sha256": "9e51cdc2deec135bd986712362d3d08f1ea28df554babc3c13c98c7cd3927d3e"
+    },
+    {
+      "path": "server/app/database/crud/base_crud.py",
+      "bytes": 10768,
+      "sha256": "96b8e6ba8010b0d5fb34299f2aa82c16bd4fad7c4b611b52dc1cfadaa837b9da"
+    },
+    {
+      "path": "server/app/database/crud/conversation_crud.py",
+      "bytes": 2582,
+      "sha256": "99883a8dddc62d5b20d4482b6bcc526f8024398d8bc383f56dbeb29649e4c736"
+    },
+    {
+      "path": "server/app/database/crud/discover_crud.py",
+      "bytes": 3138,
+      "sha256": "55221f49e863f7592f37114473cbfcb120264b74b838b81fed6168b85e9d9335"
+    },
+    {
+      "path": "server/app/database/crud/google_oauth_crud.py",
+      "bytes": 4597,
+      "sha256": "e62e648a608b31cd26406cdb42b8771457ef0185d4b8f75196f0d4d5fb2b0e8d"
+    },
+    {
+      "path": "server/app/database/crud/highlight_crud.py",
+      "bytes": 3554,
+      "sha256": "2d16e14775be8ac32163ac74b8a2c96a2711d15740ce873a564e258e9172c8df"
+    },
+    {
+      "path": "server/app/database/crud/message_crud.py",
+      "bytes": 10419,
+      "sha256": "888fc88e98113ee77e741e6659e18b7768d04bfc8a67d73b23e91e5f0291c2e5"
+    },
+    {
+      "path": "server/app/database/crud/onboarding_crud.py",
+      "bytes": 1016,
+      "sha256": "6e454cabf8a7a4420ec2f8b82cc8d850c1663dd968e2d1ef3bac95007f58e65f"
+    },
+    {
+      "path": "server/app/database/crud/paper_crud.py",
+      "bytes": 30986,
+      "sha256": "d01530cfdaa88ecf2f50fbb2013d1558113fd33fb67d8e93276fc4324a1e8a00"
+    },
+    {
+      "path": "server/app/database/crud/paper_image_crud.py",
+      "bytes": 4030,
+      "sha256": "a5806fea5a37286c5aca051e66aa99fe1e6e0f3ea056fa7b79a77b140790c8bb"
+    },
+    {
+      "path": "server/app/database/crud/paper_note_crud.py",
+      "bytes": 1049,
+      "sha256": "df338b5c885a9183bda4c85c6eee555d62b749ed14e3518ffef8375ab3d53b32"
+    },
+    {
+      "path": "server/app/database/crud/paper_tag_crud.py",
+      "bytes": 8096,
+      "sha256": "dbe5fb766da45572588d36efe9db445eb69ff6e0fc47e307c1d6888a8914dfc9"
+    },
+    {
+      "path": "server/app/database/crud/paper_upload_crud.py",
+      "bytes": 7096,
+      "sha256": "a60af801b952d8286473060326625778aab0547b97e5dcd179923eef59f22c3b"
+    },
+    {
+      "path": "server/app/database/crud/projects/project_audio_overview_crud.py",
+      "bytes": 2528,
+      "sha256": "de5cd1ba5d164911f8ce160d1017ba759cdf662c33df13a0d39bfa37a6bdc0f2"
+    },
+    {
+      "path": "server/app/database/crud/projects/project_base_crud.py",
+      "bytes": 4155,
+      "sha256": "18fa128da2022990d7334a15927bcfa8af41b64a1db4064ae028df67773c46d3"
+    },
+    {
+      "path": "server/app/database/crud/projects/project_chart_crud.py",
+      "bytes": 14959,
+      "sha256": "a083b058035d8e70a0b58126984c44d9bd55b1d45583f5866726d119aaf495fa"
+    },
+    {
+      "path": "server/app/database/crud/projects/project_conversation_crud.py",
+      "bytes": 4142,
+      "sha256": "d532d1144d0758b3e42404df8e22c44fe50e60cdb23bf4448dd96b1716fcbf2f"
+    },
+    {
+      "path": "server/app/database/crud/projects/project_crud.py",
+      "bytes": 11465,
+      "sha256": "cc8ec452daf744f885a090df770d3d44aef1d0a1200d07e82bcc95cf0928b3d3"
+    },
+    {
+      "path": "server/app/database/crud/projects/project_data_table_crud.py",
+      "bytes": 18951,
+      "sha256": "0a46b9d946cc5cc4175aeebd1aa369a8f6dd587d84b97eceaf0494e79667a6db"
+    },
+    {
+      "path": "server/app/database/crud/projects/project_paper_crud.py",
+      "bytes": 12086,
+      "sha256": "d81e7390537b40620054763707c3cf778c11ffda9af3981ad15c9ae7304b329b"
+    },
+    {
+      "path": "server/app/database/crud/projects/project_role_invitation_crud.py",
+      "bytes": 11061,
+      "sha256": "c8f11efad222bbd386a9464323a9679d7f01f9d5b3fc48422a340dc22ce45cb6"
+    },
+    {
+      "path": "server/app/database/crud/referral_crud.py",
+      "bytes": 7494,
+      "sha256": "276780d061cbce929c4bfa4543cfcf4781a871a9b3cd793d623b230f599599d7"
+    },
+    {
+      "path": "server/app/database/crud/sanitization.py",
+      "bytes": 566,
+      "sha256": "cc1f9c064a5260aa536cf7f0027de76715d5542299b9e6974cc06b25c84ae466"
+    },
+    {
+      "path": "server/app/database/crud/subscription_crud.py",
+      "bytes": 4756,
+      "sha256": "11ef9bb7108027bfafe6e8522869ffbc9a76a295141f1ca1bafa14055fee977c"
+    },
+    {
+      "path": "server/app/database/crud/user_crud.py",
+      "bytes": 9690,
+      "sha256": "eb10e6ce8f497b76eabeff1a65605f32116dc68baa90e4c2971546207eb8a0f6"
+    },
+    {
+      "path": "server/app/database/crud/zotero_crud.py",
+      "bytes": 2747,
+      "sha256": "950de724e3b87132a841d2e5e22b5345157db825c970657b65d7cf5999438890"
+    },
+    {
+      "path": "server/app/database/crud/zotero_import_crud.py",
+      "bytes": 7735,
+      "sha256": "dd01f2b90e021277ffb9665a20957412fbff045b9c89c084e8c2b22599ec2196"
+    },
+    {
+      "path": "server/app/database/database.py",
+      "bytes": 1130,
+      "sha256": "b72d202bb04574c052b2b09b672c915dfdc4659e23f0a2f35e05bdfae38d4103"
+    },
+    {
+      "path": "server/app/database/models.py",
+      "bytes": 62737,
+      "sha256": "e7da60fc225784dc1068da20bf371a4d325c494f9577fe0f4d716c6a0f810d21"
+    },
+    {
+      "path": "server/app/database/queries/search.py",
+      "bytes": 6716,
+      "sha256": "48620cdcbc876ea224eb4574dc283c09feb3ad1412a18ca9ed01065f5654636d"
+    },
+    {
+      "path": "server/app/database/telemetry.py",
+      "bytes": 3642,
+      "sha256": "4d7b1a45e27266c255ed57d4d63299f093a29ae72b5ef35d2c86c8cac107544d"
+    },
+    {
+      "path": "server/app/helpers/abuse_detection.py",
+      "bytes": 8169,
+      "sha256": "bb8f9720147ea41706f3ebac27a6378d9c836cf02c9ef46e34e35bf2c2c881bb"
+    },
+    {
+      "path": "server/app/helpers/advisory_locks.py",
+      "bytes": 4029,
+      "sha256": "c4d0226c46062180323227a4f084c6d63a7af4f50cea1ea1d0101889b3040ea2"
+    },
+    {
+      "path": "server/app/helpers/celery_config.py",
+      "bytes": 1320,
+      "sha256": "62d22c2fc6443c2fca5bcba1b79d3d3b4229da5b90e294b6e24cde8b3189fffb"
+    },
+    {
+      "path": "server/app/helpers/citations.py",
+      "bytes": 4709,
+      "sha256": "0d3bf8664ed0126fb0de4c7def4e3aeeaa6e7cb11f58c18353efe24056e39c5e"
+    },
+    {
+      "path": "server/app/helpers/compute_agent.py",
+      "bytes": 13067,
+      "sha256": "488d7184f1075b44c77cf14f1fef49f09295f6ffc2541cca30848a1d664c694d"
+    },
+    {
+      "path": "server/app/helpers/data_table_resubmit.py",
+      "bytes": 2948,
+      "sha256": "03840cbdc34c80fb6a4f420ccb0a7fd0f265dd9d7c138350cf79e05d28accf5a"
+    },
+    {
+      "path": "server/app/helpers/discover.py",
+      "bytes": 6553,
+      "sha256": "b2ef72f11905efaf14e4f6abed4eee280f30f6d2eaa690631b48b10d5c11cce2"
+    },
+    {
+      "path": "server/app/helpers/email.py",
+      "bytes": 19373,
+      "sha256": "fb6a6f672517fa5b5f35fce60f69a1543f072d224e060d0f19cd34470b9d68f5"
+    },
+    {
+      "path": "server/app/helpers/exa_search.py",
+      "bytes": 13000,
+      "sha256": "517ede41787dcf10f4d9789a1d59de6cd294d9ebb891f78e520da3e062a292ab"
+    },
+    {
+      "path": "server/app/helpers/http_retry.py",
+      "bytes": 1804,
+      "sha256": "6757255ab9e33f03cac0cfc88ecbd955650167b34b92e4802bf71c71043437e9"
+    },
+    {
+      "path": "server/app/helpers/metadata_columns.py",
+      "bytes": 5462,
+      "sha256": "7ab4837a5b75fb5adb1ba89021583883f8b011f514dad3e53c2b738847a918a1"
+    },
+    {
+      "path": "server/app/helpers/metadata_hydration.py",
+      "bytes": 4623,
+      "sha256": "dad78eaa6d95d6dd6907faac76ff5ea3a3d0dc3ae301160925750802414b0d6a"
+    },
+    {
+      "path": "server/app/helpers/openalex_search.py",
+      "bytes": 8570,
+      "sha256": "2cf12a134c2fbfd1c99c7e2170730534a86c62215dcadbfa23b6f4e690d83d2f"
+    },
+    {
+      "path": "server/app/helpers/paper_search.py",
+      "bytes": 26983,
+      "sha256": "b6a5ac6348596f5ee5ee2d330365c928d20c707c26c6625a191c3be1d5e6c8a4"
+    },
+    {
+      "path": "server/app/helpers/parser.py",
+      "bytes": 7573,
+      "sha256": "b01dcf12d2d877f3ce54e6825051b69aedd768fa6128c7701fe34a3c775ff4c9"
+    },
+    {
+      "path": "server/app/helpers/pdf_jobs.py",
+      "bytes": 17524,
+      "sha256": "66f8fcfdabf03d1a57d0a24a3d24a4a4cc859ad8b4979142d2615d0844744b20"
+    },
+    {
+      "path": "server/app/helpers/referral_jobs.py",
+      "bytes": 2348,
+      "sha256": "ec74cd23da845e8835f9fe65b49b13875b7c106e2b633d34ede2edec83b6be92"
+    },
+    {
+      "path": "server/app/helpers/s3.py",
+      "bytes": 19984,
+      "sha256": "06ecc2af7b18e5de2f8ac2b86251831225f98a26cfc6bae74d3156b837762fdd"
+    },
+    {
+      "path": "server/app/helpers/scrape.py",
+      "bytes": 1097,
+      "sha256": "b6ca8c496afd5ed3b9aba91bcbbd380ebace2b68460030d7c9ea64c34d71d483"
+    },
+    {
+      "path": "server/app/helpers/subscription_limits.py",
+      "bytes": 22520,
+      "sha256": "9ba58948ea3627c9a9987158f0abd7b25a865eb045e7d12e5587568b5fc3c103"
+    },
+    {
+      "path": "server/app/helpers/templates/data_table_complete.html",
+      "bytes": 8435,
+      "sha256": "4eb14051d33ae86d08083633a337de0ff948545580aeb50ca86ae6acf75baab5"
+    },
+    {
+      "path": "server/app/helpers/templates/design_principles.html",
+      "bytes": 12680,
+      "sha256": "1af0b1b60f0baaf47edb3d773304a7d218844ccdd5643d1fa4a72f001c21ba19"
+    },
+    {
+      "path": "server/app/helpers/templates/general_invite.html",
+      "bytes": 9700,
+      "sha256": "bdf6ac03d130e8568e3fec97177b92b782a576d6a98a69a90aa226d4f02a0998"
+    },
+    {
+      "path": "server/app/helpers/templates/onboarding.html",
+      "bytes": 14213,
+      "sha256": "8115c050dc66b81cba3ee3889eb37be51c4d1543f540e1d18da1f73437334574"
+    },
+    {
+      "path": "server/app/helpers/templates/profile.html",
+      "bytes": 7733,
+      "sha256": "cd8f41ad8934bb4e00459b65ea08a2c90671a95cd5b7c5580b5b957d94f106fb"
+    },
+    {
+      "path": "server/app/helpers/templates/project_invite.html",
+      "bytes": 11062,
+      "sha256": "a03a2b111aa427de8fa128312134b4c2b190240194612ac0a121ed6cf519b3f5"
+    },
+    {
+      "path": "server/app/helpers/templates/some_tips.html",
+      "bytes": 11068,
+      "sha256": "56c0e3bd9f5398ebd921f502bd020896322e1339cd2965152ec7c7c10b2739e2"
+    },
+    {
+      "path": "server/app/helpers/templates/subscription_welcome.html",
+      "bytes": 3219,
+      "sha256": "d99f0ef12973e2c8ce5d5ca67cb84ca0881b0fe763d65dda3483b68a061619de"
+    },
+    {
+      "path": "server/app/helpers/templates/verification_code.html",
+      "bytes": 1072,
+      "sha256": "b253602d25d5307da5718d786b3058db23030026a5e8e4a661593b22da4fc0fe"
+    },
+    {
+      "path": "server/app/helpers/templates/verification_code.txt",
+      "bytes": 228,
+      "sha256": "42a5f0214e950bc76f2345fbc6b2dc6d287eafff0875a0e70a55f9b04e14524f"
+    },
+    {
+      "path": "server/app/helpers/unit_conversion.py",
+      "bytes": 7680,
+      "sha256": "457b2af67dc5a424ea12311f68c52cf61e350dcc4627f57827f5c1529301a248"
+    },
+    {
+      "path": "server/app/integrations/zotero_api.py",
+      "bytes": 14915,
+      "sha256": "ef1eea020a201aecae9906300b441eedba134002efd4f523a2e1bb02aa5949fd"
+    },
+    {
+      "path": "server/app/llm/base.py",
+      "bytes": 11116,
+      "sha256": "e347aee681f8330921c655e816374d150bca4fc8d8d399259b41b5326d5f2a7b"
+    },
+    {
+      "path": "server/app/llm/chart_agent.py",
+      "bytes": 8763,
+      "sha256": "a8141728b22040341c6700c7351a5bec0d237a806cc4a78a02e9a98b0e4aa2be"
+    },
+    {
+      "path": "server/app/llm/chart_operations/README.md",
+      "bytes": 9529,
+      "sha256": "9fbe4d78fc55c849d8dc2e01e408df4ba5f427575d1706474f7f746758cf8ba9"
+    },
+    {
+      "path": "server/app/llm/chart_operations/__init__.py",
+      "bytes": 8032,
+      "sha256": "f641caf00a97d9f5deda367898202c8ba9c3b1a8677f36bacd0c06fa37b4acd4"
+    },
+    {
+      "path": "server/app/llm/chart_operations/extraction.py",
+      "bytes": 31472,
+      "sha256": "26c285f7b93247e982ff63f1f4fab76bf67ba9ccc12d2b768a1a2cd2c5d613c9"
+    },
+    {
+      "path": "server/app/llm/chart_operations/planning.py",
+      "bytes": 20137,
+      "sha256": "42dcabeea7dfe0404109edf5066a304efc13c04ed2ab7ace3e8df4259c0269cb"
+    },
+    {
+      "path": "server/app/llm/chart_operations/quantities.py",
+      "bytes": 3456,
+      "sha256": "3b408d268d38cab506c13a0b6dcfdeb9953889d659645dfa9dd32ee65272042a"
+    },
+    {
+      "path": "server/app/llm/chart_operations/text.py",
+      "bytes": 5499,
+      "sha256": "65d625bb38877c8a77cc3870012a5c478afa32d132c8159811e5bee16d13ef57"
+    },
+    {
+      "path": "server/app/llm/citation_agent.py",
+      "bytes": 8433,
+      "sha256": "2733c47a6eb2482ae1bb458de76ff244fa8c08c380683a9c2f6b6260b4f32bcc"
+    },
+    {
+      "path": "server/app/llm/citation_handler.py",
+      "bytes": 9371,
+      "sha256": "56853334ae3b2df39ed1b1d407c0a0cba2c562ed1cff96e72fadd8a1f01f5cc5"
+    },
+    {
+      "path": "server/app/llm/citation_recovery.py",
+      "bytes": 16293,
+      "sha256": "c3d0d58a0cd95d927e7d532d25d734140dc796157ff4c645c900a37ddd29c231"
+    },
+    {
+      "path": "server/app/llm/conversation_operations.py",
+      "bytes": 25485,
+      "sha256": "8c67fd145e048e91ecb34a134592f384f1a3d9a5f0601b9c33a74f1c28c779cc"
+    },
+    {
+      "path": "server/app/llm/evidence_operations.py",
+      "bytes": 36093,
+      "sha256": "4ecc0bacb8daad5eb92280c713032bdf1574dd855ab872bb33463a924b8cc647"
+    },
+    {
+      "path": "server/app/llm/json_parser.py",
+      "bytes": 1274,
+      "sha256": "ae1ec4b303209da7967d1cdabb5019a45a7de3d555692207e8b68baaa77da36d"
+    },
+    {
+      "path": "server/app/llm/multi_paper_operations.py",
+      "bytes": 16667,
+      "sha256": "f82cac626515ff1b52af1adcd7a2a95529d66cf8c01190c1b5e1e25d043b0221"
+    },
+    {
+      "path": "server/app/llm/operations.py",
+      "bytes": 920,
+      "sha256": "aad3009ecca5384831c669256ad81c54de6a3b8fc4124d9b2563b585153c81a6"
+    },
+    {
+      "path": "server/app/llm/paper_operations.py",
+      "bytes": 11518,
+      "sha256": "e64e113b18bb33c4cf5f2a7c5603202e34f732f11b66db3cd9d653bda87db30d"
+    },
+    {
+      "path": "server/app/llm/prompts.py",
+      "bytes": 48774,
+      "sha256": "ac72d668df8920e06d8077e08a99d6bf79ffbede60ff2a14049e65147e14383d"
+    },
+    {
+      "path": "server/app/llm/provider.py",
+      "bytes": 51678,
+      "sha256": "23b0b795299679dee49042534043977458a066306caa48175d26ab58e863ecd3"
+    },
+    {
+      "path": "server/app/llm/speech.py",
+      "bytes": 13893,
+      "sha256": "486b1cf5c766f32c9676209d1202bb2af655d4a00fdc846603ac177fa1a6e659"
+    },
+    {
+      "path": "server/app/llm/tools/file_tools.py",
+      "bytes": 13772,
+      "sha256": "06f6b378437614716ba0919e43287041fc8920fb1662f3da8b61da2aaa327a2f"
+    },
+    {
+      "path": "server/app/llm/tools/meta_tools.py",
+      "bytes": 253,
+      "sha256": "b5e566f02220362927928647fdba0366d45930c3af2e6d5ed38a1ca4c59df653"
+    },
+    {
+      "path": "server/app/llm/tools/web_tools.py",
+      "bytes": 2771,
+      "sha256": "ad4fb6300fbdb7894c56517959f5b0da8bc267061d31d34724c073ead48e2eb6"
+    },
+    {
+      "path": "server/app/llm/utils.py",
+      "bytes": 11700,
+      "sha256": "39c60dcf4325e9b7d2b08e1144e636664bf6e444b617fa22374df732dd4f2336"
+    },
+    {
+      "path": "server/app/logging_config.py",
+      "bytes": 5173,
+      "sha256": "3493a097c7684467526ae3325f819bea52bb885d23bc4e5eb124e11971132bc1"
+    },
+    {
+      "path": "server/app/main.py",
+      "bytes": 5851,
+      "sha256": "f9dbbc7f60ba128c85c509a4ee6a6006af45ab129477f1c2f6301a43a82f6c94"
+    },
+    {
+      "path": "server/app/observability.py",
+      "bytes": 4167,
+      "sha256": "d6fcc1186bf08a11b8c9bd48689c9ab4ad52ade6fd6b08e29d7385adc9714687"
+    },
+    {
+      "path": "server/app/schemas/artifact.py",
+      "bytes": 1907,
+      "sha256": "0c3706fca51270d140f45d6ee8458e889f1d884ffa399ed3a9a355eeec923025"
+    },
+    {
+      "path": "server/app/schemas/chart.py",
+      "bytes": 9668,
+      "sha256": "374f6c2637af0e7456b1f1d4a8a914cda95abe4c58a010ae386346a43061df0e"
+    },
+    {
+      "path": "server/app/schemas/citation.py",
+      "bytes": 1628,
+      "sha256": "a65a7299106afcfe816a243d6797174f8d4211c6b5bef87413eaea2ab68a88dd"
+    },
+    {
+      "path": "server/app/schemas/discover.py",
+      "bytes": 2216,
+      "sha256": "50a983d991489090cf405dcb4f4c62cce91e2f776bcaab855ced6b2269eca8f3"
+    },
+    {
+      "path": "server/app/schemas/message.py",
+      "bytes": 16188,
+      "sha256": "f546ba162f6fba50bb9ceb1d434222a4620c21c4e051fbf09f6a7699da48b625"
+    },
+    {
+      "path": "server/app/schemas/paper.py",
+      "bytes": 298,
+      "sha256": "6a2be7c9eb75c4394676044756eb193a8448ca6fbf8b88ed74e49c61a2714497"
+    },
+    {
+      "path": "server/app/schemas/responses.py",
+      "bytes": 10913,
+      "sha256": "56b726e42457bd0f78876428feb5c517eee35cb561389b3c436272d2d2f878f0"
+    },
+    {
+      "path": "server/app/schemas/user.py",
+      "bytes": 2342,
+      "sha256": "b4601650c626e0c62bc3b77641bd10d2dc542631f7620f20b3d8c6b916bbf15f"
+    },
+    {
+      "path": "server/app/schemas/zotero.py",
+      "bytes": 2003,
+      "sha256": "f90b6d25be60264cc111d3fdd054345fddf1ee4095092822123797093bc027fd"
+    },
+    {
+      "path": "server/app/scripts/__init__.py",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "server/app/scripts/backfill_paper_metadata.py",
+      "bytes": 3907,
+      "sha256": "e7d36b59eed5cb327acf69ba9ea9d53820a17decc81ed22c46c52322e34ead6d"
+    },
+    {
+      "path": "server/app/scripts/backfill_paper_passages.py",
+      "bytes": 6832,
+      "sha256": "809b537a953f6450ee2a477b8ace1797808d6e916a91efc0f24107aafcb117cc"
+    },
+    {
+      "path": "server/app/scripts/run_migrations.py",
+      "bytes": 452,
+      "sha256": "053d129e5793d1cbe067a51b730a0f40bbebe515745a85d9dea166289c3237ca"
+    },
+    {
+      "path": "server/app/services/zotero_import.py",
+      "bytes": 54586,
+      "sha256": "b4355b3e34298aa3b84a3830f2ffb3d3f918f8eb11b565b0860d3dd268ff0412"
+    },
+    {
+      "path": "server/app/tasks/audio_overview.py",
+      "bytes": 10278,
+      "sha256": "fae6eb8cdf7b9f93f83a8fc5c3ffde98d96f581f8c979961253a608ec34ea9bf"
+    },
+    {
+      "path": "server/app/tasks/chart_generation.py",
+      "bytes": 6141,
+      "sha256": "7fbc0fabb402b43e023e82f57f09e21d8f890d8bd08bf08b5e5c310fcc1f05a2"
+    },
+    {
+      "path": "server/dev/README.md",
+      "bytes": 715,
+      "sha256": "9fc7d69cae03185b8d3501a9cee12287938068cccfe45ba8d8abb03d9a6613af"
+    },
+    {
+      "path": "server/dev/build_dev_fixture.py",
+      "bytes": 10434,
+      "sha256": "bbf3585d0cf2416233c4bac74533e8710d1eecf7da45f504352ab12209cb91e6"
+    },
+    {
+      "path": "server/evals/README.md",
+      "bytes": 3960,
+      "sha256": "fc9759ceed718e9ea4686c489b80380e7f4d8cab700a2244eb16b1ad1bf7d9fb"
+    },
+    {
+      "path": "server/evals/__init__.py",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "server/evals/collect_papers.py",
+      "bytes": 21410,
+      "sha256": "a96c5b41943d77870a7719f1d714fc685b8fc0f1a35e05dfbc5e19c221fd81a2"
+    },
+    {
+      "path": "server/evals/data_table_eval_manifest.json",
+      "bytes": 13884,
+      "sha256": "e2fca68a649986b6d436a99fe9c22ae9d3dfc20032f475de37d528ac666b78ba"
+    },
+    {
+      "path": "server/evals/download_evals_dataset.sh",
+      "bytes": 2361,
+      "sha256": "427889412affed797956e214fe147a9b2abc573f65a15abb175a44222c961111"
+    },
+    {
+      "path": "server/evals/download_evals_results.sh",
+      "bytes": 1252,
+      "sha256": "2d23b610cc6719d358324373ea60e7867a3cb51d247fdba156cd34720d30aa2f"
+    },
+    {
+      "path": "server/evals/generate_dataset.py",
+      "bytes": 29808,
+      "sha256": "94ac092a068ff3b162d7a47c95474d2b3ad2eede17df836f2aa4235f897409af"
+    },
+    {
+      "path": "server/evals/paper.md",
+      "bytes": 55766,
+      "sha256": "1b50511d24faede72ad29211bbbfdc5e17540523fef61adf33fa2374336a75c5"
+    },
+    {
+      "path": "server/evals/run_benchmark.py",
+      "bytes": 72181,
+      "sha256": "a57db4904fc64d9b04b77e1794f5742408edb2f673771265f1f427d186f99f1d"
+    },
+    {
+      "path": "server/evals/run_data_table_eval.py",
+      "bytes": 27244,
+      "sha256": "40a9bd198fa57783f5922d60ae1cbedfda71f38b1541ce965eb8357f8312829b"
+    },
+    {
+      "path": "server/evals/upload_evals_dataset.sh",
+      "bytes": 9359,
+      "sha256": "425bb017f442f94c1a83f712a25011b70466176c6ad8b9f8f4b1c9571e02f9d1"
+    },
+    {
+      "path": "server/evals/upload_evals_results.sh",
+      "bytes": 1462,
+      "sha256": "1db9b6471bbaf79a1d6b03460328c3c4ce6dd8c0c71f930a7178e07093c9edac"
+    },
+    {
+      "path": "server/gunicorn.config.py",
+      "bytes": 2301,
+      "sha256": "4516f3649c9c7862a96e631ed24da218b5b5eb788fb1b20d7234d70a15868d12"
+    },
+    {
+      "path": "server/migrations/env.py",
+      "bytes": 2359,
+      "sha256": "beb8aeb01f84769b5a343e0fda6b33d783ddcd04c9d1cbf2e8cf2455956c18a7"
+    },
+    {
+      "path": "server/migrations/versions/2025_03_24_0412_create_document.py",
+      "bytes": 2003,
+      "sha256": "54cd6304d8d1752d85001ee6311e62dd64016d2d43f584adf8615cce0410624a"
+    },
+    {
+      "path": "server/migrations/versions/2025_03_25_0033_make_conversations_and_messages.py",
+      "bytes": 2885,
+      "sha256": "d765ceffa667e00118c927dad3b224c94d178a6a911b2cf72c7f72516b8ca361"
+    },
+    {
+      "path": "server/migrations/versions/2025_03_28_0025_make_note.py",
+      "bytes": 1507,
+      "sha256": "9b5421da0fe491415504acd62126f6f0e3712fac09bd9701ec9dc1728bc2abee"
+    },
+    {
+      "path": "server/migrations/versions/2025_04_03_1523_add_highlight_data_models.py",
+      "bytes": 2504,
+      "sha256": "0d44a5e273023ac15491b07c621c9ae03837193b415113bd902629d52f244f4b"
+    },
+    {
+      "path": "server/migrations/versions/2025_04_05_2325_deletable_documents.py",
+      "bytes": 2514,
+      "sha256": "6557c73882a34761a81292cd19dbe04e472fae7c7e0166d346f259780163ff10"
+    },
+    {
+      "path": "server/migrations/versions/2025_04_11_0015_add_auth.py",
+      "bytes": 3383,
+      "sha256": "aadee4ffbab57922d6449035d55ef4b3765166871b8fe0d61a7e938cfaf37e44"
+    },
+    {
+      "path": "server/migrations/versions/2025_04_11_2117_add_user_fields_to_other_objects.py",
+      "bytes": 4065,
+      "sha256": "95a426785d7e887903b5b8aeb5eab40a3fe88eb94a2b18d92fab9a7b55bfb7a0"
+    },
+    {
+      "path": "server/migrations/versions/2025_04_12_0545_add_s3_object_key_to_doc.py",
+      "bytes": 883,
+      "sha256": "60596253f090bbbc141ec791089ed661d95f42c1f9b1a82028580a8182765bed"
+    },
+    {
+      "path": "server/migrations/versions/2025_04_21_0225_add_ondelete_parameter_for_message_.py",
+      "bytes": 1261,
+      "sha256": "3ea5f32c35d2408f4c43c6acb1465f2c120c013097ccef2b5cb83eb779049c6f"
+    },
+    {
+      "path": "server/migrations/versions/2025_04_25_0107_rename_document_paper.py",
+      "bytes": 4343,
+      "sha256": "f5353fab7b67dd6df61d02132702179dcb36cca6f002365d367f856b9dfd0538"
+    },
+    {
+      "path": "server/migrations/versions/2025_04_30_0545_let_papers_be_publicly_shareable.py",
+      "bytes": 1150,
+      "sha256": "9e83dc362c3982ffc354a70d1d150e4d64c76b3857ce56250984469542076e7c"
+    },
+    {
+      "path": "server/migrations/versions/2025_05_17_0026_specify_deletion_logic_for_conversation_.py",
+      "bytes": 803,
+      "sha256": "c4d7663ff8ba53fc1b9c35da519a5f2182a4a21b00e141c8cd2c749b37c20d94"
+    },
+    {
+      "path": "server/migrations/versions/2025_05_25_1912_add_hypothesis_jobs.py",
+      "bytes": 6128,
+      "sha256": "170f506263d9668f4481e30b442ca26575ff7422c8c131f117ab692b56271200"
+    },
+    {
+      "path": "server/migrations/versions/2025_05_27_0254_audio_overview_job.py",
+      "bytes": 2675,
+      "sha256": "170157c3a871ea22f7df67d8ee0d16982d951d6d6cede924a57c9c267535e243"
+    },
+    {
+      "path": "server/migrations/versions/2025_05_28_0431_paper_cache_presigned_url.py",
+      "bytes": 1118,
+      "sha256": "8b6a538f0533e88a48d81f51c97045e38edc1066b0fd320f97977ed583d5e246"
+    },
+    {
+      "path": "server/migrations/versions/2025_06_01_0345_paper_status_track.py",
+      "bytes": 1120,
+      "sha256": "5c9987328fec66b602b58436f74d903e60cdcbf80a3ddeee34e29e1207707e77"
+    },
+    {
+      "path": "server/migrations/versions/2025_06_03_2326_paper_last_accessed_at.py",
+      "bytes": 1405,
+      "sha256": "2467b302f798158666444c776d1b5893247a4241d50ccba00600ac379f1663ca"
+    },
+    {
+      "path": "server/migrations/versions/2025_06_05_0001_audio_citations.py",
+      "bytes": 1104,
+      "sha256": "25b15886987315f6c74c5b8e444451259a9c272cb3c7b7f92e94e6bf6ad86eda"
+    },
+    {
+      "path": "server/migrations/versions/2025_06_06_2106_paper_upload_job.py",
+      "bytes": 2147,
+      "sha256": "4cc1fc8db1c38f29e54e0c4db3b9bf0975ab28d83eb6fde56a12a67ac804e10b"
+    },
+    {
+      "path": "server/migrations/versions/2025_06_07_0236_paper_preview_image.py",
+      "bytes": 868,
+      "sha256": "eb6f8b0e455e211086f5b92141a84e56bea3db3307d61df6fb671f1d977952e7"
+    },
+    {
+      "path": "server/migrations/versions/2025_06_14_0328_paper_ai_annotations.py",
+      "bytes": 2494,
+      "sha256": "93ecfb0848ae66294e93ea5b99c9223ded8b6ca2414a3500bbe74b1c73acd5e1"
+    },
+    {
+      "path": "server/migrations/versions/2025_06_15_2217_paper_graph_store_id.py",
+      "bytes": 981,
+      "sha256": "619d7c2dab7e349157237cd58b50c54e0df1963d063665467306ecc94c55b527"
+    },
+    {
+      "path": "server/migrations/versions/2025_06_17_2150_paper_store_summary_citations.py",
+      "bytes": 1006,
+      "sha256": "58c3dbfc69a3200855b982d10868936d051d250dd4c732769f4eda6f657b6558"
+    },
+    {
+      "path": "server/migrations/versions/2025_06_24_0116_task_id_for_paperuploadjob.py",
+      "bytes": 889,
+      "sha256": "3459590fcdcdbd7577273d5286e2f8bbdbbc7f89c1d92aa242b96b5f94b0c03f"
+    },
+    {
+      "path": "server/migrations/versions/2025_06_24_1833_remove_filename_field.py",
+      "bytes": 910,
+      "sha256": "5822b2ca69624122e7e358caea3d82f6aeaf5258bdc3d97b6548e33ba15db657"
+    },
+    {
+      "path": "server/migrations/versions/2025_07_03_1954_add_subscriptions.py",
+      "bytes": 2072,
+      "sha256": "beae1b045eb09891f611c3c214051b7cd3c2a7e38ba826f529a89d45bd00aa48"
+    },
+    {
+      "path": "server/migrations/versions/2025_07_05_0320_store_size_in_kb_per_paper.py",
+      "bytes": 874,
+      "sha256": "85c5a95164a467a58f642e7de2f2ab87b9071033561d63ec7859a794f9d9f58e"
+    },
+    {
+      "path": "server/migrations/versions/2025_07_11_1830_paper_image.py",
+      "bytes": 1999,
+      "sha256": "863d97ff48d1ca58d039bfd681463ea3f51430319d3bd4c581226b1da7863375"
+    },
+    {
+      "path": "server/migrations/versions/2025_07_13_2144_highlight_type.py",
+      "bytes": 857,
+      "sha256": "0bd471e050a9eb9989ed49d9618c88bb0faa6a57262ade34b1e2d9f24f1a1e73"
+    },
+    {
+      "path": "server/migrations/versions/2025_07_16_1734_conversation_base.py",
+      "bytes": 2829,
+      "sha256": "29f161e101f2aeaca27177fcca51063f5f34ecc0c3d734b716ecec9957e6476c"
+    },
+    {
+      "path": "server/migrations/versions/2025_09_05_2321_add_projects.py",
+      "bytes": 4053,
+      "sha256": "4c7c6f708812de57fd11606d58fe7daf29e7d48f2f0e2bf8209fb8d9a840e97f"
+    },
+    {
+      "path": "server/migrations/versions/2025_09_08_2115_add_native_onboarding.py",
+      "bytes": 2108,
+      "sha256": "9e0979d958cfec59900cb6858dc6bbca58c1580269f03abb30ecf11e4d6b1e1c"
+    },
+    {
+      "path": "server/migrations/versions/2025_09_12_1900_allow_cascade_deletes_project_.py",
+      "bytes": 1515,
+      "sha256": "6687ba9e38a613d9d0b477a141ea94f94316eb4aa8fc49153a96dea4a65e37fd"
+    },
+    {
+      "path": "server/migrations/versions/2025_09_28_1953_add_conversable_type_to_audio_overviews.py",
+      "bytes": 3392,
+      "sha256": "79a1ae107f7a7d3a10b8e89b0bb66506940973a92f1dbb71951dc57aa925674d"
+    },
+    {
+      "path": "server/migrations/versions/2025_09_28_2003_rm_paper_and_audio_overview.py",
+      "bytes": 1722,
+      "sha256": "690b954913699892aea9584e6d12214570f526ca9079508e98c11d12577c4514"
+    },
+    {
+      "path": "server/migrations/versions/2025_10_09_1921_add_tsvector_fts_pg.py",
+      "bytes": 2008,
+      "sha256": "d56550289e24d02ffc38d5e9a3f864793fbd9f92007e8d1e587affe7a7d8f30b"
+    },
+    {
+      "path": "server/migrations/versions/2025_10_15_2319_add_email_auth_fields.py",
+      "bytes": 1615,
+      "sha256": "abda26ddd397ec05e5efef074c510155e71dadb8eba0ad5046a28faf6d3df054"
+    },
+    {
+      "path": "server/migrations/versions/2025_11_04_0215_add_paper_tags.py",
+      "bytes": 2268,
+      "sha256": "19d1f59a4aad1af0f59b5f4b30fb7822f577d2523c44c5b6245f12a1cb61df21"
+    },
+    {
+      "path": "server/migrations/versions/2025_11_11_0127_add_project_invitations.py",
+      "bytes": 1943,
+      "sha256": "3cd21f0ec259041249806490711c72f65dc576ef431699fdfc68296f9fa409e8"
+    },
+    {
+      "path": "server/migrations/versions/2025_11_12_1958_add_forkable_papers.py",
+      "bytes": 1313,
+      "sha256": "7713e636bde2023eddc521e69108abbf0073296ee13e6c36d0cb055bcfe6640a"
+    },
+    {
+      "path": "server/migrations/versions/2025_12_04_2257_add_more_paper_metadata.py",
+      "bytes": 986,
+      "sha256": "ecdc59a46d3e0c877230853cadb9b771bc1205f0ffb16ea0f348b55c8f29352f"
+    },
+    {
+      "path": "server/migrations/versions/2025_12_06_0017_paper_store_extracted_metadata_at.py",
+      "bytes": 940,
+      "sha256": "d412a4a0c1bcc06534077ffedfd744c1ec8daa00cd703d3a9d8ab6cce87a57dd"
+    },
+    {
+      "path": "server/migrations/versions/2025_12_13_2240_data_tables.py",
+      "bytes": 4307,
+      "sha256": "e7e8b79e48cf073f43da0751c8e8378467c66a9e7a893907ffc13d98bd0834ad"
+    },
+    {
+      "path": "server/migrations/versions/2025_12_27_0543_position_in_highlight.py",
+      "bytes": 966,
+      "sha256": "426ab55a1e1d499d40ce97f2767919c0e36e14edbf06cc853a4cd9b12039392d"
+    },
+    {
+      "path": "server/migrations/versions/2025_12_30_0215_color_in_highlight.py",
+      "bytes": 863,
+      "sha256": "e2c9b923c9f31a961dbfc760f043c411f8354794b2e77f6bac630d6e11082941"
+    },
+    {
+      "path": "server/migrations/versions/2025_12_31_0519_rm_hypothesis_dead_code.py",
+      "bytes": 8716,
+      "sha256": "06741995d8469d93d544ba16263c2d8a2ffe758052458f2243169c010ad268ed"
+    },
+    {
+      "path": "server/migrations/versions/2026_01_08_1853_add_row_failures_in_dt_result.py",
+      "bytes": 957,
+      "sha256": "36b7cce5e79959eb6f05ceea44a442042a2a6f5e9da2585c29421d9cd07c84d1"
+    },
+    {
+      "path": "server/migrations/versions/2026_02_02_2137_add_discover_data.py",
+      "bytes": 1675,
+      "sha256": "dbbd95bbc3e902e4c2b177f47d1d6696ea641fb07306486111d336882a073272"
+    },
+    {
+      "path": "server/migrations/versions/2026_02_28_2020_add_stripe_schedule.py",
+      "bytes": 910,
+      "sha256": "0fb2a02ef43951aeca64879eade873795f557fe8d9b20219e20be71e02448a3d"
+    },
+    {
+      "path": "server/migrations/versions/2026_03_18_1200_add_paper_passages_table.py",
+      "bytes": 2555,
+      "sha256": "1dbc84368a1e79bb135531bb2a03c5d23fd075444ca09c75e86ac5acbd7310a0"
+    },
+    {
+      "path": "server/migrations/versions/2026_03_25_1200_add_status_message_to_audio_jobs.py",
+      "bytes": 689,
+      "sha256": "7ac50d60bb74671b0c028b969d81ea8a5008bf46d6ec856f9a81800262c0e7fb"
+    },
+    {
+      "path": "server/migrations/versions/2026_04_15_1733_add_is_blocked_to_user.py",
+      "bytes": 1634,
+      "sha256": "e4d14fb4d8ad22ebe710fbefdd98167b1676373adb6c1cb49a379bebf5ada672"
+    },
+    {
+      "path": "server/migrations/versions/2026_05_12_1916_add_referrals.py",
+      "bytes": 3899,
+      "sha256": "e9b0daf34c5733620337fdc9fb77e053680ae67a02bfc998ea05a92c35385a5a"
+    },
+    {
+      "path": "server/migrations/versions/2026_05_14_2048_add_project_paper_index.py",
+      "bytes": 2331,
+      "sha256": "130f30eefd501bf0797aa3cf69b3f90a090e829b31d9d86e671c0a48c77c373f"
+    },
+    {
+      "path": "server/migrations/versions/2026_05_29_0342_add_field_provenance_and_trace.py",
+      "bytes": 1174,
+      "sha256": "ef5fcdddf093a5d7e6ab48c76667a427f56482f71a4e15da5800d913ead8884c"
+    },
+    {
+      "path": "server/migrations/versions/2026_06_01_2205_add_artifacts_table.py",
+      "bytes": 2658,
+      "sha256": "f4d12d50d13ff943a475cd0da1e46591495c38ddeb43435f0db81df42d75a20a"
+    },
+    {
+      "path": "server/migrations/versions/2026_06_04_1200_add_zotero_oauth.py",
+      "bytes": 2426,
+      "sha256": "f69e04674e20ea93a0efddb820c2d99b0533d32c6b7d7cb31ecd16e494839de1"
+    },
+    {
+      "path": "server/migrations/versions/2026_06_04_1201_add_zotero_imported_items.py",
+      "bytes": 2424,
+      "sha256": "d855aa05e8c0d0311bae836ac34f8d1e5190827e3612f36c361112aacff06527"
+    },
+    {
+      "path": "server/migrations/versions/2026_06_04_1202_add_zotero_sync_fields.py",
+      "bytes": 1175,
+      "sha256": "c0732ac2153f2a699dc34206fb5d3d0807712c16277ebb564a9d9f32040bfdd4"
+    },
+    {
+      "path": "server/migrations/versions/2026_06_20_2135_zotero_fields.py",
+      "bytes": 3606,
+      "sha256": "fbf9815c1216956c263cb85722b7bc79a03e27ecee54d407a7a36df3f9be0944"
+    },
+    {
+      "path": "server/migrations/versions/2026_06_20_2138_rm_keywords.py",
+      "bytes": 1019,
+      "sha256": "589d9f1fae4ff9b63492d6031c9689366106e8e58175a034b7c67722581e9261"
+    },
+    {
+      "path": "server/migrations/versions/2026_06_30_1555_add_message_scope.py",
+      "bytes": 952,
+      "sha256": "849020def5223f432ac9dcaec6af097522e425d7db456de14daaf4a1bdb72bb7"
+    },
+    {
+      "path": "server/migrations/versions/2026_07_18_0015_fix_conversable_check_constraint.py",
+      "bytes": 1742,
+      "sha256": "383c2303d8b0166485fcc56a5c4e1c6a068e0d43ca1ab95c2df5f230d35ff48e"
+    },
+    {
+      "path": "server/migrations/versions/2026_07_21_1759_add_column_plan_to_data_table_jobs.py",
+      "bytes": 837,
+      "sha256": "8c35517b68ed80868bb0ab479adf0e07893dc944d57f9205d0d67dba48f04312"
+    },
+    {
+      "path": "server/migrations/versions/2026_07_24_0318_add_compute_provenance_to_data_table_.py",
+      "bytes": 867,
+      "sha256": "e5b3ce0d9f61865cbf67dca3d9999311f2567329505b5fcd9feb5d6ce63923ec"
+    },
+    {
+      "path": "server/migrations/versions/2026_08_08_2322_add_chart_generation_jobs.py",
+      "bytes": 3087,
+      "sha256": "80556d06d7449aa63a7374cceb9f136fb828c30392b28526497b2c44ed882847"
+    },
+    {
+      "path": "server/migrations/versions/2026_08_08_2334_project_title.py",
+      "bytes": 903,
+      "sha256": "55ed1be9ddf091f95e53c2520704d235bdf64a80d7a0b6bf98880ff0a29cb896"
+    },
+    {
+      "path": "server/migrations/versions/2026_08_19_1912_split_artifacts_into_typed_tables_per_.py",
+      "bytes": 14505,
+      "sha256": "d3d3fd8f143bb88f5b7867caa9582a2681e3e1decf2feb4d7def402ce6318832"
+    },
+    {
+      "path": "server/migrations/versions/2026_08_19_2017_chart_jobs_can_come_from_a_chat_turn_.py",
+      "bytes": 2523,
+      "sha256": "ecfb6288d8e23b1bc6c7e210d329a62bb4f7d459fc38e8ab9ace62b2b35b560a"
+    },
+    {
+      "path": "server/migrations/versions/2026_08_29_1723_google_oauth_state.py",
+      "bytes": 2059,
+      "sha256": "53bfc73793aecdf4e1b614831ba5081bcf939d5eb57cf191353d6f3d0090ce73"
+    },
+    {
+      "path": "server/pyproject.toml",
+      "bytes": 1886,
+      "sha256": "60092fc4c50030dd2f39340d0c64ff956c9d5e5821814f5d94f7ac7083f49a8f"
+    },
+    {
+      "path": "server/shell.py",
+      "bytes": 2716,
+      "sha256": "d2bd3e09022531e2f48fb1f6a6aebe1f0f750e0dfe40328826c1d0685eb9208f"
+    },
+    {
+      "path": "server/start.sh",
+      "bytes": 199,
+      "sha256": "257375110da40de5aee51b27f88aa62e47759d66be9e15230cd6d109af51d4e6"
+    },
+    {
+      "path": "server/tests/__init__.py",
+      "bytes": 42,
+      "sha256": "e3ab87f1aa4d98ae5cf44ac18b10e1809487affbadc601bd9ed26a6399ddfa6e"
+    },
+    {
+      "path": "server/tests/test_actions_block_hides_tool_names.py",
+      "bytes": 2620,
+      "sha256": "2ab276a228726bbbc8b1ad4010845223f76c7e88891749c7f4fcd03d92f43624"
+    },
+    {
+      "path": "server/tests/test_artifact_storage.py",
+      "bytes": 9094,
+      "sha256": "95ed76a6c1b0ec45b53dd6802505f1022ed788e6c876fec3587436244115a539"
+    },
+    {
+      "path": "server/tests/test_base_crud_remove.py",
+      "bytes": 3302,
+      "sha256": "eb06bd83ea8d7e02c93d77197371ff00f96c08c8e0bf738326964cf8848ac062"
+    },
+    {
+      "path": "server/tests/test_chart_agent.py",
+      "bytes": 9728,
+      "sha256": "f811aaa3aa31ce26779d63d25e35f372515463bb66a215a34f38b26d5a6e002a"
+    },
+    {
+      "path": "server/tests/test_chart_operations.py",
+      "bytes": 91440,
+      "sha256": "0450c0bb24203caa1542f1f67bc03a7f3fc565249e66cb5b6311fd1e41271df5"
+    },
+    {
+      "path": "server/tests/test_compaction_degrades.py",
+      "bytes": 2145,
+      "sha256": "6c50f96ec3e078131f4e0af9c0bc08d1ebf2a2cc786e3a5d97d8009f75ae9eaf"
+    },
+    {
+      "path": "server/tests/test_compute_agent.py",
+      "bytes": 10446,
+      "sha256": "70437f0b324caf68f6000a9390c280d2ff7a739533b1a4acc1f7b9f264d20cad"
+    },
+    {
+      "path": "server/tests/test_empty_answer_stream.py",
+      "bytes": 8295,
+      "sha256": "1e68c55c269bee7c45094ef7991fb334487a2bfa2b59836d2ca3595edfe131b3"
+    },
+    {
+      "path": "server/tests/test_exa_publication_search.py",
+      "bytes": 17317,
+      "sha256": "76fce9ab5cd01a2c3f344e8293ea7ae50e6a29867e2891d7d98e975cf7b7af59"
+    },
+    {
+      "path": "server/tests/test_google_oauth_callback.py",
+      "bytes": 10677,
+      "sha256": "4e93ef5ff4c5ad2148395ac6f6cfee2a5c1ca99afd335a9a4fc500f11ac66b0f"
+    },
+    {
+      "path": "server/tests/test_google_oauth_state_claim.py",
+      "bytes": 4738,
+      "sha256": "06b543772bf77cc5d550fa8d6d9f379bc9beba03e1837406a5419ebc400101b7"
+    },
+    {
+      "path": "server/tests/test_logging_config.py",
+      "bytes": 3008,
+      "sha256": "faf126fc8ef53d80f939a5eafce6a9445612da2b49eefe9afc150b01739d3436"
+    },
+    {
+      "path": "server/tests/test_metadata_columns.py",
+      "bytes": 7520,
+      "sha256": "334747525252a2d83798f92861c3bdb8cf8c91cf45d542b2db65a54b5ed0bf98"
+    },
+    {
+      "path": "server/tests/test_recitation_retry.py",
+      "bytes": 4944,
+      "sha256": "be9afda0d2ee5ec757263195cf49c9bebee792b8a9fccf8844adc9485e462892"
+    },
+    {
+      "path": "server/tests/test_stream_provider_fallback.py",
+      "bytes": 8234,
+      "sha256": "8d781f4eaa3d50fcbd644bb7923cd82adf53b5adac4e65f6695e48f226a6d7c0"
+    },
+    {
+      "path": "server/tests/test_stream_retry.py",
+      "bytes": 9821,
+      "sha256": "9ea06407aba28c25a235d07457a68a321a6db4be1baae8816568fcaf65dbe43e"
+    },
+    {
+      "path": "server/tests/test_view_file_range.py",
+      "bytes": 3374,
+      "sha256": "d7961ed2042c82faf0d3c8533904f35cbe51626a98276b326a6befb86a952431"
+    },
+    {
+      "path": "server/tests/test_zotero_auto_import_window.py",
+      "bytes": 3496,
+      "sha256": "1beae979f1e190142aaccc906ae4ad42972418d97ba5d75c1cdb29a4ff6a0896"
+    },
+    {
+      "path": "server/tests/test_zotero_import_dedup.py",
+      "bytes": 15664,
+      "sha256": "da7a9f9c56299a5cec6d2161c5a298d22eb69876d98afaa4df823903e499117e"
+    },
+    {
+      "path": "server/tests/test_zotero_import_limits.py",
+      "bytes": 6201,
+      "sha256": "8638b6f1ceb3635898d8224edd5d0142b0bbae3d5cb5126cade56d62fba708d5"
+    },
+    {
+      "path": "server/tests/test_zotero_retry.py",
+      "bytes": 8830,
+      "sha256": "037e1e3a2ac3174872eb7f08034ce2f621eb9a730f2966a45719f4f04f47dc3e"
+    },
+    {
+      "path": "server/tests/test_zotero_sync.py",
+      "bytes": 7771,
+      "sha256": "b81cab4282df5d1e1278a92771fa0b906ba6f02053b011b7158da898538440de"
+    }
+  ],
+  "default_branch": "master",
+  "commit": "93ad62ffc63998cae0c0488595c67ae7cd8a6ceb",
+  "archive_sha256": "327761e4207238778820a1eafe1283507c29bd9070553be8fb0a694995237c3a",
+  "skipped_files": 370,
+  "status": "downloaded",
+  "license_files": [
+    "LICENSE"
+  ]
+}

@@ -1,0 +1,89 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/yohanchen1/MathModelingAgent/schemas/attempt.schema.json",
+  "title": "Math Modeling Attempt",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "attempt",
+    "candidateId",
+    "objective",
+    "evidenceIds",
+    "closedObligationIds",
+    "issuesOpened",
+    "issuesClosed",
+    "progress",
+    "nextAction",
+    "status",
+    "scientificSections",
+    "coverage",
+    "symbols",
+    "verificationManifest"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": 2
+    },
+    "attempt": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "candidateId": {
+      "type": "string"
+    },
+    "objective": {
+      "type": "string",
+      "minLength": 1
+    },
+    "evidenceIds": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "closedObligationIds": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "issuesOpened": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "issuesClosed": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "progress": {
+      "type": "boolean"
+    },
+    "nextAction": {
+      "type": "string",
+      "minLength": 1
+    },
+    "status": {
+      "type": "string"
+    },
+    "scientificSections": {
+      "type": "array",
+      "minItems": 9,
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "coverage": {
+      "type": "object"
+    },
+    "symbols": {
+      "type": "array",
+      "items": { "type": "object" }
+    },
+    "verificationManifest": {
+      "type": "object"
+    }
+  }
+}

@@ -1,0 +1,138 @@
+{
+  "decimals": 3,
+  "coordinates": [
+    {
+      "id": "A0",
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    {
+      "id": "B0",
+      "x": 1.00069,
+      "y": 0,
+      "z": 0
+    },
+    {
+      "id": "A1",
+      "x": 0,
+      "y": 2,
+      "z": 0
+    },
+    {
+      "id": "B1",
+      "x": 1.00069,
+      "y": 2,
+      "z": 0
+    },
+    {
+      "id": "A2",
+      "x": 0,
+      "y": 4,
+      "z": 0
+    },
+    {
+      "id": "B2",
+      "x": 1.00069,
+      "y": 4,
+      "z": 0
+    },
+    {
+      "id": "A3",
+      "x": 0,
+      "y": 6,
+      "z": 0
+    },
+    {
+      "id": "B3",
+      "x": 1.00069,
+      "y": 6,
+      "z": 0
+    },
+    {
+      "id": "A4",
+      "x": 0,
+      "y": 8,
+      "z": 0
+    },
+    {
+      "id": "B4",
+      "x": 1.00069,
+      "y": 8,
+      "z": 0
+    },
+    {
+      "id": "A5",
+      "x": 0,
+      "y": 10,
+      "z": 0
+    },
+    {
+      "id": "B5",
+      "x": 1.00069,
+      "y": 10,
+      "z": 0
+    },
+    {
+      "id": "A6",
+      "x": 0,
+      "y": 12,
+      "z": 0
+    },
+    {
+      "id": "B6",
+      "x": 1.00069,
+      "y": 12,
+      "z": 0
+    }
+  ],
+  "constraints": [
+    {
+      "source": "A0",
+      "target": "B0",
+      "originalLength": 1,
+      "maxRelativeChange": 0.0007
+    },
+    {
+      "source": "A1",
+      "target": "B1",
+      "originalLength": 1,
+      "maxRelativeChange": 0.0007
+    },
+    {
+      "source": "A2",
+      "target": "B2",
+      "originalLength": 1,
+      "maxRelativeChange": 0.0007
+    },
+    {
+      "source": "A3",
+      "target": "B3",
+      "originalLength": 1,
+      "maxRelativeChange": 0.0007
+    },
+    {
+      "source": "A4",
+      "target": "B4",
+      "originalLength": 1,
+      "maxRelativeChange": 0.0007
+    },
+    {
+      "source": "A5",
+      "target": "B5",
+      "originalLength": 1,
+      "maxRelativeChange": 0.0007
+    },
+    {
+      "source": "A6",
+      "target": "B6",
+      "originalLength": 1,
+      "maxRelativeChange": 0.0007
+    }
+  ],
+  "expected": {
+    "strictViolations": 7,
+    "worstRelativeChange": 0.001,
+    "verdict": "FAIL"
+  }
+}

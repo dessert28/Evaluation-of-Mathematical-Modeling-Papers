@@ -1,0 +1,140 @@
+{
+  "config": {
+    "source": "langgraph checkpoint state, not the rendered Markdown",
+    "note": "Rates measure what survived validation out of what the model proposed. Citations in a finished report are valid by construction, so measuring the report itself would trivially return 100%.",
+    "revalidation": "deterministic re-check of every committed citation; the support judge is not re-run, see evals.run_claim_judge"
+  },
+  "totals": {
+    "runs": 1,
+    "papers": 4,
+    "claims_kept": 75,
+    "claims_dropped": 3,
+    "claim_support_rate": 0.9615384615384616,
+    "evidence_kept": 76,
+    "evidence_dropped": 3,
+    "evidence_unsupported": 1,
+    "citation_integrity": 0.9625,
+    "support_integrity": 0.987012987012987,
+    "overall_integrity": 0.95,
+    "evidence_judged": 76,
+    "citations_per_claim": 1.0133333333333334,
+    "revalidated": 76,
+    "revalidation_failures": 0,
+    "revalidation_rate": 1.0,
+    "claims_by_facet": {
+      "experimental_setup": 13,
+      "limitations": 14,
+      "main_findings": 12,
+      "method": 12,
+      "relevance_to_query": 14,
+      "research_problem": 10
+    }
+  },
+  "runs": [
+    {
+      "thread_id": "judged-example-2",
+      "user_query": "How is mechanistic interpretability used to understand transformer internals?",
+      "status": "complete",
+      "retriever_kind": "hybrid-rerank",
+      "output": "examples/example_review.md",
+      "papers": [
+        {
+          "arxiv_id": "2511.14465v2",
+          "title": "nnterp: A Standardized Interface for Mechanistic Interpretability of Transformers",
+          "claims_kept": 20,
+          "claims_dropped": 0,
+          "evidence_kept": 20,
+          "evidence_dropped": 0,
+          "evidence_unsupported": 0,
+          "claim_support_rate": 1.0,
+          "citation_integrity": 1.0,
+          "support_integrity": 1.0,
+          "overall_integrity": 1.0,
+          "evidence_judged": 20,
+          "revalidated": 20,
+          "revalidation_failures": [],
+          "claims_by_facet": {
+            "experimental_setup": 4,
+            "limitations": 4,
+            "main_findings": 2,
+            "method": 4,
+            "relevance_to_query": 4,
+            "research_problem": 2
+          }
+        },
+        {
+          "arxiv_id": "2402.03855v2",
+          "title": "Challenges in Mechanistically Interpreting Model Representations",
+          "claims_kept": 14,
+          "claims_dropped": 2,
+          "evidence_kept": 14,
+          "evidence_dropped": 2,
+          "evidence_unsupported": 1,
+          "claim_support_rate": 0.875,
+          "citation_integrity": 0.8823529411764706,
+          "support_integrity": 0.9333333333333333,
+          "overall_integrity": 0.8235294117647058,
+          "evidence_judged": 14,
+          "revalidated": 14,
+          "revalidation_failures": [],
+          "claims_by_facet": {
+            "experimental_setup": 2,
+            "limitations": 3,
+            "main_findings": 2,
+            "method": 2,
+            "relevance_to_query": 3,
+            "research_problem": 2
+          }
+        },
+        {
+          "arxiv_id": "2409.13714v1",
+          "title": "TracrBench: Generating Interpretability Testbeds with Large Language Models",
+          "claims_kept": 19,
+          "claims_dropped": 1,
+          "evidence_kept": 19,
+          "evidence_dropped": 1,
+          "evidence_unsupported": 0,
+          "claim_support_rate": 0.95,
+          "citation_integrity": 0.95,
+          "support_integrity": 1.0,
+          "overall_integrity": 0.95,
+          "evidence_judged": 19,
+          "revalidated": 19,
+          "revalidation_failures": [],
+          "claims_by_facet": {
+            "experimental_setup": 3,
+            "limitations": 3,
+            "main_findings": 4,
+            "method": 3,
+            "relevance_to_query": 3,
+            "research_problem": 3
+          }
+        },
+        {
+          "arxiv_id": "2606.16939v1",
+          "title": "Scalable Circuit Learning for Interpreting Large Language Models",
+          "claims_kept": 22,
+          "claims_dropped": 0,
+          "evidence_kept": 23,
+          "evidence_dropped": 0,
+          "evidence_unsupported": 0,
+          "claim_support_rate": 1.0,
+          "citation_integrity": 1.0,
+          "support_integrity": 1.0,
+          "overall_integrity": 1.0,
+          "evidence_judged": 23,
+          "revalidated": 23,
+          "revalidation_failures": [],
+          "claims_by_facet": {
+            "experimental_setup": 4,
+            "limitations": 4,
+            "main_findings": 4,
+            "method": 3,
+            "relevance_to_query": 4,
+            "research_problem": 3
+          }
+        }
+      ]
+    }
+  ]
+}

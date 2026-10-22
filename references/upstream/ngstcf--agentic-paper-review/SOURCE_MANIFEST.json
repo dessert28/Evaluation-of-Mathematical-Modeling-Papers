@@ -1,0 +1,291 @@
+{
+  "repository": "ngstcf/agentic-paper-review",
+  "url": "https://github.com/ngstcf/agentic-paper-review",
+  "retrieved_at": "2026-10-03T12:03:01.743723+08:00",
+  "activation": "reference_only",
+  "files": [
+    {
+      "path": "LICENSE",
+      "bytes": 1070,
+      "sha256": "a6ba79c98fe73628615b61780dab90a6b17df7280940ea24bf12b7927ac11ad0"
+    },
+    {
+      "path": "README.md",
+      "bytes": 12243,
+      "sha256": "9be6525eca2a5975add1211d3330c150ab9a0edc14ecbc85bab3bd127bc81504"
+    },
+    {
+      "path": "agents/__init__.py",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "agents/agent_critic.py",
+      "bytes": 31408,
+      "sha256": "58292fb97e77b444a900cd8d1c541199b6fcfeb7887d3474771859f864fefaee"
+    },
+    {
+      "path": "agents/agent_extractor.py",
+      "bytes": 6591,
+      "sha256": "14efe3621a873ec4756741567a2c180edd5644ccf9d6790d33190832d5a39b41"
+    },
+    {
+      "path": "agents/agent_fact_checker.py",
+      "bytes": 12736,
+      "sha256": "043544d5abbd34006eff1e7383db7e9602d9ba4d2d4fbd4957353b5b7b95369d"
+    },
+    {
+      "path": "agents/agent_librarian.py",
+      "bytes": 23615,
+      "sha256": "919fd8c699e27641d71c1b94b558fefac331596803c7974dfbff76645d9afd16"
+    },
+    {
+      "path": "agents/agent_reader.py",
+      "bytes": 10025,
+      "sha256": "34200fbc1b913537f121489e15ba1f0392e2318012805e23b74f37a446eb739a"
+    },
+    {
+      "path": "agents/agent_synthesizer.py",
+      "bytes": 6490,
+      "sha256": "3ed5b25a8f45fba4030b72cd2d285ed6be77f4691dd97408514e30b9c37be49b"
+    },
+    {
+      "path": "compare_reports.py",
+      "bytes": 4033,
+      "sha256": "d163d8c59114ab44ab46b9ace502e38f7ce12a0a4b631f972eb531a413bed5f8"
+    },
+    {
+      "path": "config/criteria.yaml",
+      "bytes": 4012,
+      "sha256": "ef7868e24d679959083cd97140a2f62fd4b7b3920f74ca5ca8eee0331e87199a"
+    },
+    {
+      "path": "config/literature_sources.yaml",
+      "bytes": 9234,
+      "sha256": "72412abc3167ef56970ef4080685e4414a4bed74ea9fa8b711dac653dc227553"
+    },
+    {
+      "path": "config/model_costs.yaml",
+      "bytes": 781,
+      "sha256": "4de86120b1d8d762e4ba430883a2d2db33556f63a66a9a13c0b1d7d797b0cc18"
+    },
+    {
+      "path": "config/prompts/extractor_criterion.txt",
+      "bytes": 1124,
+      "sha256": "f03671634aebaaeebc2e3b5b01ba7ea6544d10d5b06c76cee89377bce7aab48c"
+    },
+    {
+      "path": "config/prompts/extractor_system.txt",
+      "bytes": 271,
+      "sha256": "a961c7d7570abd95418dbf9093c359432f6ac8a3244a2d70b35f3d50346dcc96"
+    },
+    {
+      "path": "config/prompts/extractor_user.txt",
+      "bytes": 1158,
+      "sha256": "7dab7d8adbca1f29b5d9dd6c512fabf5de34e46353e6df70aa78519224210157"
+    },
+    {
+      "path": "config/prompts/synthesizer_system.txt",
+      "bytes": 302,
+      "sha256": "6b46a0a57a7521c0bf66875dbc662817ef953c3aca3b9631dbc165b8517fdf5b"
+    },
+    {
+      "path": "config/prompts/synthesizer_user.txt",
+      "bytes": 1328,
+      "sha256": "9198cbbd8b40625f9ce8f9650c4b39fea0c0c0b2970e2a087e60968c447820c0"
+    },
+    {
+      "path": "core/__init__.py",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "core/arxiv_searcher.py",
+      "bytes": 12262,
+      "sha256": "880a7951e568e64cfd1d638bcab94d9c30a1f8fcd3c98c8d0fa0c346615696a9"
+    },
+    {
+      "path": "core/config_loader.py",
+      "bytes": 7831,
+      "sha256": "3eef3e5e6cf8b51c0c6f530092246f480f12fb166f039fc0516c19112acee4c5"
+    },
+    {
+      "path": "core/data_models.py",
+      "bytes": 4581,
+      "sha256": "a617dd476a381518314a018d94406668be62cb50d2206d874316186c4060b0da"
+    },
+    {
+      "path": "core/literature_searcher.py",
+      "bytes": 14390,
+      "sha256": "292dab68a01485be55f742b962ce2327fbf94dc8fcd1338db244a52dc744452f"
+    },
+    {
+      "path": "core/llm_wrapper.py",
+      "bytes": 11957,
+      "sha256": "5efa2435a0558975e86f0bb92c12189b1f93faa4ab599c4bb6e57c2fb945dc26"
+    },
+    {
+      "path": "core/llm_wrapper_glm.py",
+      "bytes": 6452,
+      "sha256": "381e08cf6231e68c336f56615164084974bf590e6c08cd41a16d4e9fed9a6d62"
+    },
+    {
+      "path": "core/llm_wrapper_oaiOK.py",
+      "bytes": 3389,
+      "sha256": "a2a930dc932e0941c707c3f2085f2954191619a576fbbe5dfa08a936db29e22e"
+    },
+    {
+      "path": "core/paper_ingestor.py",
+      "bytes": 11355,
+      "sha256": "a46cd1293a164387d41dce1e1434a55a6214db271f63a942866bd1ddde3bca36"
+    },
+    {
+      "path": "core/paper_ingestor_markitdown.py",
+      "bytes": 5284,
+      "sha256": "e57cbaae059c2b833cb26206dc44c18b295cd7e6aae3e76accc4da75c189a096"
+    },
+    {
+      "path": "core/paper_ingestor_nocache.py",
+      "bytes": 2525,
+      "sha256": "e50c356d1d7341ea3beabcb6aed018d3ab840b29c4acc269822615de102d7843"
+    },
+    {
+      "path": "core/progress.py",
+      "bytes": 7904,
+      "sha256": "030d29797acfccdc7ebf706ccb7775bb45c8ff2c8eda4dcd9307377880f370f0"
+    },
+    {
+      "path": "core/world_bank_searcher.py",
+      "bytes": 9112,
+      "sha256": "18a590db355e7c71b972139b2e44814fd2b712029fd063b66ea953f33b7a8324"
+    },
+    {
+      "path": "judge_conflicts.py",
+      "bytes": 15598,
+      "sha256": "1dbfcb2cbbfab38d05ef3ab0171fae451750735fd7683455de18df88194d791f"
+    },
+    {
+      "path": "package.json",
+      "bytes": 361,
+      "sha256": "71f09359e63e829bf01a20b8a62300eded273a66fcde7fbb92bd4732c65bce5e"
+    },
+    {
+      "path": "requirements.txt",
+      "bytes": 270,
+      "sha256": "6f8ef6ed528b92e2c40474500b8ae4c75f3ab31cf359c2b22570745ba40c5fb8"
+    },
+    {
+      "path": "run_batch.py",
+      "bytes": 4691,
+      "sha256": "e78bd4b6fc802a2639d0005a11460d875383cc74f00d0b4f337972c01b0f2ec6"
+    },
+    {
+      "path": "run_review.py",
+      "bytes": 2992,
+      "sha256": "16f80133290bffdfca49c83575e8cd5020c37bcf2d5f0759ba58ff4372e1ecff"
+    },
+    {
+      "path": "run_review_literature.py",
+      "bytes": 15024,
+      "sha256": "9b76c6b94a584afe8adff009b987dbf68cb7a708d0cd883c3df09299c496c176"
+    },
+    {
+      "path": "run_review_nocache.py",
+      "bytes": 2456,
+      "sha256": "b8c889cb9211352f3e014e84f6bd8d6ede61a16f2515c697c548bb104b24f9d1"
+    },
+    {
+      "path": "run_review_with_dir.py",
+      "bytes": 18063,
+      "sha256": "3af6a64e8089f4b25b97b4aabfb9defb76a40b0318195ca6421465d518a97cb3"
+    },
+    {
+      "path": "run_review_with_dir_literature.py",
+      "bytes": 35521,
+      "sha256": "1f4a447822e4d2903195bf6aa50609346d31ca3afb340b9ff71ecdab40ae05c4"
+    },
+    {
+      "path": "run_with_custom_params.py",
+      "bytes": 13634,
+      "sha256": "fb69442820aadade34ac4cb7d64970903106458d7dd3e7b45d6e037e3f599d44"
+    },
+    {
+      "path": "setup_batch_literature_review.py",
+      "bytes": 19563,
+      "sha256": "316d79fba42932a33877139b3b859d04e9f5ab4ad1e39beb381c1f72f9f0506a"
+    },
+    {
+      "path": "setup_batch_runs_literature.py",
+      "bytes": 17779,
+      "sha256": "8c04a8dd434896c03b3a29e42620d8d0165dec65b1be05bc6a70e3a4af6ea6fc"
+    },
+    {
+      "path": "setup_batch_runs_literature_backup.py",
+      "bytes": 17539,
+      "sha256": "e2434672011d1b966af340ce8f0a46a656494617be9862b9b26d05d83326e632"
+    },
+    {
+      "path": "setup_literature_review.py",
+      "bytes": 8412,
+      "sha256": "7b4875ab4de1d0b0d84271014fdb3e08d17e5317bf32c6aa13f03af56edc193f"
+    },
+    {
+      "path": "setup_run.py",
+      "bytes": 2878,
+      "sha256": "2b94a828067f73f324edcf5b73df9e7c85abd814a4fc614d8647f3244b863820"
+    },
+    {
+      "path": "setup_run_literature.py",
+      "bytes": 3141,
+      "sha256": "9892cfa78a5ba8d1d44de65090d9b3168ab83505ab3d2f40fa0bc59d55e58124"
+    },
+    {
+      "path": "utilities/__init__.py",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "utilities/helpers.py",
+      "bytes": 4751,
+      "sha256": "0e20bbc661610e062fa44718ab8594da2747330db2592e613ed5e0a3d2043bca"
+    },
+    {
+      "path": "utilities/output_generator.py",
+      "bytes": 16445,
+      "sha256": "e9712eb3ed4c6c0361a0e5b5513c359020ad24f67757b64bfd640937988811d7"
+    },
+    {
+      "path": "web/__init__.py",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "web/static/app.js",
+      "bytes": 38495,
+      "sha256": "d630a06c01f8fa60efd6eb02933940236ab74e94c1bf2f21c20c5cda69f04603"
+    },
+    {
+      "path": "web/static/index.html",
+      "bytes": 11820,
+      "sha256": "2a0c415d8d85456c725bb622b319ab343b27c4bc715a378169b4b12c6e172cb5"
+    },
+    {
+      "path": "web/static/style.css",
+      "bytes": 16545,
+      "sha256": "e421a6c6a08336cf7f1754f36837d1d5a2e2b63ef803bfde23856780b16ccb14"
+    },
+    {
+      "path": "web_app.py",
+      "bytes": 45956,
+      "sha256": "c81b1fc53d3b7f2073afc24cf575456c54769dcdf62c4933d246b3d1e5aab5d9"
+    }
+  ],
+  "default_branch": "main",
+  "commit": "c117aba2dbb26fece9ab2de12b84c1874fa63e6f",
+  "archive_sha256": "7d6536a09873d74c6cc3f1250c1e107627fc7d4401ac8b00dec6c01fd8d89125",
+  "skipped_files": 5,
+  "status": "downloaded",
+  "license_files": [
+    "LICENSE"
+  ]
+}

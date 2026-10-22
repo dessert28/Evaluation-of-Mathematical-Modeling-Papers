@@ -1,0 +1,24 @@
+Noto Sans SC — 字体许可证说明
+===============================
+
+文件：NotoSansSC-Regular.ttf
+
+字体名称：Noto Sans SC Regular
+发布者：Google Inc. / Adobe（Noto 项目）
+许可证：SIL Open Font License, Version 1.1（SIL OFL 1.1）
+
+上游地址：
+  https://github.com/notofonts/noto-cjk
+  许可证全文：https://github.com/notofonts/noto-cjk/blob/main/LICENSE
+  许可说明页：https://openfontlicense.org
+
+许可要点（以许可证全文为准）：
+  - 允许自由使用、研究、修改和再分发本字体，包括随软件一起打包分发；
+  - 再分发时必须随附本许可证全文，不得单独出售字体；
+  - 修改后的字体不得使用保留字体名称（Reserved Font Name）；
+  - 字体本身按“现状”提供，不含任何担保。
+
+补充说明：
+本文件是许可证标识与获取途径的说明，不是 SIL OFL 1.1 的全文。分发本字体时
+应同时提供许可证全文；请从上面的上游地址取得 LICENSE 文件，另存为
+skills/shared-scripts/LICENSE-NotoSansSC-OFL-1.1.txt 后再分发。

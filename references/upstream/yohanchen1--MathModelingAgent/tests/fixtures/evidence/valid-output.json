@@ -1,0 +1,24 @@
+{
+  "format": "q2-rounding-fixture-v1",
+  "coordinates": [
+    { "id": "N1", "x": 0, "y": 0 },
+    { "id": "N2", "x": 1, "y": 0 },
+    { "id": "N3", "x": 1, "y": 1 },
+    { "id": "N4", "x": 0, "y": 1 },
+    { "id": "N5", "x": 0.5, "y": 0.5 }
+  ],
+  "edges": [
+    { "id": "L1", "source": "N1", "target": "N2", "weight": 1 },
+    { "id": "L2", "source": "N2", "target": "N3", "weight": 1 },
+    { "id": "L3", "source": "N3", "target": "N4", "weight": 1 },
+    { "id": "L4", "source": "N4", "target": "N1", "weight": 1 },
+    { "id": "L5", "source": "N1", "target": "N5", "weight": 0.7071067811865476 },
+    { "id": "L6", "source": "N2", "target": "N5", "weight": 0.7071067811865476 },
+    { "id": "L7", "source": "N3", "target": "N5", "weight": 0.7071067811865476 }
+  ],
+  "result": {
+    "strictViolations": 7,
+    "worstRelativeChange": 0.0007200208016875653,
+    "displayFormatOnly": true
+  }
+}

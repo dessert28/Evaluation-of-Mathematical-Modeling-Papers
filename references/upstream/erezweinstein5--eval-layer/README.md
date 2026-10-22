@@ -1,0 +1,295 @@
+# eval-layer
+
+<p align="center">
+  <img src="assets/scale-jev.gif" alt="Animated pixel-art balance scale with a Works with Jev! badge" width="256" />
+</p>
+
+A skill for **Codex and Claude Code** that generates a **context-based evaluation layer** for an existing agent. It reads the agent's code, instructions, domain documents, tools, and memory behavior, then derives an agent-specific test set and evaluates real execution using **Jev or an LLM judge**.
+
+The primary output is a reusable evaluation layer in your agent's project:
+
+1. A **context record** linking requirements and cases to authoritative sources.
+2. A **rubric and test set** grounded in that agent's responsibilities and failure modes.
+3. **Execution checks** for observable outcomes, including tool actions and memory retrieval when relevant.
+4. A **CLI harness and judge configuration** that capture the agent's outputs and evidence, then apply Jev or an LLM to the same rubric.
+5. **Raw results and JSON/Markdown reports**, with judge scores, failures, timing, usage, and optional Jev/LLM comparisons.
+
+The **UI is optional**. It helps inspect execution traces and compare saved judge runs. The customer-support agent is the example subject; its fixtures, scenarios, and provider settings do not constrain evals generated for other agents.
+
+---
+
+## Installation
+
+### Give this to your agent
+
+Copy this into **Codex or Claude Code**:
+
+```text
+Install the eval-layer skill from https://github.com/erezweinstein5/eval-layer
+using the latest main branch.
+
+Use the directory for the agent you are running in:
+- Codex: ~/.agents/skills/eval-layer
+- Claude Code: ~/.claude/skills/eval-layer
+
+Read the repository README and install the complete repository, including
+SKILL.md, references/, and scripts/. If an installation already exists, inspect
+its remote, branch, and local changes first. Only update a clean checkout of
+this repository on main with a fast-forward pull; otherwise explain what
+needs resolving without overwriting files or switching branches.
+
+Verify the skill name is eval-layer and scripts/jev_judge.py is present.
+Report the installed path, commit, and how to invoke the skill. Installation
+needs no API keys and should not run an evaluation or make model calls.
+```
+
+Then give it a task: `$eval-layer Add evals to /path/to/agent using Jev` in
+Codex, or `/eval-layer Add evals to /path/to/agent using Jev` in Claude Code.
+The Jev key is configured separately when you are ready to run evaluations.
+
+### Manual installation
+
+For **Codex**, clone into your user skills directory:
+
+```bash
+git clone https://github.com/erezweinstein5/eval-layer.git ~/.agents/skills/eval-layer
+```
+
+Then invoke it in Codex:
+
+```text
+$eval-layer Add an eval layer to /path/to/your/agent
+```
+
+For a team installation, place the folder at `.agents/skills/eval-layer` in your repository. See the official Codex skills documentation in the sources below for discovery details.
+
+For **Claude Code**:
+
+```bash
+git clone https://github.com/erezweinstein5/eval-layer.git ~/.claude/skills/eval-layer
+```
+
+Then invoke `/eval-layer Add an eval layer to /path/to/your/agent`.
+
+The assistant using the skill can evaluate any supported subject. Using Codex to generate evals does not require the target agent or judge to use an OpenAI model.
+
+---
+
+## Why this exists
+
+An eval is useful when its expectations match the agent's actual job. This skill connects each case to source context, checks actions independently where possible, and saves evidence for reproducible judging. Reports distinguish rubric scores from execution checks and label reference provenance; generated references are not automatically ground truth.
+
+Two measurements, not one:
+
+- **Weighted score** — how good the output is, per the rubric, on `[0, 1]`
+- **Leniency** — `mean(judge_score − reference_score)` on `[-1, +1]`
+  - `abs < 0.10` → well-calibrated
+  - `0.10 – 0.25` → slight bias, monitor
+  - `abs > 0.25` → recalibrate before trusting scores
+
+---
+
+Assistant-generated reference scores provide a directional signal only; reports identify the actual grader. Human calibration is optional.
+
+## The 7-field metadata contract
+
+Every framework adapter returns the same shape. This is what makes cross-framework comparison honest:
+
+```python
+{
+    "recommendation": <schema instance, dict, or None>,  # agent's structured output
+    "latency_ms":      int,                       # wall-clock including tool execution
+    "tool_calls":      int,                       # count of tool invocations
+    "input_tokens":    int | None,                # summed across turns
+    "output_tokens":   int | None,
+    "model_id":        str,
+    "error":           str | None,
+}
+```
+
+If a framework doesn't expose a field (Strands 0.1.x doesn't expose tokens, for example), pass `None` — don't fabricate. The harness handles `None` defensively throughout.
+
+---
+
+## Usage
+
+1. In Codex, invoke the skill against your project (use `/eval-layer` in Claude Code):
+
+   ```
+   $eval-layer Add an eval layer to /path/to/your/agent
+   ```
+
+2. The assistant reads the agent and its domain context, records source authority, and generates the eval artifacts after rubric approval or your authorization to choose it:
+
+   ```
+   your-project/
+     evals/
+       context.md
+       eval_harness.py
+       rubrics/main.yaml
+       prompts/judge.md
+       test_cases/seed.yaml
+       reports/
+         raw/<subject>.jsonl
+         eval_<subject>_<ts>.md
+         framework-comparison.html   # multi-subject only
+   ```
+
+3. Smoke-test one case without calling the judge (the target agent still runs):
+
+   ```
+   python evals/eval_harness.py --framework <subject> --test-case easy-01 --no-judge -v
+   ```
+
+4. Full run with the configured judge:
+
+   ```
+   python evals/eval_harness.py --framework <subject>
+   ```
+
+5. Multi-subject sweep, with an optional dashboard:
+
+   ```
+   python evals/eval_harness.py --framework all
+   python evals/make_html_report.py  # optional, if generated
+   ```
+
+### Required harness flags
+
+Every harness generated by this skill exposes these:
+
+| Flag | Purpose |
+|---|---|
+| `--framework NAME` | which subject to run (or `all`) |
+| `--test-case ID`   | run only one case — essential for debugging adapters |
+| `-v` / `--verbose` | print per-case metadata as it runs |
+| `--trials N`       | run each case N times to measure variance |
+| `--no-judge`       | run the agent and deterministic checks; save `judge: null` |
+| `--judge-backend llm\|jev` | choose the judge independently of the agent (default: `llm`) |
+| `--judge-model ID` | choose the judge model; required for live Jev calls |
+
+---
+
+## Evaluating Codex coding tasks
+
+Use the skill to evaluate Codex itself, including changes to prompts, `AGENTS.md`, skills, or model configuration:
+
+```text
+$eval-layer Evaluate Codex on bug-fix tasks in /path/to/repo.
+Compare baseline instructions with my new skill using the same fixture commits.
+Score functional correctness, instruction following, and maintainability.
+```
+
+The Codex workflow runs each case/trial in a fresh checkout, captures execution events and the final response, collects a diff including new files, and runs independent acceptance checks. Required checks determine functional pass/fail; rubric scores add qualitative assessment. Reports distinguish agent failures, failed checks, and judge failures.
+
+See [references/codex.md](references/codex.md) for the adapter and case format. Codex CLI is a separate integration from OpenAI Agents SDK. A CLI login is needed to run Codex; judge credentials depend on the provider you choose. `--no-judge` skips judge calls, not Codex inference.
+
+## Optional Jev judge
+
+Select Jev to score any supported agent, including Codex. The integration uses
+TypeSafe's direct HTTP API with `TYPESAFE_API_KEY`, keeps fractional rubric scores
+and probability distributions, and records numeric confidence. Jev does not
+produce explanations; reports mark them unavailable. The existing LLM judge
+remains the default.
+
+```text
+$eval-layer Add evals to /path/to/agent using Jev as the judge.
+```
+
+You can also compare Jev with a saved LLM evaluation without rerunning the agent:
+
+```bash
+python scripts/rejudge.py --input saved.jsonl --rubric main.yaml \
+  --output /tmp/jev-comparison --judge-backend jev --judge-model jev-latest
+```
+
+This command makes live judge calls. Add `--no-judge` to validate the replay
+without credentials or network calls. Existing LLM results can be revalidated
+with `--judge-backend llm`; the replay tool does not call an LLM provider.
+Each run writes new results and JSON/Markdown reports. Required acceptance checks
+remain authoritative even when judge scores are high.
+
+See [references/jev.md](references/jev.md) for the API contract, score mapping,
+input row format, retry limits, and reference-grade matching requirements.
+
+For a reproducible live coding demo and shareable MP4/terminal recording, see
+[examples/jev-demo](examples/jev-demo/README.md).
+
+## Optional results UI and support-agent example
+
+The [customer-support example](demo/README.md) uses a live model with local support tools and persistent memory. It demonstrates context-grounded cases, independent execution checks, and Jev/LLM scoring of the same saved tool traces. Its authored scenario contracts illustrate one domain; the skill derives new cases for the agent you supply.
+
+The optional workbench displays scores, memory retrievals, tool outcomes, observed speed, estimated cost, and disagreements. It exports a self-contained HTML report. The generated eval layer can run without this UI. See the demo guide for setup and `python3 demo/server.py --port 8771`.
+
+This example uses the same LLM for generation, the agent, and LLM judging. Its references are not human-calibrated; agreement is not human accuracy, and estimated costs are not invoices.
+
+## Repository layout
+
+```
+eval-layer/
+├── SKILL.md                                        # entry point — the process the assistant follows
+├── AGENTS.md                                       # shared maintainer instructions
+├── scripts/jev_judge.py                            # direct Jev API adapter
+├── scripts/judge_results.py                        # shared judge validation and aggregation
+├── scripts/rejudge.py                              # saved-output replay and comparison
+├── scripts/codex_adapter.py                        # stdlib Codex event adapter
+├── tests/test_codex_adapter.py                     # offline adapter and fixture checks
+├── demo/README.md                                  # live support-agent workbench setup and workflow
+├── references/
+│   ├── rubric-design.md                            # dimension catalog, scales, leniency thresholds, anti-patterns
+│   ├── judge-prompts.md                            # judge prompt template + calibration techniques
+│   ├── judge-robustness.md                         # defensive JSON parse, retry-once, never-drop-a-result
+│   ├── jev.md                                      # optional Jev backend and replay workflow
+│   ├── codex.md                                    # Codex runner, repository cases, evidence, and checks
+│   ├── framework-adapters.md                       # copy-paste recipes per framework (w/ the metadata contract)
+│   ├── structured-output-troubleshooting.md        # the three Bedrock Opus errors and the two-stage fix
+│   ├── cross-subject-benchmarking.md               # multi-subject flow (models / frameworks / prompts)
+│   └── html-report-template.html                   # self-contained Chart.js dashboard template
+└── README.md
+```
+
+`SKILL.md` is the top-level recipe (loaded when the skill is invoked). The `references/` files are loaded on demand for the relevant step.
+
+---
+
+## Bedrock gotcha
+
+For Claude on Bedrock integrations exhibiting the errors below, use the **two-stage pattern**. These documented Opus compatibility errors do not describe Codex CLI or every Bedrock model:
+
+- **LangGraph** — `"This model does not support assistant message prefill"`
+- **Strands** — `"No valid tool use or tool use input was found in the Bedrock response"`
+- **OpenAI Agents + LiteLLM** — `"minItems values other than 0 or 1 are not supported"`
+
+The fix:
+
+```
+Stage 1: run the agent conversationally — tools enabled, no output_type.
+Stage 2: feed the final text into a fresh structured-output call.
+```
+
+See [`references/structured-output-troubleshooting.md`](references/structured-output-troubleshooting.md).
+
+---
+
+## Validation checklist
+
+Before handing off an eval produced by this skill:
+
+- [ ] 3–5 dimensions, weights sum to 1.0
+- [ ] Concrete level descriptors (not "good"/"bad")
+- [ ] LLM calibration examples or Jev ordered Score descriptors
+- [ ] ≥3 test cases with `reference_scores` for leniency
+- [ ] Harness uses the backend-appropriate parser and shared strict validation
+- [ ] Harness outputs the 7-field metadata contract
+- [ ] `--framework`, `--test-case`, `-v`, `--trials`, `--no-judge`, `--judge-backend`, `--judge-model` flags present
+- [ ] Single-case smoke test passes end-to-end
+- [ ] Codex coding cases use fresh fixtures and independent checks
+- [ ] Structured-output strategy matches the runtime and provider
+- [ ] If multi-subject: HTML dashboard renders with all subjects
+
+## Codex documentation sources
+
+Official documentation checked on 2026-09-22:
+
+- Codex skills: `https://developers.openai.com/codex/skills`
+- Non-interactive execution and structured output: `https://developers.openai.com/codex/noninteractive`

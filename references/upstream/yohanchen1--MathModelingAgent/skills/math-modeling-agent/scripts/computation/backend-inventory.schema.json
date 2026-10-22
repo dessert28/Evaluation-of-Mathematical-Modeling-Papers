@@ -1,0 +1,78 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://local.codex.invalid/math-science-computation/backend-inventory.schema.json",
+  "title": "Math and science computation local backend inventory",
+  "type": "object",
+  "required": [
+    "inventory_schema_version",
+    "created_at_utc",
+    "updated_at_utc",
+    "local",
+    "mcp",
+    "invalidations"
+  ],
+  "properties": {
+    "inventory_schema_version": { "const": "1.0" },
+    "created_at_utc": { "type": "string", "format": "date-time" },
+    "updated_at_utc": { "type": "string", "format": "date-time" },
+    "local": {
+      "type": "object",
+      "required": ["schema_version", "probed_at_utc", "host", "mathematica", "primecount", "sagemath", "python"],
+      "properties": {
+        "schema_version": { "const": "1.0" },
+        "probed_at_utc": { "type": "string", "format": "date-time" },
+        "host": {
+          "type": "object",
+          "required": ["system", "architecture"],
+          "properties": {
+            "system": { "enum": ["Windows", "Darwin", "Linux"] },
+            "architecture": { "type": "string", "minLength": 1 }
+          },
+          "additionalProperties": true
+        },
+        "mathematica": { "type": "object" },
+        "primecount": { "type": "object" },
+        "sagemath": { "type": "object" },
+        "python": { "type": "object" }
+      },
+      "additionalProperties": true
+    },
+    "mcp": {
+      "type": "object",
+      "required": ["authority", "persisted_status", "required_action"],
+      "properties": {
+        "authority": { "const": "current_session_tool_discovery_and_call" },
+        "persisted_status": { "const": "historical_only" },
+        "required_action": { "type": "string" },
+        "mathematica": {
+          "type": "object",
+          "required": ["server_name", "protocol_version", "server_version", "wolfram_language_version", "observed_at_utc", "evidence"],
+          "properties": {
+            "server_name": { "type": "string", "minLength": 1 },
+            "protocol_version": { "type": "string", "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$" },
+            "server_version": { "type": "string", "minLength": 1 },
+            "wolfram_language_version": { "type": "string", "minLength": 1 },
+            "observed_at_utc": { "type": "string", "format": "date-time" },
+            "evidence": { "const": "initialize_handshake_and_evaluator" }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "invalidations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["backend", "reason", "recorded_at_utc"],
+        "properties": {
+          "backend": { "enum": ["mathematica", "primecount", "sagemath", "python"] },
+          "reason": { "enum": ["user_requested", "path_missing", "execution_failed", "version_mismatch"] },
+          "recorded_at_utc": { "type": "string", "format": "date-time" }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

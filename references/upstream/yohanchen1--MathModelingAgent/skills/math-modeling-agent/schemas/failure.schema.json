@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/yohanchen1/MathModelingAgent/schemas/failure.schema.json",
+  "title": "Math Modeling Failure",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["failureId", "stage", "subproblem", "attempt", "rootCause", "candidateId", "assumptionIds", "symptom", "minimalReproduction", "command", "inputHashes", "codeHash", "exitCode", "affectedClaims", "affectedObligations", "whatWasRuledOut", "scientificInsight", "recovery", "status", "evidenceIds"],
+  "properties": {
+    "failureId": { "type": "string", "minLength": 1 },
+    "stage": { "type": "string", "minLength": 1 },
+    "subproblem": { "type": "string", "minLength": 1 },
+    "attempt": { "type": "integer", "minimum": 1 },
+    "rootCause": { "enum": ["DATA", "TOOL", "MODEL", "ASSUMPTION", "ANALYSIS", "VALIDATION", "EVIDENCE", "RESEARCH_GAP"] },
+    "candidateId": { "type": "string", "minLength": 1 },
+    "assumptionIds": { "type": "array", "items": { "type": "string", "minLength": 1 } },
+    "symptom": { "type": "string", "minLength": 1 },
+    "minimalReproduction": { "type": "string", "minLength": 1 },
+    "command": { "type": "string", "minLength": 1 },
+    "inputHashes": { "type": "object", "minProperties": 1, "additionalProperties": { "type": "string", "minLength": 1 } },
+    "codeHash": { "type": "string", "minLength": 1 },
+    "exitCode": { "type": "integer" },
+    "affectedClaims": { "type": "array", "items": { "type": "string", "minLength": 1 } },
+    "affectedObligations": { "type": "array", "items": { "type": "string", "minLength": 1 } },
+    "whatWasRuledOut": { "type": "array", "items": { "type": "string", "minLength": 1 } },
+    "scientificInsight": { "type": "string", "minLength": 1 },
+    "recovery": { "type": "string", "minLength": 1 },
+    "status": { "enum": ["OPEN", "RECOVERED", "ABANDONED", "STALE"] },
+    "evidenceIds": { "type": "array", "items": { "type": "string", "minLength": 1 } }
+  }
+}

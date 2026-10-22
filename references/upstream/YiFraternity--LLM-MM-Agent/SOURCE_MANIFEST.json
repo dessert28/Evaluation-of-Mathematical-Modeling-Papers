@@ -1,0 +1,116 @@
+{
+  "repository": "YiFraternity/LLM-MM-Agent",
+  "url": "https://github.com/YiFraternity/LLM-MM-Agent",
+  "retrieved_at": "2026-10-03T12:12:36.2748627+08:00",
+  "activation": "reference_only",
+  "status": "downloaded_sparse",
+  "default_branch": "main",
+  "commit": "63fa0abd635d5a3702200997b1cf2ed39bec03c8",
+  "sparse_checkout": true,
+  "sparse_checkout_note": "Full archive exceeded the 100 MB fetch cap; only evaluation prompts, parsers, benchmark criteria and README/license were retained.",
+  "files": [
+    {
+      "path": "LICENSE",
+      "bytes": 35803,
+      "sha256": "a0ee746064b06d09cab0768116ec265fd0d45261d4087c9ad2c698a07c7aac0e"
+    },
+    {
+      "path": "README_zh.md",
+      "bytes": 5673,
+      "sha256": "ed52d2abf57f1525b69b25b3bcdf6c6219de8c3c7fa96d05ade339ef8560b17b"
+    },
+    {
+      "path": "README.md",
+      "bytes": 5801,
+      "sha256": "e4f7136f3b8cc30f843458b058db465054e8d8265b8c3b69104d901d6be619f6"
+    },
+    {
+      "path": "eval/prompts/criterial_generate.yaml",
+      "bytes": 22437,
+      "sha256": "0adff5a4f0b866dd7f6622ef9716be94ccc45772c637aa79e20b3eab05c2a19b"
+    },
+    {
+      "path": "eval/prompts/eval_prompt.yaml",
+      "bytes": 8037,
+      "sha256": "2c4bcc7a9481c89a522e311463ccef19b9e1607f4f7747e9f0a3a1cb4889dea7"
+    },
+    {
+      "path": "eval/prompts/evaluation_criteria.yaml",
+      "bytes": 4272,
+      "sha256": "4aa57039f38759b9189e6f09531701fda92ab2ef8a3dde64499f8d2e2412533a"
+    },
+    {
+      "path": "eval/prompts/json_standardization.yaml",
+      "bytes": 990,
+      "sha256": "ff73da29141c6aba76356c535df1360e64f6035bd65c0ac55e957a2f72816b75"
+    },
+    {
+      "path": "eval/prompts/section_classification.yaml",
+      "bytes": 1375,
+      "sha256": "4aeb5ff51a0704a73632c7e06d8169430f9800d483e1c77c387b591dbc44ff35"
+    },
+    {
+      "path": "eval/src/3_eval_subtasks_openai.py",
+      "bytes": 8067,
+      "sha256": "13ba4dc63e08af262c79c7aec6911309e94f40f87c0d5b91ed0539c237e28ddc"
+    },
+    {
+      "path": "eval/src/4_parse_score.py",
+      "bytes": 2994,
+      "sha256": "acfe6e00cdb3bc234e1c5099d7fa043d553537d5328688e98fdf7e36b8ee97c3"
+    },
+    {
+      "path": "eval/src/eval_utils.py",
+      "bytes": 11677,
+      "sha256": "5398362ac15cc455f903920d11bd51d228f5df1ee22124a330b4ec62f20fb04f"
+    },
+    {
+      "path": "eval/src/parser_latex.py",
+      "bytes": 3650,
+      "sha256": "b609a02c4589e8b3208dfbaf957cbc6cf5e34975e11695a58088aba31f2dcc9b"
+    },
+    {
+      "path": "MMBench/README.md",
+      "bytes": 2514,
+      "sha256": "9f9dfa8ba8c3f26036b261e3d7cda42b030ae980357c751d1f517116d9be0075"
+    },
+    {
+      "path": "MMBench/CPMCM/criteria/2023_A.json",
+      "bytes": 86963,
+      "sha256": "433185732e9958a3e1787ba6292705db6751181914dbc67d727cb65f8104430c"
+    },
+    {
+      "path": "MMBench/MCMICM/evaluation/__init__.py",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "MMBench/MCMICM/evaluation/model.py",
+      "bytes": 3642,
+      "sha256": "9cb228144d6c471a89d7d972453ad0040c775af2c6fe507722a9dd6e5622994a"
+    },
+    {
+      "path": "MMBench/MCMICM/evaluation/prompts.py",
+      "bytes": 18850,
+      "sha256": "51f9bc6d6aa396d6df61c9f65506d44df152b1848687b90dbabc003462586292"
+    },
+    {
+      "path": "MMBench/MCMICM/evaluation/run_evaluation_batch.py",
+      "bytes": 8962,
+      "sha256": "311b8372e2d95df1e8e8de84ebb4fb36e8748a1c2c04340a7167fc7060a95eda"
+    },
+    {
+      "path": "MMBench/MCMICM/evaluation/run_evaluation.py",
+      "bytes": 5207,
+      "sha256": "376460d5076e0774c8aa9dda2213ad94af380c94a4e3a2567458d0d0e31ef8c6"
+    },
+    {
+      "path": "MMBench/MCMICM/evaluation/utils.py",
+      "bytes": 1252,
+      "sha256": "6e6c1db47f1ae23aa77205cddc1bacac89db9517e928c4f86c2dd4a8ea2b7981"
+    }
+  ],
+  "license_files": [
+    "LICENSE"
+  ]
+}

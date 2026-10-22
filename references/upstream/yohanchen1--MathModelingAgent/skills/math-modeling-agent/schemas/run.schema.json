@@ -1,0 +1,126 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/yohanchen1/MathModelingAgent/schemas/run.schema.json",
+  "title": "Math Modeling Run",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "taskId",
+    "mode",
+    "status",
+    "eventSequence",
+    "currentAttempt",
+    "bestCandidateId",
+    "budget",
+    "createdAt",
+    "updatedAt",
+    "lineageId",
+    "parentRunId",
+    "revision",
+    "inputSnapshotHash",
+    "evidenceGraphHash"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": 3
+    },
+    "taskId": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+    },
+    "mode": {
+      "enum": [
+        "fast",
+        "standard",
+        "high-assurance"
+      ]
+    },
+    "status": {
+      "enum": [
+        "TRIAGE",
+        "SCOPE_FROZEN",
+        "INPUT_PROFILED",
+        "CLAIMS_REGISTERED",
+        "CANDIDATES_READY",
+        "ATTEMPT",
+        "EXECUTE",
+        "VERIFY",
+        "EVALUATE",
+        "CORRECTION_REQUIRED",
+        "REVISE",
+        "RESEARCH",
+        "FORK",
+        "SOLVED",
+        "PARTIAL",
+        "CONDITIONAL",
+        "INCONCLUSIVE",
+        "REFUTED",
+        "INFEASIBLE",
+        "UNIDENTIFIABLE",
+        "BLOCKED",
+        "CANCELLED"
+      ]
+    },
+    "eventSequence": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "currentAttempt": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "bestCandidateId": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "budget": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "attempts",
+        "researchQueries",
+        "computeSeconds"
+      ],
+      "properties": {
+        "attempts": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "researchQueries": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "computeSeconds": {
+          "type": "integer",
+          "minimum": 0
+        }
+      }
+    },
+    "createdAt": {
+      "type": "string"
+    },
+    "updatedAt": {
+      "type": "string"
+    },
+    "lineageId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "parentRunId": {
+      "type": ["string", "null"]
+    },
+    "revision": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "inputSnapshotHash": {
+      "type": ["string", "null"]
+    },
+    "evidenceGraphHash": {
+      "type": ["string", "null"]
+    }
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "name": "dsh-math-modeling-agent",
+  "version": "0.5.2",
+  "description": "Evidence-driven mathematical modeling and verification skills for DeepSeek Harness",
+  "type": "module",
+  "files": [
+    "cordis.patch.yml",
+    "skills",
+    "assets",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "test": "node --test",
+    "pack:check": "npm pack --dry-run --json"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yohanchen1/MathModelingAgent.git"
+  },
+  "keywords": [
+    "dsh",
+    "mathematical-modeling",
+    "verification",
+    "lean",
+    "wolfram",
+    "python"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  }
+}

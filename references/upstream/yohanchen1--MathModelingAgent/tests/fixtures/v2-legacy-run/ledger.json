@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 2,
+  "taskId": "legacy-task",
+  "scope": {
+    "independentAuditPassed": false,
+    "interactions": [],
+    "decisionStack": [],
+    "robustnessExempt": false
+  },
+  "assumptions": [],
+  "claims": [
+    {
+      "id": "C-1",
+      "statement": "legacy claim",
+      "verdict": "SUPPORTED",
+      "evidenceIds": [
+        "E-legacy"
+      ]
+    }
+  ],
+  "obligations": [],
+  "subproblems": [],
+  "candidates": [],
+  "issues": [],
+  "evidence": [
+    {
+      "id": "E-legacy",
+      "method": "legacy text evidence",
+      "level": "NOT_CHECKED"
+    }
+  ]
+}

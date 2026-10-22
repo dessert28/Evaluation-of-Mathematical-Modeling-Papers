@@ -1,0 +1,12 @@
+- insert:
+    - id: dsh-math-modeling-agent-skills
+      name: '@deepseek-ai/dsh-skill-filesystem'
+      config:
+        providerName: dsh-math-modeling-agent
+        includeDefaultRoots: false
+        # The Loader evaluates !!js against the ROOT include context: `baseUrl`
+        # is the profile directory (e.g. ~/.dsh/profiles/web/), NOT this bundle's
+        # directory. Resolve this package through the profile's own node_modules so
+        # the skill root works for npm, github, pnpm, and file: installs alike.
+        bundledSkillDir: !!js "process.getBuiltinModule('node:url').fileURLToPath(new URL('skills/', process.getBuiltinModule('node:url').pathToFileURL(process.getBuiltinModule('node:module').createRequire(baseUrl + 'noop.js').resolve('dsh-math-modeling-agent/package.json')).href))"
+        watch: false

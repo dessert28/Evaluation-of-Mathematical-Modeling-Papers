@@ -1,0 +1,234 @@
+{
+  "repository": "erezweinstein5/eval-layer",
+  "url": "https://github.com/erezweinstein5/eval-layer",
+  "retrieved_at": "2026-10-03T12:03:01.743723+08:00",
+  "activation": "reference_only",
+  "files": [
+    {
+      "path": "AGENTS.md",
+      "bytes": 7265,
+      "sha256": "4eff79edfdfada20864cfe6f011022819c85e88cfc82865cf046a71b21e3da2f"
+    },
+    {
+      "path": "CLAUDE.md",
+      "bytes": 152,
+      "sha256": "24b5ca9b6fe4fba4687557f9bf16f7953cd56508fdcea1f7099506757dc3ffbd"
+    },
+    {
+      "path": "README.md",
+      "bytes": 13643,
+      "sha256": "41476551d77203f8dc86be5587613ecebaabb2388831f68eabefa4732efe08b3"
+    },
+    {
+      "path": "SKILL.md",
+      "bytes": 24337,
+      "sha256": "c684151aa8386c4fc6259b9068e81f6050b78e397f2ecd4d18d0f057d9681655"
+    },
+    {
+      "path": "demo/README.md",
+      "bytes": 12008,
+      "sha256": "8dfb6ad4c578ac72ed81565d8ccace26cd0cd9287c1b249b41a9e52c7b717b72"
+    },
+    {
+      "path": "demo/agent.py",
+      "bytes": 12188,
+      "sha256": "7014b7d0f6b638072d28f7aa456aaba14721454e5e4300bc6c6f71bb30e6e2ba"
+    },
+    {
+      "path": "demo/fixtures.json",
+      "bytes": 6388,
+      "sha256": "dc8960cf7d82e6252701f56db0ac6ac743d94d5c697b1ce42531703fbe2c0b16"
+    },
+    {
+      "path": "demo/knowledge.md",
+      "bytes": 2237,
+      "sha256": "06a104090561ff718b7bab5b496ca2caec09099a26cd8631d7a6cc3986b015a4"
+    },
+    {
+      "path": "demo/pricing.json",
+      "bytes": 1519,
+      "sha256": "61e827930aad49252244c9f546b808f2ee4d4cc173fe936a2813c1df4c88f2fc"
+    },
+    {
+      "path": "demo/scenarios.py",
+      "bytes": 11762,
+      "sha256": "cfa5ce985dc48a87f37d807302b02201c67755702baa539bd0ed272bd45d2c3d"
+    },
+    {
+      "path": "demo/server.py",
+      "bytes": 24799,
+      "sha256": "ad77c7bd98f1088956a60d9569f29143ae19fab2d0c6adb0cfc27731bac7344f"
+    },
+    {
+      "path": "demo/tools.py",
+      "bytes": 12463,
+      "sha256": "692717d426e2cb1cf107c9db3cce8658b2b6123e931d129566d98eb026adecb2"
+    },
+    {
+      "path": "demo/ui/index.html",
+      "bytes": 114244,
+      "sha256": "acfa70859c0eb6cc1637088ec1d1c0e2c7f9f8f311f9ea75d58c434d6c5f998b"
+    },
+    {
+      "path": "examples/jev-demo/README.md",
+      "bytes": 1201,
+      "sha256": "c0d2ad4dfc068518483286446f5a72c316c2247d8f74e4228719be2bf0a46122"
+    },
+    {
+      "path": "examples/jev-demo/render_recording.py",
+      "bytes": 8779,
+      "sha256": "5b2ece9138ec047a5088544436de3ed6d6275fdb051859fde47f10a5e8a4b9c0"
+    },
+    {
+      "path": "examples/jev-demo/run_demo.py",
+      "bytes": 10614,
+      "sha256": "b3c3e53f225a2f8aaf1af45944c586d0c85648e7b69edbca2802caf8b9d25b4b"
+    },
+    {
+      "path": "references/codex.md",
+      "bytes": 12794,
+      "sha256": "478353ce7f67ecbdaecc8034dd95973b434a85304e8e10f871366fadcbe8a871"
+    },
+    {
+      "path": "references/context-grounding.md",
+      "bytes": 4953,
+      "sha256": "5fe9351757a9380a633214f61f235b7a404f25697b5da903aaa52f842c29497d"
+    },
+    {
+      "path": "references/cross-subject-benchmarking.md",
+      "bytes": 8513,
+      "sha256": "3805822311d94d55d438ad5be1268b658ecf62cfaaf8fdcaac5f995cce61fdd6"
+    },
+    {
+      "path": "references/framework-adapters.md",
+      "bytes": 9784,
+      "sha256": "5666e4db722a568f2dc4c21fe1aa5e9ecac6350182b0fa5b859b2855dadab2b8"
+    },
+    {
+      "path": "references/html-report-template.html",
+      "bytes": 10017,
+      "sha256": "3f0ddac0734e3ecd1b81b4c26bd2ce7f33a989dc1816b4f64c70b0aced3fb808"
+    },
+    {
+      "path": "references/interactive-calibration.md",
+      "bytes": 8442,
+      "sha256": "3ac159e1db09af60c89cc013ec38ac352fe9f1602cec18bd65ef06fca9c5f9cb"
+    },
+    {
+      "path": "references/jev.md",
+      "bytes": 10563,
+      "sha256": "da2bcfca14896fb14e78409cceafff21e69ceafa7653120a6e116cc4780fe926"
+    },
+    {
+      "path": "references/judge-prompts.md",
+      "bytes": 6765,
+      "sha256": "8f8f4362a3c95611f7ae54969e7653b2983b68d019c058ac39225131c51aeb9f"
+    },
+    {
+      "path": "references/judge-robustness.md",
+      "bytes": 10623,
+      "sha256": "c34982272ca109369e1a0856ad3f18173c6149fab6dfb8e7d7715bf7f0247e86"
+    },
+    {
+      "path": "references/rubric-design.md",
+      "bytes": 7460,
+      "sha256": "6dcf9d907c7032461593c98b1b2272de413d26e23ed95c91f92851b8acdb0d9b"
+    },
+    {
+      "path": "references/structured-output-troubleshooting.md",
+      "bytes": 3972,
+      "sha256": "dc8d7cc43e650f5af1f46d5f423718049aee792e8e8f0a8ed6fea46e10861b61"
+    },
+    {
+      "path": "scripts/bedrock_judge.py",
+      "bytes": 5112,
+      "sha256": "501b302fd8e59e0b1befe3e8d1fc47822bc1a35d0f2ed94f3d868616ce742ae0"
+    },
+    {
+      "path": "scripts/codex_adapter.py",
+      "bytes": 6410,
+      "sha256": "da9921d7223736e6074cc2e0604c84b5d8e6496087b4163b0373b14f2b65ecb8"
+    },
+    {
+      "path": "scripts/evaluation_config.py",
+      "bytes": 2455,
+      "sha256": "97f6576f1b0996202a2fa051c3be42cad2150e13a2a8e113929e5da4cb01aa4d"
+    },
+    {
+      "path": "scripts/jev_judge.py",
+      "bytes": 12235,
+      "sha256": "c4b64b2e5c0f5e2b6b20591bc6dd52df66d7bea3f45b79e7888e4ef49ac4469c"
+    },
+    {
+      "path": "scripts/judge_results.py",
+      "bytes": 11575,
+      "sha256": "14b0b2375111d466575089c3cdfe945235b1f3bb6008a5fb4bf07eb601b9924b"
+    },
+    {
+      "path": "scripts/llm_judge.py",
+      "bytes": 23990,
+      "sha256": "f10e6005fa839d169b45cd1609d99b5bd4de1f7e23da3201e5639362f8f05b84"
+    },
+    {
+      "path": "scripts/rejudge.py",
+      "bytes": 30705,
+      "sha256": "f33a2adbfa510f22e867eba9363d27da474bb642275e8d52be5c05365ae64ff5"
+    },
+    {
+      "path": "tests/test_bedrock_judge.py",
+      "bytes": 3128,
+      "sha256": "fa12a06b6630dcbed639b917b63aab6c3ffce0cfe31e0e64209fa89960cd00b2"
+    },
+    {
+      "path": "tests/test_codex_adapter.py",
+      "bytes": 9384,
+      "sha256": "17bf7fb69dadfa698ecdd7f1c561c1632956d7894f768e5fd95c9d9d487b0b26"
+    },
+    {
+      "path": "tests/test_demo_agent.py",
+      "bytes": 29307,
+      "sha256": "0bbf3e2ef131a33d3fa97e42c0888198296440cc2bdb8e05e3685cb00cc47614"
+    },
+    {
+      "path": "tests/test_demo_scenarios.py",
+      "bytes": 5011,
+      "sha256": "876ffbad59b37493375d609dd90c7fa24c16fbe9aa1e40250de7fb976689dac1"
+    },
+    {
+      "path": "tests/test_demo_workbench.py",
+      "bytes": 37367,
+      "sha256": "19af3a7d98ae387cb28140dfc143bdbe04d7a39fd0ca1c6704656313124d33d0"
+    },
+    {
+      "path": "tests/test_evaluation_config.py",
+      "bytes": 1547,
+      "sha256": "b8e56c0f0fda02414203378c25b544fe4945316b46b7b050b9fe98d812152a44"
+    },
+    {
+      "path": "tests/test_jev_judge.py",
+      "bytes": 12789,
+      "sha256": "419a1f8e6bd719ca30716705577419548a8e358460d72e2ef21135b39b9c368b"
+    },
+    {
+      "path": "tests/test_judge_results.py",
+      "bytes": 20238,
+      "sha256": "157a79d94d0e3977d1666dbbc5065c4da758942b1cc675a08898f2be3c9eb272"
+    },
+    {
+      "path": "tests/test_llm_judge.py",
+      "bytes": 32924,
+      "sha256": "ef604a3b174c54d42c1b90d427afdfe939c8b153c1783d96342e43b8e554cbd3"
+    },
+    {
+      "path": "tests/test_rejudge.py",
+      "bytes": 34087,
+      "sha256": "31f26b7db12233f1ba98b69a8501a0c31f1d5c105a4cacbfddcb3265274d745f"
+    }
+  ],
+  "default_branch": "main",
+  "commit": "d742197453d822fc211806a84d092741221d3d2f",
+  "archive_sha256": "0e3d18d4fea2e2447297d82fd7e715e813c3608578856d42317b08c5b38364ae",
+  "skipped_files": 3,
+  "status": "downloaded",
+  "license_files": []
+}

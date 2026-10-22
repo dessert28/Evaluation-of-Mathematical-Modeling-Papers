@@ -1,0 +1,261 @@
+{
+  "repository": "yohanchen1/MathModelingAgent",
+  "url": "https://github.com/yohanchen1/MathModelingAgent",
+  "retrieved_at": "2026-10-03T12:03:01.743723+08:00",
+  "activation": "reference_only",
+  "files": [
+    {
+      "path": "CHANGELOG.md",
+      "bytes": 891,
+      "sha256": "8a433402fd38e1aa243d1677c580a25d86d2fbaa66054fe8b4e26b3bfcecfc4e"
+    },
+    {
+      "path": "LICENSE",
+      "bytes": 1067,
+      "sha256": "daa9d1b83aa7a1554db8453c691722351229d692b535f4de5f93fceb7364a39e"
+    },
+    {
+      "path": "README.md",
+      "bytes": 17417,
+      "sha256": "d98e4c3dacb417f266cde80e1070df61449b1a163afd77cd080a710f75a3dc73"
+    },
+    {
+      "path": "cordis.patch.yml",
+      "bytes": 825,
+      "sha256": "409bb5dced6dec8aa8f46be1ae9993a1eaa407dbaea09fbb58f777e18236905f"
+    },
+    {
+      "path": "package.json",
+      "bytes": 704,
+      "sha256": "c03cbcb817c6317a352f9c24a7dda44adfe0c2bbc01c95fdb09be370212427ac"
+    },
+    {
+      "path": "skills/math-modeling-agent/SKILL.md",
+      "bytes": 6365,
+      "sha256": "b28087e6ad59ee4a543f059493ca996be32ed527625c20f71b213e0c884b2829"
+    },
+    {
+      "path": "skills/math-modeling-agent/examples/minimal-run/README.md",
+      "bytes": 663,
+      "sha256": "e459e50c6138114d886c8923e214f62a3b1ce1779cae26492eacfcb15054e71c"
+    },
+    {
+      "path": "skills/math-modeling-agent/examples/resumed-run/README.md",
+      "bytes": 769,
+      "sha256": "62fe4600d94e867a23a97e0513d4d99105c8986fef443b5b488542ba17a1b463"
+    },
+    {
+      "path": "skills/math-modeling-agent/references/claims-evidence.md",
+      "bytes": 4929,
+      "sha256": "332abe42ac83f6cec4fc9b027333d4440a2c1f651d6f7277b80d2d2144e9f383"
+    },
+    {
+      "path": "skills/math-modeling-agent/references/data-subproblems.md",
+      "bytes": 1283,
+      "sha256": "91a89eb8de4792c81b041c03a64b3fdbdb05d91177a98d8ec788b6170ac175cb"
+    },
+    {
+      "path": "skills/math-modeling-agent/references/interaction-protocol.md",
+      "bytes": 13014,
+      "sha256": "d8e10ddd8e1c715011b17c67a78ed745435d70880afad2c11e9face5736b1330"
+    },
+    {
+      "path": "skills/math-modeling-agent/references/math-grill.md",
+      "bytes": 3655,
+      "sha256": "1c109af3cb5c15e842461789a7fc30c7ffc5786cf5945074a301395a6e198907"
+    },
+    {
+      "path": "skills/math-modeling-agent/references/modeling-methodology.md",
+      "bytes": 1523,
+      "sha256": "6caddde016c14a152f98b2f51b4e068742c9cc2cbb2a419058639fb29b0f6ee2"
+    },
+    {
+      "path": "skills/math-modeling-agent/references/original-project-parity.md",
+      "bytes": 1183,
+      "sha256": "f79ac18aa3c2519ed26cc24c7c81dd20d557ace495f334645653396cd9207fd9"
+    },
+    {
+      "path": "skills/math-modeling-agent/references/problem-types.md",
+      "bytes": 1647,
+      "sha256": "8e9a896332618dfa44492988dceb921ec8c615edc180ca122ff5c722a53ef2be"
+    },
+    {
+      "path": "skills/math-modeling-agent/references/report-contract.md",
+      "bytes": 7043,
+      "sha256": "8232fe97684b7c7511c28db2f0d1b34a6f8f1889b068bfd5854a1ec5eff6c37f"
+    },
+    {
+      "path": "skills/math-modeling-agent/references/research-breakthrough.md",
+      "bytes": 1751,
+      "sha256": "3dc01157a2d7c06ba65ac2e568553ab0348705bc30478e55c9cb2aa57127a01b"
+    },
+    {
+      "path": "skills/math-modeling-agent/references/run-directory.md",
+      "bytes": 3702,
+      "sha256": "868ffa2e194a6b03a4841aa6206db4fae0face5320dcf0463ab3a36edcbf0b56"
+    },
+    {
+      "path": "skills/math-modeling-agent/references/state-recovery.md",
+      "bytes": 1172,
+      "sha256": "0be7ed41e5df0f8532ed6715070df60a17134b001d8ea13d365f1075f366377e"
+    },
+    {
+      "path": "skills/math-modeling-agent/references/subagent-dispatch.md",
+      "bytes": 2409,
+      "sha256": "f120c8d5407bb131089dd6607e7fd33040a089799e9075160d2bcedf34845167"
+    },
+    {
+      "path": "skills/math-modeling-agent/references/tool-policy.md",
+      "bytes": 2735,
+      "sha256": "2c7db83298a520aa003906ff92ff71386b6c319175deb30973b0a9f063692d15"
+    },
+    {
+      "path": "skills/math-modeling-agent/references/verification-recipes.md",
+      "bytes": 2694,
+      "sha256": "7339d9adc465f6261936074f4da2b59ba1ea20448a0dd1502cd3d0d6cb12eec8"
+    },
+    {
+      "path": "skills/math-modeling-agent/references/workflow.md",
+      "bytes": 5565,
+      "sha256": "3e2aadaf115769c4193d3334d93727863c28e9780be0891dcb7faae27be2d8e1"
+    },
+    {
+      "path": "skills/math-modeling-agent/schemas/attempt.schema.json",
+      "bytes": 1714,
+      "sha256": "5ee7074432b41b49dbd912234028560ec811ef3de625d8a3fc86aab3c31d1081"
+    },
+    {
+      "path": "skills/math-modeling-agent/schemas/evidence.schema.json",
+      "bytes": 2138,
+      "sha256": "bc5af787c630ced16f092b46c8ae89a34f30ff8f4376ae42199070a1bdfd3396"
+    },
+    {
+      "path": "skills/math-modeling-agent/schemas/failure.schema.json",
+      "bytes": 1995,
+      "sha256": "9821515c01fdab26c124f321d361a82fb0ce568ce5bc7ec4e56bdad05c256f25"
+    },
+    {
+      "path": "skills/math-modeling-agent/schemas/ledger.schema.json",
+      "bytes": 3331,
+      "sha256": "afce350a93342a43ad6e63482b4801ff911a41cd5164b1787d3cb6e1943e9cb5"
+    },
+    {
+      "path": "skills/math-modeling-agent/schemas/run.schema.json",
+      "bytes": 2474,
+      "sha256": "c5ecb8b9962fce19aff5955b51956fe112edcab0ac78ef159ee815113fff603d"
+    },
+    {
+      "path": "skills/math-modeling-agent/schemas/verification.schema.json",
+      "bytes": 1144,
+      "sha256": "33c3b4e9db904b82ba9aa1b598164fc862303d94bedf3c277f1d6bd217fa59ca"
+    },
+    {
+      "path": "skills/math-modeling-agent/scripts/computation/README.md",
+      "bytes": 1002,
+      "sha256": "045209dcbba6f6755eb2c87539563dfaed8b4775d8233fc6fb5ad497890440b7"
+    },
+    {
+      "path": "skills/math-modeling-agent/scripts/computation/backend-inventory.schema.json",
+      "bytes": 3067,
+      "sha256": "1f5a2de4ba553ee021cbcf15c8d8ffaf1f0bddcd94dcb718807e4133ac1f0110"
+    },
+    {
+      "path": "skills/math-modeling-agent/scripts/computation/backend_inventory.py",
+      "bytes": 12264,
+      "sha256": "9056131480d63b21b44bf3e9dc5ddd9f4c67809691ed47b0dc8d2ae33bf645aa"
+    },
+    {
+      "path": "skills/math-modeling-agent/scripts/computation/computation_record.py",
+      "bytes": 15267,
+      "sha256": "3ef3710d04d44d3ffd439af28b558e2e0eb5c899e3d7d0a033be42293251ccfc"
+    },
+    {
+      "path": "skills/math-modeling-agent/scripts/computation/probe_backends.py",
+      "bytes": 9092,
+      "sha256": "0177c25c02ab88e5cc36d1acbddc1949f761b7137e0822cbe295abc43827ecf6"
+    },
+    {
+      "path": "skills/math-modeling-audit/SKILL.md",
+      "bytes": 2520,
+      "sha256": "c9455318fc536d4d185bde58dbbe11322095d8328e97fbf2e1365ef80cd3ac8d"
+    },
+    {
+      "path": "skills/math-modeling-audit/examples/audit-report.md",
+      "bytes": 456,
+      "sha256": "37134c786e17890053402939309f9f986e3322011e3f8c70d2347b861d178603"
+    },
+    {
+      "path": "skills/math-modeling-audit/examples/mcm-final-review.md",
+      "bytes": 3068,
+      "sha256": "5a8751a49df311dddb9987a7ccfdcdaf6b9907340797e1fae2e39e9950709545"
+    },
+    {
+      "path": "skills/math-modeling-audit/references/data-citation-audit.md",
+      "bytes": 904,
+      "sha256": "f65158e6e046a636bee57f8a1b62de887698210c351113b136500620f9383154"
+    },
+    {
+      "path": "skills/math-modeling-audit/references/evidence-levels.md",
+      "bytes": 680,
+      "sha256": "001dd8fcc58bd9e1e654fa1fb605eeb1f84a04990d2ef5b3dc22e108f0a34de1"
+    },
+    {
+      "path": "skills/math-modeling-audit/references/mcm-icm-final-judge.md",
+      "bytes": 15738,
+      "sha256": "ff4382c0ec070885bf5ef9e69a67150e18a13c15ab10a2a797664987bc586b24"
+    },
+    {
+      "path": "skills/math-modeling-audit/references/verification-protocol.md",
+      "bytes": 1060,
+      "sha256": "0120934b889c116c2966c33ef36d8574047656cd2d0b5e144b02f65ba8386a5f"
+    },
+    {
+      "path": "tests/fixtures/branch-preselection/manifest.json",
+      "bytes": 241,
+      "sha256": "945e5b2964ecd53f3eea4f44043780b34a1924bc725d1878849efd4118969124"
+    },
+    {
+      "path": "tests/fixtures/evidence/valid-output.json",
+      "bytes": 897,
+      "sha256": "5ae185fe9816e5d236b2e7d95552da37d30a0637553d076b10fce5a5d9bdf2cd"
+    },
+    {
+      "path": "tests/fixtures/paper-final.md",
+      "bytes": 649,
+      "sha256": "3d7a35bebbcf0f4747dafc71839c70627e1b3b23b4fec8fdd214a0d11e4ea214"
+    },
+    {
+      "path": "tests/fixtures/q2-rounding-failure/expected.json",
+      "bytes": 92,
+      "sha256": "6e59ca6f968b99874563df1071d1ac1e509e61cf75cc893b307b4fa8e8dc2e23"
+    },
+    {
+      "path": "tests/fixtures/q2-rounding-failure/fixture.json",
+      "bytes": 2050,
+      "sha256": "6685f6bf3e59be77fa8a26b2f7877603bf300d1b565abd0a3c707f73cf61a93f"
+    },
+    {
+      "path": "tests/fixtures/v2-legacy-run/ledger.json",
+      "bytes": 576,
+      "sha256": "b5686843c557b3abec4556f4764dee5cee123ad01dc3de4195d5758027772642"
+    },
+    {
+      "path": "tests/fixtures/v2-legacy-run/legacy-output.txt",
+      "bytes": 14,
+      "sha256": "71d9ed4b8196083d11301791daca645176be260a62ab0fed9719906451511420"
+    },
+    {
+      "path": "tests/fixtures/v2-legacy-run/run.json",
+      "bytes": 348,
+      "sha256": "0ecb1a966f039905d0cedff9c5f05d2192e68272c09e700515b4437aa804bfef"
+    }
+  ],
+  "default_branch": "rewrite/dsh-plugin",
+  "commit": "04035453dcab0b69dfedc46e6bd4d4a18de19811",
+  "archive_sha256": "a6791457a0a4c1a77609cc9bd8834659dadabefb2629af1e474ca16f97f9d697",
+  "skipped_files": 47,
+  "status": "downloaded",
+  "license_files": [
+    "LICENSE"
+  ]
+}

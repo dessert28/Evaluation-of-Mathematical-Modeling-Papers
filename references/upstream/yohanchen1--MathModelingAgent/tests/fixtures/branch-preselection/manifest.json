@@ -1,0 +1,13 @@
+{
+  "declaredCandidates": [
+    "inner_negative",
+    "inner_positive",
+    "outer_negative",
+    "outer_positive"
+  ],
+  "executedCandidates": [
+    "inner_negative"
+  ],
+  "branchSwitchTested": false,
+  "expectedVerdict": "INCONCLUSIVE"
+}

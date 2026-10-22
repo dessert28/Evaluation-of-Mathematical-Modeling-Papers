@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 2,
+  "taskId": "legacy-task",
+  "mode": "standard",
+  "status": "VERIFY",
+  "eventSequence": 1,
+  "currentAttempt": 1,
+  "bestCandidateId": "C-1",
+  "budget": {
+    "attempts": 12,
+    "researchQueries": 12,
+    "computeSeconds": 1800
+  },
+  "createdAt": "2026-09-02T00:00:00.000Z",
+  "updatedAt": "2026-09-02T00:00:01.000Z"
+}

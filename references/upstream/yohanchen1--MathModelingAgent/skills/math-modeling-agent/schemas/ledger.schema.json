@@ -1,0 +1,101 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/yohanchen1/MathModelingAgent/schemas/ledger.schema.json",
+  "title": "Math Modeling Ledger",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "taskId",
+    "scope",
+    "assumptions",
+    "claims",
+    "obligations",
+    "subproblems",
+    "candidates",
+    "issues",
+    "requirements",
+    "evidence",
+    "verifications",
+    "failures"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": 3
+    },
+    "taskId": {
+      "type": "string"
+    },
+    "scope": {
+      "type": "object",
+      "properties": {
+        "independentAuditPassed": { "type": "boolean" },
+        "interactions": {
+          "type": "array",
+          "description": "L1 decision-point records: {id, decisionPoint: D0|D1|D-R|D2|D3|D4, question, options, userAnswer, timestamp, effectOnModel} or {auto: true, decisionPoint, reason}; D-R is the pre-modeling literature-research exchange",
+          "items": { "type": "object" }
+        },
+        "decisionStack": {
+          "type": "array",
+          "description": "Decision-point stack for backtracking: {id (e.g. D3-SP1), point, choice, at, reason}. REVISE/RESEARCH reasons must reference an entry id.",
+          "items": { "type": "object" }
+        },
+        "robustnessExempt": {
+          "type": "boolean",
+          "description": "True only for tasks with no perturbable parameters (pure proofs); terminal states otherwise require a PASSED robustness-kind obligation."
+        },
+        "chatFirstRequired": {
+          "type": "boolean",
+          "description": "Require complete chat presentation and user confirmation before each major phase transition."
+        },
+        "structuredQuestionsRequired": {
+          "type": "boolean",
+          "description": "Require each L1 decision to originate from the ask_user_question tool."
+        },
+        "presentations": {
+          "type": "array",
+          "description": "Chat-first records: complete text presented, content hash, user confirmation and presentation order.",
+          "items": { "type": "object" }
+        }
+      }
+    },
+    "assumptions": {
+      "type": "array",
+      "description": "Per-subproblem incremental assumptions: {id, statement, scope: [SPx]|global, source, status: active|revised|superseded, risk, sensitivityPlan, revisionHistory: [{at, reason, changedTo}]}",
+      "items": { "type": "object" }
+    },
+    "claims": {
+      "type": "array"
+    },
+    "obligations": {
+      "type": "array"
+    },
+    "subproblems": {
+      "type": "array",
+      "description": "Subproblem DAG nodes: {id, task, inputs, dependencies, acceptance, status, analysisLog: [{at, entry, trigger}]} — analysisLog is the rolling analysis ledger, updated after every deep-exchange beat.",
+      "items": { "type": "object" }
+    },
+    "candidates": {
+      "type": "array"
+    },
+    "issues": {
+      "type": "array"
+    },
+    "requirements": {
+      "type": "array",
+      "items": { "type": "object" }
+    },
+    "evidence": {
+      "type": "array",
+      "items": { "type": "object" }
+    },
+    "verifications": {
+      "type": "array",
+      "items": { "type": "object" }
+    },
+    "failures": {
+      "type": "array",
+      "items": { "type": "object" }
+    }
+  }
+}
