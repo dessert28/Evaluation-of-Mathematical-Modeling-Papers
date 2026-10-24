@@ -3,6 +3,7 @@ import { api } from '../api'
 import { STAGES, dateTime, key, prepareReview, safeError } from '../utils'
 import { Drawer, EmptyState, ErrorNotice, Loading, Modal, PageHeader, Panel, StatusBadge } from '../components/ui'
 import EvidenceIndex from '../components/EvidenceIndex'
+import DebateTimeline from '../components/DebateTimeline'
 
 const activeStates = new Set(['QUEUED', 'RUNNING'])
 const list = value => Array.isArray(value) ? value : []
@@ -113,6 +114,7 @@ export default function ReviewDetail({ id, reviewId }) {
         })}</div>
       </Panel>
     </div>}
+    {job && <DebateTimeline reviewId={reviewKey} runStatus={run.run_status} />}
     {resultError && <ErrorNotice error={resultError} onRetry={refreshResult} />}
     {!result && !resultError && <Panel title="评审结果"><EmptyState title="结果尚未生成" description="任务启动后会逐阶段保存部分结果；等待阶段完成或稍后刷新。" /></Panel>}
     {result && <>

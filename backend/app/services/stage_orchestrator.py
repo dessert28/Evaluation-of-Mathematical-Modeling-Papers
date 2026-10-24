@@ -182,7 +182,30 @@ class StageOrchestrator:
         )
         machine.mark_stale(reason=reason, dependency=f"stage:{stage_id}")
         snapshot.update(machine.to_dict())
+        self._mark_debate_stale(job_id)
         return self.store.update(job.model_copy(update={"state_snapshot": snapshot, "updated_at": datetime.now(timezone.utc)}))
+
+    def _mark_debate_stale(self, job_id: str) -> None:
+        """Flag a persisted multi-agent debate snapshot as stale with the stages.
+
+        The store protocol here is intentionally minimal, so the debate
+        snapshot methods are optional; stores without them (including test
+        fakes) are silently skipped and the stage flow never blocks.
+        """
+        if not (hasattr(self.store, "get_debate_snapshot") and hasattr(self.store, "save_debate_snapshot")):
+            return
+        try:
+            debate_snapshot = self.store.get_debate_snapshot(job_id)
+        except Exception:
+            return
+        if debate_snapshot is None:
+            return
+        debate_snapshot = dict(debate_snapshot)
+        debate_snapshot["stale"] = True
+        try:
+            self.store.save_debate_snapshot(job_id, debate_snapshot)
+        except Exception:
+            pass
 
     def rerun_stage(self, job_id: str, stage_id: str, *, reason: str) -> ReviewJob:
         return self.mark_stage_stale(job_id, stage_id, reason=reason)

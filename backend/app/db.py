@@ -102,6 +102,7 @@ class ReviewJobRecord(Base):
     options: Mapped[dict[str, Any]] = mapped_column(JSON, nullable=False, default=dict)
     state_snapshot: Mapped[dict[str, Any]] = mapped_column(JSON, nullable=False, default=dict)
     result_snapshot: Mapped[dict[str, Any]] = mapped_column(JSON, nullable=False, default=dict)
+    debate_snapshot: Mapped[dict[str, Any]] = mapped_column(JSON, nullable=False, default=dict)
     state: Mapped[str] = mapped_column(String(64), nullable=False, default="CREATED")
     created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=_utc_now, nullable=False)
     updated_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=_utc_now, onupdate=_utc_now, nullable=False)
@@ -198,6 +199,7 @@ def _ensure_additive_schema_compatibility(engine: Engine) -> None:
             "options": "JSON NOT NULL DEFAULT '{}'",
             "state_snapshot": "JSON NOT NULL DEFAULT '{}'",
             "result_snapshot": "JSON NOT NULL DEFAULT '{}'",
+            "debate_snapshot": "JSON NOT NULL DEFAULT '{}'",
         },
     }
     inspector = inspect(engine)
@@ -548,6 +550,23 @@ class SqlAlchemyReviewJobRepository:
             if row is None or not row.result_snapshot:
                 return None
             return dict(row.result_snapshot)
+
+    def save_debate_snapshot(self, review_id: str, snapshot: dict[str, Any]) -> None:
+        """Atomically replace the multi-agent debate snapshot for a review job."""
+        from backend.app.services.review_results import ReviewResultError
+
+        with session_scope(self.settings) as session:
+            row = session.get(ReviewJobRecord, review_id)
+            if row is None:
+                raise ReviewResultError("review job not found")
+            row.debate_snapshot = dict(snapshot)
+
+    def get_debate_snapshot(self, review_id: str) -> dict[str, Any] | None:
+        with session_scope(self.settings) as session:
+            row = session.get(ReviewJobRecord, review_id)
+            if row is None or not row.debate_snapshot:
+                return None
+            return dict(row.debate_snapshot)
 
     def save_decision(self, decision: dict[str, Any]) -> None:
         with session_scope(self.settings) as session:

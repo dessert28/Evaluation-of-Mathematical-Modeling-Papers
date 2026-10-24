@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import re
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Mapping
@@ -9,6 +10,26 @@ from typing import Mapping
 
 class PromptTemplateError(ValueError):
     pass
+
+
+_DEBATE_KINDS: frozenset[str] = frozenset({"panel_opinion", "debate_message"})
+
+# Friendly fallbacks for debate-template placeholders the caller does not fill.
+_DEBATE_PLACEHOLDER_DEFAULTS: Mapping[str, str] = {
+    "paper_context": "（未提供）",
+    "evidence_catalog": "（未提供）",
+    "rubric_context": "（未提供）",
+    "stage_results_summary": "（无）",
+    "expert_lens": "（未指定，使用通用评审视角）",
+    "max_opinions": "8",
+    "round_number": "1",
+    "opinions_json": "[]",
+    "previous_messages_json": "[]",
+    "own_expert_id": "（未指定）",
+    "known_evidence_ids": "（未提供）",
+}
+
+_DEBATE_PLACEHOLDER_RE = re.compile(r"\{\{\s*([A-Za-z0-9_]+)\s*\}\}")
 
 
 _STAGE_META: Mapping[str, tuple[str, str]] = {
@@ -90,6 +111,23 @@ class PromptTemplateStore:
         if name not in {"evidence_audit", "recommendations", "arbitration"}:
             raise PromptTemplateError(f"unknown auxiliary prompt: {name}")
         return self._render(self._read(f"{name}.md"), values)
+
+    def debate_prompt(self, kind: str, **values) -> PromptBundle:
+        """Render a multi-agent debate prompt (Round 0 opinion or Round ≥1 message).
+
+        Placeholders missing from ``values`` are filled with a friendly default
+        (see ``_DEBATE_PLACEHOLDER_DEFAULTS``) instead of leaking raw ``{{ key }}``
+        tokens into the rendered prompt.
+        """
+        if kind not in _DEBATE_KINDS:
+            raise PromptTemplateError(f"unknown debate prompt kind: {kind}")
+        system = self._read("debate/system.md")
+        user = self._render(self._read(f"debate/{kind}.md"), values)
+        user = _DEBATE_PLACEHOLDER_RE.sub(
+            lambda match: _DEBATE_PLACEHOLDER_DEFAULTS.get(match.group(1), ""),
+            user,
+        )
+        return PromptBundle(version=self.version, stage_id=f"debate:{kind}", system=system, user=user)
 
 
 __all__ = ["PromptBundle", "PromptTemplateError", "PromptTemplateStore"]

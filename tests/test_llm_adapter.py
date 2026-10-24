@@ -115,6 +115,43 @@ def test_adapter_injects_schema_and_repairs_invalid_structured_output():
     assert "原始论文内容" not in calls[1]["messages"][1]["content"]
 
 
+def test_adapter_reads_reasoning_field_when_content_is_empty():
+    # Reasoning-capable models (e.g. DeepSeek V4 style) emit the final answer
+    # in ``message.reasoning`` and leave ``content`` null.
+    payload = json.dumps(_stage_payload())
+    transport = httpx.MockTransport(
+        lambda request: httpx.Response(
+            200,
+            json={"choices": [{"message": {"content": None, "reasoning": payload}}]},
+        )
+    )
+    adapter = OpenAICompatibleAdapter(
+        _settings(),
+        client_factory=lambda **kw: httpx.Client(transport=transport, **kw),
+    )
+    result, metadata = adapter.complete_json(
+        system_prompt="system", user_prompt="user", response_model=StageResult,
+    )
+    assert result.stage_id == "problem_identification"
+    assert metadata.attempts == 1
+
+
+def test_adapter_rejects_empty_content_and_empty_reasoning():
+    transport = httpx.MockTransport(
+        lambda request: httpx.Response(
+            200,
+            json={"choices": [{"message": {"content": None, "reasoning": None}}]},
+        )
+    )
+    adapter = OpenAICompatibleAdapter(
+        _settings(),
+        client_factory=lambda **kw: httpx.Client(transport=transport, **kw),
+    )
+    with pytest.raises(LLMAdapterError) as error:
+        adapter.complete_json(system_prompt="system", user_prompt="user", response_model=StageResult)
+    assert error.value.code == "invalid_json_response"
+
+
 def test_adapter_normalizes_common_nested_contract_aliases():
     payload = _stage_payload()
     payload["obligations"] = [{

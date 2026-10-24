@@ -27,12 +27,27 @@ class ReviewRunManager:
 
     ACTIVE = {RunStatus.QUEUED.value, RunStatus.RUNNING.value}
 
-    def __init__(self, store: Any, asset_store: Any, rubric_store: Any, settings: Any, *, adapter: Any | None = None):
+    def __init__(
+        self,
+        store: Any,
+        asset_store: Any,
+        rubric_store: Any,
+        settings: Any,
+        *,
+        adapter: Any | None = None,
+        debate_service: Any | None = None,
+        debate_runner: Any | None = None,
+    ):
         self.store = store
         self.asset_store = asset_store
         self.rubric_store = rubric_store
         self.settings = settings
         self.adapter = adapter or OpenAICompatibleAdapter(settings)
+        # Optional multi-agent debate wiring (v0.1): ``debate_service`` runs the
+        # debate synchronously after the seven stages finish; ``debate_runner``
+        # (a DebateRunManager) is used at startup to recover interrupted debates.
+        self.debate_service = debate_service
+        self.debate_runner = debate_runner
         self._executor = ThreadPoolExecutor(max_workers=2, thread_name_prefix="review-run")
         self._lock = RLock()
         self._futures: dict[str, Future[Any]] = {}
@@ -60,6 +75,13 @@ class ReviewRunManager:
                 except Exception:
                     # A malformed historical lifecycle snapshot remains visible
                     # as INTERRUPTED; do not fabricate a state-machine transition.
+                    continue
+            if self.debate_runner is not None:
+                try:
+                    # Queued/running debate snapshots are marked INTERRUPTED so a
+                    # crash never leaves a debate pretending to be in progress.
+                    self.debate_runner.recover_one(job.id)
+                except Exception:
                     continue
 
     def _job(self, review_id: str):
@@ -125,7 +147,7 @@ class ReviewRunManager:
         except Exception as exc:
             raise ReviewRunManagerError("review_not_ready", "评审任务无法恢复到 EVALUATING", 409) from exc
 
-    def start_run(self, review_id: str, *, stage_ids: list[str] | None = None, start_stage: str | None = None, idempotency_key: str | None = None) -> dict[str, Any]:
+    def start_run(self, review_id: str, *, stage_ids: list[str] | None = None, start_stage: str | None = None, idempotency_key: str | None = None, debate: dict[str, Any] | None = None) -> dict[str, Any]:
         key = (idempotency_key or "").strip()
         if not key:
             raise ReviewRunManagerError("idempotency_required", "必须提供幂等键", 422)
@@ -148,6 +170,12 @@ class ReviewRunManager:
             if current.get("run_status") in self.ACTIVE:
                 raise ReviewRunManagerError("run_already_active", "评审任务已有运行中的任务", 409)
             job = self._ensure_evaluating(job, idempotency_key=key)
+            if debate is not None:
+                # Merge per-run debate options into the frozen job options so the
+                # background debate step (see _execute) can read them back.
+                options = dict(job.options or {})
+                options["debate"] = dict(debate)
+                job = self.store.update(job.model_copy(update={"options": options, "updated_at": datetime.now(timezone.utc)}))
             run_id = f"run-{uuid4().hex}"
             force_rerun = stage_ids is not None or start_stage is not None
             queued = self._queue(job, run_id, key, selected, force_rerun=force_rerun)
@@ -191,6 +219,30 @@ class ReviewRunManager:
             return {"review_id": review_id, "run_status": None, "completed_stages": [], "failed_stages": []}
         return {"review_id": review_id, **run}
 
+    def _run_debate(self, job: Any, review_id: str) -> None:
+        """Optionally run the multi-agent debate after the seven stages finish.
+
+        Debate is enabled by default once a ``debate_service`` is wired in;
+        ``job.options["debate"]["enabled"] = False`` opts out.  A debate failure
+        never blocks the run: the stage results stay valid, so the run is only
+        marked DEGRADED with a fixed safe phrase before the normal transition.
+        """
+        if self.debate_service is None:
+            return
+        debate_options = (job.options or {}).get("debate")
+        if isinstance(debate_options, dict) and debate_options.get("enabled", True) is False:
+            return
+        try:
+            self.debate_service.run_sync(review_id, options=dict(debate_options or {}))
+        except Exception:
+            run = dict(self._snapshot(job))
+            run["run_status"] = RunStatus.DEGRADED.value
+            run["last_error"] = {"code": "debate_failed", "message": "辩论运行失败，但评审阶段结果有效"}
+            snap = dict(job.state_snapshot or {})
+            snap["run"] = run
+            snap["run_status"] = run["run_status"]
+            self.store.update(job.model_copy(update={"state_snapshot": snap, "updated_at": datetime.now(timezone.utc)}))
+
     def _execute(self, review_id: str, run_id: str, selected: list[str], force_rerun: bool = False, idempotency_key: str | None = None) -> None:
         runner = AutomaticReviewRunner(self.store, self.asset_store.get, self.rubric_store.get, self.adapter)
         try:
@@ -198,6 +250,7 @@ class ReviewRunManager:
             job = self.store.get(review_id)
             run = self._snapshot(job)
             if run.get("run_status") == RunStatus.COMPLETED.value and len(run.get("completed_stages", [])) == len(AutomaticReviewRunner.stage_ids):
+                self._run_debate(job, review_id)
                 coordinator = ReviewCoordinator(self.store, timezone_name=self.settings.app_timezone)
                 coordinator.transition(review_id, ReviewState.EVIDENCE_AUDIT, reason="七阶段自动评审完成")
             job = self.store.get(review_id)

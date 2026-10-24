@@ -1,0 +1,35 @@
+schema_version: 1
+# 多专家辩论面板配置（v0.1）。文件缺失或非法时后端回退内置默认值，
+# 不会阻塞评审运行。权重只影响确定性投票，不影响官方/诊断双轨分。
+panel:
+  experts:
+    - id: modeling
+      label: 建模专家
+      lens: 问题识别、假设必要性、模型构造
+      weight: 1.0
+    - id: algorithm
+      label: 算法专家
+      lens: 求解算法适配、收敛性、数值稳定性
+      weight: 1.0
+    - id: statistics
+      label: 统计验证专家
+      lens: 数据质量、验证设计、敏感性分析
+      weight: 1.0
+    - id: code
+      label: 代码审计专家
+      lens: 公式与代码一致性、随机种子、可复现性
+      weight: 1.0
+    - id: writing
+      label: 写作合规专家
+      lens: 结构、表述、引用与竞赛合规
+      weight: 1.0
+debate:
+  max_rounds: 2
+  min_rounds: 1
+  agreement_threshold: 0.8
+  accept_threshold: 0.5
+  fatal_bonus: 3.0
+  max_calls: 30
+  reject_retry: 1
+  anonymize: true
+  max_opinions_per_expert: 8

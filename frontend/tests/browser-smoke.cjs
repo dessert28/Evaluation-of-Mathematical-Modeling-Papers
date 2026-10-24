@@ -69,6 +69,19 @@ async function main() {
     await page.getByText('七阶段已完成，待证据审计', { exact: true }).waitFor({ timeout: 30000 })
     await page.getByText('七阶段总分：80.0 / 100', { exact: true }).waitFor()
     await page.getByText('暂无官方评分', { exact: true }).waitFor()
+    // Multi-agent debate: the seven-stage run auto-triggers the debate, so a
+    // completed debate snapshot should already be rendered by DebateTimeline.
+    await page.getByText('多智能體辯論評審', { exact: true }).waitFor({ timeout: 30000 })
+    await page.getByRole('tab', { name: '第 0 輪 · 獨立意見' }).waitFor()
+    await page.getByText('目标函数缺少闭环约束（模拟辩论）').waitFor()
+    await page.getByText('辯論結論', { exact: true }).waitFor()
+    await page.getByText('已收斂', { exact: true }).waitFor()
+    await page.screenshot({ path: path.join(output, 'debate-desktop.png'), fullPage: true })
+    const debateSnapshot = await (await page.request.get(`${base}/api/v1/reviews/${new URL(page.url()).hash.split('/').at(-1)}/debate`)).json()
+    assert.equal(debateSnapshot.status, 'COMPLETED')
+    assert.ok(debateSnapshot.rounds.length >= 2, 'debate must have round 0 and at least one exchange round')
+    assert.ok(debateSnapshot.outcome.converged === true, 'mock panel must converge')
+    console.log('  debate panel: COMPLETED, converged, rounds=' + debateSnapshot.rounds.length)
     const reviewId = new URL(page.url()).hash.split('/').at(-1)
     // Add an explicitly synthetic suggestion through the existing manual result API.
     const result = await (await page.request.get(`${base}/api/v1/reviews/${reviewId}/result`)).json()

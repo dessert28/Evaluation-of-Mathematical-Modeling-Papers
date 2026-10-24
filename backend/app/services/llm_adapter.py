@@ -172,6 +172,15 @@ class OpenAICompatibleAdapter:
         if content is None:
             function_call = message.get("function_call") or {}
             content = function_call.get("arguments")
+        if content is None:
+            # Reasoning-capable models (e.g. DeepSeek V4 style) may emit the
+            # assistant payload in ``message.reasoning`` and leave ``content``
+            # empty.  Accept that field when it holds the actual answer.
+            reasoning = message.get("reasoning")
+            if isinstance(reasoning, str) and reasoning.strip():
+                content = reasoning
+            elif isinstance(reasoning, (dict, list)) and reasoning:
+                content = reasoning
         if isinstance(content, list):
             content = "".join(
                 str(part.get("text", "")) if isinstance(part, dict) else str(part)

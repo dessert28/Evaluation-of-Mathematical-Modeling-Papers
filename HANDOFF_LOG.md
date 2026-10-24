@@ -318,3 +318,68 @@
 - **未决风险**：AGPL-3.0 / GPL-3.0 / 无许可证的三个上游快照随 MIT 仓库分发，存在被要求整改或下架的风险；`skills/shared-scripts/LICENSE-NotoSansSC.txt` 目前只是许可证标识与获取途径说明，不是 SIL OFL 1.1 全文，正式分发字体前需补全文；Noto 字体 10.5 MB 使仓库体积偏大；`HANDOFF_LOG.md` 与 `HANDOFF_CURRENT.md` 公开了本机绝对路径与内部施工过程。
 - **下一步**：补上 Noto 字体的 OFL 1.1 全文；如需降低许可证风险，用一次提交删除 `references/` 与 `skills/` 即可，不影响产品代码；后续推送须走 HTTPS 加 gh token（本机 ssh 在当前宿主环境中因无法建立 signal pipe 而失败）。
 - **交接对象**：用户与下一位施工 agent。
+
+## 2026-10-22 16:48:20 +08:00
+
+- **操作者**：DSH coding agent（Team Lead，zjsru-qwen3.8-27b）。
+- **目标**：应用户要求把项目技术栈写入交接文档，便于后续会话无需重新勘察依赖即可继续施工。
+- **修改项目/文件**：更新 `HANDOFF_CURRENT.md`，新增「## 3. 技术栈」章节（Python ≥ 3.11 / FastAPI / Pydantic v2 / SQLAlchemy 2.0 + SQLite / PyMuPDF / python-docx / cryptography-Fernet / PyYAML / React 18.3.1 + Vite 5.4.10 + Tailwind 3.4.14 + daisyUI 4.12.24 / pywebview + PyInstaller / pytest + node --test 等），原第 3–9 节顺延为第 4–10 节；追加本条日志。未修改任何应用代码、配置、数据库或资产。
+- **验证**：`python scripts/check_handoff.py` 通过（交接条目字段与格式检查）。本轮为纯文档更新，未运行应用测试或构建；技术栈版本以 `pyproject.toml` 与 `frontend/package.json` 声明为准。
+- **未决风险**：无新增风险；`HANDOFF_CURRENT.md` 章节号变化不影响任何代码引用（文档未被程序解析）。
+- **下一步**：与上一条目一致——真实云模型端到端验证优先；随后决定 Evidence Audit/建议评分与 Docker 的先后。
+- **交接对象**：用户与下一位施工 agent。
+
+## 2026-10-22 17:24:00 +08:00
+
+- **操作者**：DSH coding agent（deepseek-flash，Team Lead）；用户在计划模式批准多智能体辩论评审实现计划。
+- **目标**：迭代 0——把批准后的多智能体辩论评审实现计划落盘为设计规格与协议契约，并更新交接文档，作为后续迭代 1–5 的施工依据。
+- **修改项目/文件**：新增 `docs/superpowers/specs/2026-10-22-multi-agent-debate-review-design.md`（设计规格：目标/架构/领域模型/聚合公式/失败模式/迭代计划）、`docs/contracts/debate-protocol-v0.1.md`（轮次、立场、证据规则、收敛判定、投票、错误码）、`config/debate.yaml`（默认 5 专家面板与辩论参数）；更新 `HANDOFF_CURRENT.md` 新增第 11 节「多智能体辩论评审（进行中）」；追加本条日志。未修改应用代码、数据库或既有测试。
+- **验证**：`python scripts/check_handoff.py` 通过；`python -c "import yaml; yaml.safe_load(open('config/debate.yaml', encoding='utf-8'))"` 通过（YAML 可解析）。本轮为文档与配置新增，未运行应用测试或构建。
+- **未决风险**：运行时实现尚未开始（迭代 1–4）；协议中权重、阈值与轮数为 v0.1 默认值，真实评审校准前不视为最终参数。
+- **下一步**：迭代 1——实现 `backend/app/domain/debate.py` 领域模型（PanelOpinion/DebateMessage/DebateRound/DebateOutcome/DebateSnapshot）与确定性聚合纯函数，并补 `tests/test_debate_models.py`、`tests/test_debate_aggregation.py`。
+- **交接对象**：用户与下一位施工 agent。
+
+## 2026-10-22 17:24:55 +08:00
+
+- **操作者**：DSH coding agent（deepseek-flash，Team Lead）。
+- **目标**：按用户最新指示收窄本次范围——只保留多智能体辩论评审的计划文档，不进行实现。
+- **修改项目/文件**：回退并删除已开始的实现文件 `backend/app/domain/debate.py`、`tests/test_debate_models.py`；保留 `docs/superpowers/specs/2026-10-22-multi-agent-debate-review-design.md`、`docs/contracts/debate-protocol-v0.1.md`、`config/debate.yaml`（声明式面板参数，当前无运行时代码读取）；设计文档状态行改为「本次仅要求计划文档、实现待后续会话」，`HANDOFF_CURRENT.md` 第 11 节迭代进度同步更新；追加本条日志。未修改任何既有应用代码、数据库或测试。
+- **验证**：`python scripts/check_handoff.py` 通过；`git status --short` 确认本次仅新增文档与配置，无实现代码残留。
+- **未决风险**：实现尚未开始，设计文档中的聚合公式、阈值与接口契约未经运行验证；后续实现时需按迭代 1–5 的门禁逐轮补测试。
+- **下一步**：后续会话若继续，从设计文档第 13 节迭代 1（`domain/debate.py` + 聚合单测）开始；在此之前不要向运行时引入辩论相关 import。
+- **交接对象**：用户与下一位施工 agent。
+
+## 2026-10-22 20:33:33 +08:00
+
+- **操作者**：DSH coding agent（deepseek-flash，Team Lead）；用户在计划模式批准多智能体辩论评审实现计划后授权「按计划执行，直到说暂停，优先子智能体，只用打勾的两个模型 `zjsru/zjsru-DeepSeek-V4-flash-0731` 与 `zjsru/zjsru-qwen3.8-27b`」。本会话按设计文档第 13 节执行迭代 0→5，全部完成。
+- **目标**：实现并验收多智能体辩论评审 v0.1 的完整运行时链路（领域模型 → 引擎/持久化/提示词/面板 → 运行器集成/API → 前端 → 全量验证与交接）。
+- **修改项目/文件**：
+  - 迭代 1：新增 `backend/app/domain/debate.py`（Stance/DebateError/OpinionDraft/PanelOpinion/MessageDraft/DebateMessage/DebateRound/DebateOutcome/DebateSnapshot/PanelOpinionBatch/DebateMessageBatch + 聚合纯函数 aggregate_votes/detect_conflicts/compute_agreement/is_converged/evaluate_panel）；新增 `tests/test_debate_models.py`、`tests/test_debate_aggregation.py`。
+  - 迭代 2a：修改 `backend/app/db.py`（ReviewJobRecord 增加 `debate_snapshot` JSON 列 + `_ensure_additive_schema_compatibility` 加列；repo 增 `save_debate_snapshot`/`get_debate_snapshot`）；修改 `backend/app/services/prompt_templates.py`（`PromptTemplateStore.debate_prompt(kind, **values)`）；新增 `config/prompts/v0.1/debate/{system,panel_opinion,debate_message}.md`；新增 `backend/app/services/debate_panel.py`（DebatePanelStore/DebateConfig/PanelExpert，缺文件回退内建默认）；新增对应 3 个测试。
+  - 迭代 2b：新增 `backend/app/services/debate_engine.py`（DebateService.run_sync/snapshot + DebateRunManager.submit/get/recover_one；round0 并行意见 → rounds 1..max_rounds 并行辩论 → 收敛/预算/失败判定 → 确定性聚合落库；匿名 id、证据校验、安全错误码）；新增 `tests/test_debate_engine.py`（20 用例）。
+  - 迭代 3：修改 `backend/app/api/reviews.py`（ReviewRunRequest 加可选 debate；DebateRunRequest；GET/POST/GET rounds 三个 debate endpoint，202/404/409/422/503 语义；从 app.state.debate_runner 取服务）；修改 `backend/app/services/review_run_manager.py`（`__init__` 加 debate_service/debate_runner kwargs；start_run 合并 debate 进 job.options；`_execute` 在七阶段 COMPLETED 后、transition(EVIDENCE_AUDIT) 前调 `_run_debate`，失败标 run DEGRADED 但继续 transition；`_recover_interrupted` 调 debate_runner.recover_one）；修改 `backend/app/main.py`（构造 DebateService/DebateRunManager 挂 app.state.debate_service/debate_runner，并注入 ReviewRunManager）；修改 `backend/app/services/stage_orchestrator.py`（mark_stage_stale 时置 debate_snapshot.stale=True，hasattr 守卫兼容 fake）；新增 `tests/test_debate_api.py`（15 用例）、`tests/test_review_run_debate_integration.py`（10 用例）。
+  - 迭代 4：新增 `frontend/src/components/DebateTimeline.jsx`（3s 轮询、状态徽章、agreement 进度条、round 标签、意见/消息卡、outcome 块、stale/last_error、运行辩论按钮，JS state 而非 daisyUI #anchor 避免哈希路由冲突）；修改 `frontend/src/api.js`（debate/runDebate）；修改 `frontend/src/pages/ReviewDetail.jsx`（挂载 DebateTimeline）；`frontend/tests/api.test.mjs` 增 2 用例。
+  - 迭代 5（本次）：全量验证与交接收尾（见下）。
+- **验证**：后端全量 `pytest -q --basetemp .pytest_tmp_full` → **230 passed**（基线 132 + 辩论模块 98）；`python -m compileall -q backend` 通过；前端 `npm run test --prefix frontend` → **8/8 通过**、`npm run build --prefix frontend` → 成功（46 modules）；`python scripts/check_handoff.py` 通过。
+- **未决风险**：
+  1. `.pytest_tmp`、`.pytest-local`、`.pytest_cache`、`.tmp\pytest-of-*` 为 NTFS ACL 锁定目录（Everyone DENY，连当前用户都读不了；`takeown/icacls/Remove-Item` 全被拒）。后续跑测试一律用独立 basetemp（如 `--basetemp .pytest_tmp_lead`），修复需管理员 PowerShell（`takeown /f <路径> /r /d Y` + icacls 授权后删除）；详见 `.acl-reports/acl-report-*.jsonl`。
+  2. 真实模型端到端辩论未做（模型配置仍为 0）；辩论质量、阈值与轮数未用真实论文校准。
+  3. DebateService 构造 `adapter` 必须关键字传参（keyword-only 设计）；引擎用 v0.1 纯确定性聚合，无 LLM 主席。
+- **下一步**：用户自行在模型配置页填 OpenAI-compatible 凭据后，用样例论文跑一次真实辩论；观察超时/重试、结构化输出、round 收敛与最终投票；据此校准 `config/debate.yaml` 参数。后续如需浏览器闭环验收辩论面板，用 `tests/browser_fixture.py` 合成夹具。
+- **交接对象**：用户与下一位施工 agent。
+
+## 2026-10-24 18:12:00 +08:00
+
+- **操作者**：DeepSeek Harness agent（zjsru-qwen3.8-27b，WeChat 远程会话），承接 2026-10-22 辩论验收后的真实模型调试。
+- **目标**：用用户在模型配置页提供的真实端点（custom 服务商，base `https://desktop-lrdhm3p.tail1efabe.ts.net/v1`，模型 `zjsru-DeepSeek-V4-flash-0731`）完成多智能体辩论端到端验收，定位并修复真实模型暴露的全部代码缺陷。
+- **修改项目/文件**：
+  - `backend/app/main.py`：新增 `_debate_context_builder` 闭包并接入 `DebateService(context_builder=...)`——辩论上下文取真实论文块（12 万字符上限，`[block_id] 文本` 格式）、**该任务 `state_snapshot.stage_results` 中 153 个真实证据 ID 的目录**（与引擎 `known` 集合逐项一致，已验证 153/153 双向对齐）、rubric JSON；各分支异常降级为「未提供」。此前未接线导致所有上下文为占位符。
+  - `backend/app/services/debate_engine.py`：`_collect_evidence_ids` 与 `_stage_summary` 兼容真实 DB 的 `stage_results` 为 dict（按 stage_id 为键）形态（测试夹具为 list，此前崩溃被 executor 吞掉，表现为「POST 202 后永远 404」）；round0 全失败与首消息轮全失败时，`snapshot.last_error.details.rejected_codes` 记录每专家安全错误码分布（固定词表，无端点/密钥/论文内容），失败快照可分诊。
+  - `backend/app/services/llm_adapter.py`：`_content_from_response` 在 `content` 为空时回退读取 `message.reasoning` 字段（reasoning 模型把最终答案放进 reasoning、content 为 null 的兼容）。
+  - `.env`（已 gitignore，无任何密钥）：`LLM_TIMEOUT_SECONDS=300`、`LLM_MAX_RETRIES=3`、`LLM_RETRY_BACKOFF_SECONDS=2`——12 万字符论文 + 严格 JSON Schema 的生成在 60 秒默认超时内不可完成。
+  - `tests/test_llm_adapter.py`（+2 例：reasoning 回退解析、content/reasoning 均空报 invalid_json_response）、`tests/test_debate_engine.py`（全失败断言 `rejected_codes` 计数等于面板人数）。
+- **验证**：后端全量 `pytest tests -q` **232 passed**（新增 2 例 reasoning 回退 + 1 例失败诊断断言增强）；2026-10-24 12:15 真实裸 POST 成功：模型在 `message.reasoning` 中输出 3 条结构化意见（stage model_construction/results_analysis/solving，severity MAJOR，引用真实证据 `ev-ceq-beta`/`ev-wetbulb` 等，confidence 0.75–0.8，completion 691 tokens 中 690 为 reasoning_tokens）；其后端点先后 502、服务端断连，最终稳定返回 `404 model_not_found`。
+- **本次决策**：证据目录必须与引擎 `known` 集合同空间（stage_results 证据 ID，而非资产 block ID）；reasoning 字段回退只取「字符串且非空」或「非空 dict/list」，避免把 chain-of-thought 杂讯误当答案；失败诊断只落固定错误码词表，保持安全短语边界。
+- **未决风险**：用户端点模型当前**离线**（最小/中型请求均 `404 model_not_found`，提示「模型 zjsru-DeepSeek-V4-flash-0731 已下线，请手动选择」），判断为用户 Tailscale 主机上的推理服务未运行或模型被卸载（用户侧基础设施，非代码问题）；因此尚缺一次真实辩论 COMPLETED 快照与浏览器面板对真实辩论数据的展示验收。
+- **下一步**：用户确认模型恢复在线后，对 `review-26c257991fc042a7807c53882e4eadd6` 执行 `POST /api/v1/reviews/{id}/debate/run`（新 idempotency_key，max_rounds=2）；预期 round0 5 条意见、消息轮、加权投票与 `outcome.converged`；若仍失败，读 `snapshot.last_error.details.rejected_codes` 直接分诊（`llm_http_error`/`llm_transport_error`=端点不稳，`schema_validation_failed`/`invalid_evidence`=提示词问题）。随后跑 `frontend/tests/browser-smoke.cjs` 的辩论面板断言（mock 夹具路径）。
+- **交接对象**：用户与下一位施工 agent。

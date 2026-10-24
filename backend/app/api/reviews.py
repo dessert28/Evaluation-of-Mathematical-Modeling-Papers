@@ -12,6 +12,7 @@ from fastapi import APIRouter, Request
 from fastapi.responses import JSONResponse
 from pydantic import BaseModel, ConfigDict, Field
 
+from backend.app.domain.debate import DebateError
 from backend.app.domain.review_jobs import ReviewJob
 from backend.app.services.review_jobs import ReviewJobError, build_review_job
 from backend.app.services.review_coordinator import ReviewCoordinator, ReviewCoordinatorError
@@ -77,6 +78,19 @@ class ReviewRunRequest(BaseModel):
     idempotency_key: str = Field(min_length=1)
     stage_ids: list[str] | None = None
     start_stage: str | None = None
+    # Optional multi-agent debate options (enabled/max_rounds/expert_ids/...).
+    # Omitted for backwards compatibility; the runner merges it into job.options.
+    debate: dict[str, Any] | None = None
+
+
+class DebateRunRequest(BaseModel):
+    """Submit a multi-agent debate for a review (background, idempotent)."""
+
+    model_config = ConfigDict(extra="forbid")
+
+    idempotency_key: str = Field(min_length=1)
+    max_rounds: int | None = Field(default=None, ge=1, le=5)
+    expert_ids: list[str] | None = None
 
 
 class StageRunRequest(BaseModel):
@@ -158,12 +172,16 @@ def create_review_router(repository: ReviewJobRepository | None = None) -> APIRo
         if runner is None or not hasattr(runner, "start_run"):
             return _error("runner_unavailable", "评审运行器未配置", 503)
         try:
-            snapshot = runner.start_run(
-                review_id,
-                stage_ids=body.stage_ids,
-                start_stage=body.start_stage,
-                idempotency_key=body.idempotency_key,
-            )
+            # Only forward ``debate`` when supplied so runners predating the
+            # debate iteration (and fakes in tests) keep their old signature.
+            kwargs: dict[str, Any] = {
+                "stage_ids": body.stage_ids,
+                "start_stage": body.start_stage,
+                "idempotency_key": body.idempotency_key,
+            }
+            if body.debate is not None:
+                kwargs["debate"] = body.debate
+            snapshot = runner.start_run(review_id, **kwargs)
             return snapshot
         except Exception as exc:
             return _runner_error(exc)
@@ -192,6 +210,48 @@ def create_review_router(repository: ReviewJobRepository | None = None) -> APIRo
             )
         except Exception as exc:
             return _runner_error(exc)
+
+    @router.get("/{review_id}/debate")
+    def get_debate(review_id: str, request: Request):
+        debate_runner = getattr(request.app.state, "debate_runner", None)
+        if debate_runner is None:
+            return _error("debate_unavailable", "辩论服务未配置", 503)
+        snap = debate_runner.get(review_id)
+        if snap is None:
+            return _error("debate_not_found", "该评审没有辩论记录", 404)
+        return snap
+
+    @router.post("/{review_id}/debate/run", status_code=202)
+    def run_debate(review_id: str, body: DebateRunRequest, request: Request):
+        debate_runner = getattr(request.app.state, "debate_runner", None)
+        if debate_runner is None:
+            return _error("debate_unavailable", "辩论服务未配置", 503)
+        options: dict[str, Any] = {}
+        if body.max_rounds is not None:
+            options["max_rounds"] = body.max_rounds
+        if body.expert_ids is not None:
+            options["expert_ids"] = body.expert_ids
+        try:
+            # Idempotency and active-run conflicts are handled inside
+            # DebateRunManager.submit; pass the result through untouched.
+            payload = debate_runner.submit(review_id, options=options, idempotency_key=body.idempotency_key)
+        except DebateError as exc:
+            # DebateError messages are fixed safe phrases produced by the engine.
+            return _error(exc.code, str(exc), exc.status_code)
+        return JSONResponse(status_code=202, content=payload)
+
+    @router.get("/{review_id}/debate/rounds/{round_number}")
+    def get_debate_round(review_id: str, round_number: int, request: Request):
+        debate_runner = getattr(request.app.state, "debate_runner", None)
+        if debate_runner is None:
+            return _error("debate_unavailable", "辩论服务未配置", 503)
+        snap = debate_runner.get(review_id)
+        if snap is None:
+            return _error("debate_not_found", "该评审没有辩论记录", 404)
+        rounds = snap.get("rounds") or []
+        if round_number < 0 or round_number >= len(rounds):
+            return _error("invalid_round", "轮次不存在", 404)
+        return rounds[round_number]
 
     @router.get("")
     def list_reviews(request: Request):
@@ -332,4 +392,4 @@ def create_review_router(repository: ReviewJobRepository | None = None) -> APIRo
 
 router = create_review_router()
 
-__all__ = ["router", "create_review_router", "ReviewJobCreateRequest"]
+__all__ = ["router", "create_review_router", "ReviewJobCreateRequest", "ReviewRunRequest", "DebateRunRequest"]

@@ -60,6 +60,36 @@ test('report downloads use Blob with explicit filename and clean up URL', async 
   } finally { globalThis.fetch = original.fetch; globalThis.document = original.document; URL.createObjectURL = original.create; URL.revokeObjectURL = original.revoke; globalThis.setTimeout = original.timer }
 })
 
+test('debate snapshot and run endpoints send exact request shapes', async () => {
+  const calls = []
+  const original = globalThis.fetch
+  globalThis.fetch = async (path, options) => {
+    calls.push({ path, options })
+    return path.endsWith('/debate/run')
+      ? new Response(JSON.stringify({ review_id: 'review-1', debate_status: 'QUEUED', idempotency_key: 'debate-1' }), { status: 202 })
+      : new Response(JSON.stringify({ review_id: 'review-1', status: 'RUNNING', rounds: [] }), { status: 200 })
+  }
+  try {
+    const snapshot = await api.debate('review-1')
+    assert.equal(calls[0].path, '/api/v1/reviews/review-1/debate')
+    assert.equal(calls[0].options.method, undefined)
+    assert.equal(snapshot.status, 'RUNNING')
+    const ack = await api.runDebate('review-1', { idempotency_key: 'debate-1', max_rounds: 2 })
+    assert.equal(calls[1].path, '/api/v1/reviews/review-1/debate/run')
+    assert.equal(calls[1].options.method, 'POST')
+    assert.deepEqual(JSON.parse(calls[1].options.body), { idempotency_key: 'debate-1', max_rounds: 2 })
+    assert.equal(ack.debate_status, 'QUEUED')
+  } finally { globalThis.fetch = original }
+})
+
+test('debate snapshot without record surfaces status 404 so callers can treat it as empty', async () => {
+  const original = globalThis.fetch
+  globalThis.fetch = async () => new Response(JSON.stringify({ detail: '暫無辯論記錄' }), { status: 404 })
+  try {
+    await assert.rejects(api.debate('review-1'), error => error.status === 404)
+  } finally { globalThis.fetch = original }
+})
+
 test('naive SQLite UTC timestamps use Shanghai dates consistently', () => {
   assert.equal(dateKey('2026-10-07T20:00:00'), '2026-10-08')
   assert.equal(dateTime('2026-10-07T20:00:00'), dateTime('2026-10-07T20:00:00Z'))
